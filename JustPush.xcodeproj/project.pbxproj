@@ -1,0 +1,641 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7FB580AD1837F84E0010793A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB580AC1837F84E0010793A /* Cocoa.framework */; };
+		7FB580B71837F84E0010793A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FB580B51837F84E0010793A /* InfoPlist.strings */; };
+		7FB580B91837F84E0010793A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB580B81837F84E0010793A /* main.m */; };
+		7FB580BD1837F84E0010793A /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7FB580BB1837F84E0010793A /* Credits.rtf */; };
+		7FB580C01837F84E0010793A /* JPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB580BF1837F84E0010793A /* JPAppDelegate.m */; };
+		7FB580C31837F84E0010793A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB580C11837F84E0010793A /* MainMenu.xib */; };
+		7FB580C61837F84E0010793A /* JustPush.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FB580C41837F84E0010793A /* JustPush.xcdatamodeld */; };
+		7FB580C81837F84E0010793A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FB580C71837F84E0010793A /* Images.xcassets */; };
+		7FB580CF1837F84E0010793A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB580CE1837F84E0010793A /* XCTest.framework */; };
+		7FB580D01837F84E0010793A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB580AC1837F84E0010793A /* Cocoa.framework */; };
+		7FB580D81837F84E0010793A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FB580D61837F84E0010793A /* InfoPlist.strings */; };
+		7FB580DA1837F84E0010793A /* JustPushTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB580D91837F84E0010793A /* JustPushTests.m */; };
+		7FB580E618380ACC0010793A /* JPDeviceToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB580E518380ACC0010793A /* JPDeviceToken.m */; };
+		7FB580E918380ACD0010793A /* JPApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB580E818380ACD0010793A /* JPApp.m */; };
+		7FB580EC18380ACD0010793A /* JPNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB580EB18380ACD0010793A /* JPNotification.m */; };
+		7FB580EF18380ACD0010793A /* JPDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB580EE18380ACD0010793A /* JPDevice.m */; };
+		7FB580F218380ACD0010793A /* JPPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB580F118380ACD0010793A /* JPPayload.m */; };
+		7FB580F7183823AB0010793A /* NSManagedObject+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB580F6183823AB0010793A /* NSManagedObject+ActiveRecord.m */; };
+		7FB58106183825FD0010793A /* NSArray+ObjectiveSugar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB580FA183825FD0010793A /* NSArray+ObjectiveSugar.m */; };
+		7FB58107183825FD0010793A /* NSDictionary+ObjectiveSugar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB580FC183825FD0010793A /* NSDictionary+ObjectiveSugar.m */; };
+		7FB58108183825FD0010793A /* NSMutableArray+ObjectiveSugar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB580FE183825FD0010793A /* NSMutableArray+ObjectiveSugar.m */; };
+		7FB58109183825FD0010793A /* NSNumber+ObjectiveSugar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB58100183825FD0010793A /* NSNumber+ObjectiveSugar.m */; };
+		7FB5810A183825FD0010793A /* NSSet+ObjectiveSugar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB58102183825FD0010793A /* NSSet+ObjectiveSugar.m */; };
+		7FB5810B183825FD0010793A /* NSString+ObjectiveSugar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB58104183825FD0010793A /* NSString+ObjectiveSugar.m */; };
+		7FB5810F18382EAE0010793A /* JPImageToDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB5810E18382EAE0010793A /* JPImageToDataTransformer.m */; };
+		7FB58113183835C70010793A /* default_app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB58112183835C70010793A /* default_app_icon.png */; };
+		7FB581151838475D0010793A /* MobileDevices.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7FB581141838475D0010793A /* MobileDevices.bundle */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7FB580D11837F84E0010793A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7FB580A11837F84E0010793A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7FB580A81837F84E0010793A;
+			remoteInfo = JustPush;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7FB580A91837F84E0010793A /* JustPush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustPush.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FB580AC1837F84E0010793A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		7FB580AF1837F84E0010793A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		7FB580B01837F84E0010793A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7FB580B11837F84E0010793A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7FB580B41837F84E0010793A /* JustPush-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JustPush-Info.plist"; sourceTree = "<group>"; };
+		7FB580B61837F84E0010793A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7FB580B81837F84E0010793A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7FB580BA1837F84E0010793A /* JustPush-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JustPush-Prefix.pch"; sourceTree = "<group>"; };
+		7FB580BC1837F84E0010793A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		7FB580BE1837F84E0010793A /* JPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPAppDelegate.h; sourceTree = "<group>"; };
+		7FB580BF1837F84E0010793A /* JPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPAppDelegate.m; sourceTree = "<group>"; };
+		7FB580C21837F84E0010793A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		7FB580C51837F84E0010793A /* JustPush.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JustPush.xcdatamodel; sourceTree = "<group>"; };
+		7FB580C71837F84E0010793A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7FB580CD1837F84E0010793A /* JustPushTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustPushTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FB580CE1837F84E0010793A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		7FB580D51837F84E0010793A /* JustPushTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JustPushTests-Info.plist"; sourceTree = "<group>"; };
+		7FB580D71837F84E0010793A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7FB580D91837F84E0010793A /* JustPushTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JustPushTests.m; sourceTree = "<group>"; };
+		7FB580E418380ACC0010793A /* JPDeviceToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPDeviceToken.h; sourceTree = "<group>"; };
+		7FB580E518380ACC0010793A /* JPDeviceToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPDeviceToken.m; sourceTree = "<group>"; };
+		7FB580E718380ACD0010793A /* JPApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPApp.h; sourceTree = "<group>"; };
+		7FB580E818380ACD0010793A /* JPApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPApp.m; sourceTree = "<group>"; };
+		7FB580EA18380ACD0010793A /* JPNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPNotification.h; sourceTree = "<group>"; };
+		7FB580EB18380ACD0010793A /* JPNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPNotification.m; sourceTree = "<group>"; };
+		7FB580ED18380ACD0010793A /* JPDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPDevice.h; sourceTree = "<group>"; };
+		7FB580EE18380ACD0010793A /* JPDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPDevice.m; sourceTree = "<group>"; };
+		7FB580F018380ACD0010793A /* JPPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPPayload.h; sourceTree = "<group>"; };
+		7FB580F118380ACD0010793A /* JPPayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPPayload.m; sourceTree = "<group>"; };
+		7FB580F5183823AB0010793A /* NSManagedObject+ActiveRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+ActiveRecord.h"; sourceTree = "<group>"; };
+		7FB580F6183823AB0010793A /* NSManagedObject+ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+ActiveRecord.m"; sourceTree = "<group>"; };
+		7FB580F9183825FD0010793A /* NSArray+ObjectiveSugar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ObjectiveSugar.h"; sourceTree = "<group>"; };
+		7FB580FA183825FD0010793A /* NSArray+ObjectiveSugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ObjectiveSugar.m"; sourceTree = "<group>"; };
+		7FB580FB183825FD0010793A /* NSDictionary+ObjectiveSugar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ObjectiveSugar.h"; sourceTree = "<group>"; };
+		7FB580FC183825FD0010793A /* NSDictionary+ObjectiveSugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ObjectiveSugar.m"; sourceTree = "<group>"; };
+		7FB580FD183825FD0010793A /* NSMutableArray+ObjectiveSugar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+ObjectiveSugar.h"; sourceTree = "<group>"; };
+		7FB580FE183825FD0010793A /* NSMutableArray+ObjectiveSugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+ObjectiveSugar.m"; sourceTree = "<group>"; };
+		7FB580FF183825FD0010793A /* NSNumber+ObjectiveSugar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+ObjectiveSugar.h"; sourceTree = "<group>"; };
+		7FB58100183825FD0010793A /* NSNumber+ObjectiveSugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+ObjectiveSugar.m"; sourceTree = "<group>"; };
+		7FB58101183825FD0010793A /* NSSet+ObjectiveSugar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+ObjectiveSugar.h"; sourceTree = "<group>"; };
+		7FB58102183825FD0010793A /* NSSet+ObjectiveSugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+ObjectiveSugar.m"; sourceTree = "<group>"; };
+		7FB58103183825FD0010793A /* NSString+ObjectiveSugar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ObjectiveSugar.h"; sourceTree = "<group>"; };
+		7FB58104183825FD0010793A /* NSString+ObjectiveSugar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ObjectiveSugar.m"; sourceTree = "<group>"; };
+		7FB58105183825FD0010793A /* ObjectiveSugar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveSugar.h; sourceTree = "<group>"; };
+		7FB5810D18382EAE0010793A /* JPImageToDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPImageToDataTransformer.h; sourceTree = "<group>"; };
+		7FB5810E18382EAE0010793A /* JPImageToDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPImageToDataTransformer.m; sourceTree = "<group>"; };
+		7FB58112183835C70010793A /* default_app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_app_icon.png; sourceTree = "<group>"; };
+		7FB581141838475D0010793A /* MobileDevices.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MobileDevices.bundle; path = ../../../../../../System/Library/CoreServices/CoreTypes.bundle/Contents/Library/MobileDevices.bundle; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7FB580A61837F84E0010793A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FB580AD1837F84E0010793A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FB580CA1837F84E0010793A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FB580D01837F84E0010793A /* Cocoa.framework in Frameworks */,
+				7FB580CF1837F84E0010793A /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7FB580A01837F84E0010793A = {
+			isa = PBXGroup;
+			children = (
+				7FB580B21837F84E0010793A /* JustPush */,
+				7FB580D31837F84E0010793A /* JustPushTests */,
+				7FB580AB1837F84E0010793A /* Frameworks */,
+				7FB580AA1837F84E0010793A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7FB580AA1837F84E0010793A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7FB580A91837F84E0010793A /* JustPush.app */,
+				7FB580CD1837F84E0010793A /* JustPushTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7FB580AB1837F84E0010793A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7FB580AC1837F84E0010793A /* Cocoa.framework */,
+				7FB580CE1837F84E0010793A /* XCTest.framework */,
+				7FB580AE1837F84E0010793A /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7FB580AE1837F84E0010793A /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7FB580AF1837F84E0010793A /* AppKit.framework */,
+				7FB580B01837F84E0010793A /* CoreData.framework */,
+				7FB580B11837F84E0010793A /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		7FB580B21837F84E0010793A /* JustPush */ = {
+			isa = PBXGroup;
+			children = (
+				7FB58110183835000010793A /* Resources */,
+				7FB5810C18382E790010793A /* Helpers */,
+				7FB580F3183823AB0010793A /* Vendor */,
+				7FB580E31838099C0010793A /* Models */,
+				7FB580BE1837F84E0010793A /* JPAppDelegate.h */,
+				7FB580BF1837F84E0010793A /* JPAppDelegate.m */,
+				7FB580C11837F84E0010793A /* MainMenu.xib */,
+				7FB580C71837F84E0010793A /* Images.xcassets */,
+				7FB580C41837F84E0010793A /* JustPush.xcdatamodeld */,
+				7FB580B31837F84E0010793A /* Supporting Files */,
+			);
+			path = JustPush;
+			sourceTree = "<group>";
+		};
+		7FB580B31837F84E0010793A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7FB580B41837F84E0010793A /* JustPush-Info.plist */,
+				7FB580B51837F84E0010793A /* InfoPlist.strings */,
+				7FB580B81837F84E0010793A /* main.m */,
+				7FB580BA1837F84E0010793A /* JustPush-Prefix.pch */,
+				7FB580BB1837F84E0010793A /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7FB580D31837F84E0010793A /* JustPushTests */ = {
+			isa = PBXGroup;
+			children = (
+				7FB580D91837F84E0010793A /* JustPushTests.m */,
+				7FB580D41837F84E0010793A /* Supporting Files */,
+			);
+			path = JustPushTests;
+			sourceTree = "<group>";
+		};
+		7FB580D41837F84E0010793A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7FB580D51837F84E0010793A /* JustPushTests-Info.plist */,
+				7FB580D61837F84E0010793A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7FB580E31838099C0010793A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7FB580F018380ACD0010793A /* JPPayload.h */,
+				7FB580F118380ACD0010793A /* JPPayload.m */,
+				7FB580ED18380ACD0010793A /* JPDevice.h */,
+				7FB580EE18380ACD0010793A /* JPDevice.m */,
+				7FB580EA18380ACD0010793A /* JPNotification.h */,
+				7FB580EB18380ACD0010793A /* JPNotification.m */,
+				7FB580E718380ACD0010793A /* JPApp.h */,
+				7FB580E818380ACD0010793A /* JPApp.m */,
+				7FB580E418380ACC0010793A /* JPDeviceToken.h */,
+				7FB580E518380ACC0010793A /* JPDeviceToken.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7FB580F3183823AB0010793A /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				7FB580F4183823AB0010793A /* Categories */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		7FB580F4183823AB0010793A /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				7FB580F8183825FD0010793A /* ObjectiveSugar */,
+				7FB580F5183823AB0010793A /* NSManagedObject+ActiveRecord.h */,
+				7FB580F6183823AB0010793A /* NSManagedObject+ActiveRecord.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		7FB580F8183825FD0010793A /* ObjectiveSugar */ = {
+			isa = PBXGroup;
+			children = (
+				7FB580F9183825FD0010793A /* NSArray+ObjectiveSugar.h */,
+				7FB580FA183825FD0010793A /* NSArray+ObjectiveSugar.m */,
+				7FB580FB183825FD0010793A /* NSDictionary+ObjectiveSugar.h */,
+				7FB580FC183825FD0010793A /* NSDictionary+ObjectiveSugar.m */,
+				7FB580FD183825FD0010793A /* NSMutableArray+ObjectiveSugar.h */,
+				7FB580FE183825FD0010793A /* NSMutableArray+ObjectiveSugar.m */,
+				7FB580FF183825FD0010793A /* NSNumber+ObjectiveSugar.h */,
+				7FB58100183825FD0010793A /* NSNumber+ObjectiveSugar.m */,
+				7FB58101183825FD0010793A /* NSSet+ObjectiveSugar.h */,
+				7FB58102183825FD0010793A /* NSSet+ObjectiveSugar.m */,
+				7FB58103183825FD0010793A /* NSString+ObjectiveSugar.h */,
+				7FB58104183825FD0010793A /* NSString+ObjectiveSugar.m */,
+				7FB58105183825FD0010793A /* ObjectiveSugar.h */,
+			);
+			path = ObjectiveSugar;
+			sourceTree = "<group>";
+		};
+		7FB5810C18382E790010793A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7FB5810D18382EAE0010793A /* JPImageToDataTransformer.h */,
+				7FB5810E18382EAE0010793A /* JPImageToDataTransformer.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7FB58110183835000010793A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7FB581141838475D0010793A /* MobileDevices.bundle */,
+				7FB58111183835000010793A /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7FB58111183835000010793A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7FB58112183835C70010793A /* default_app_icon.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7FB580A81837F84E0010793A /* JustPush */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FB580DD1837F84E0010793A /* Build configuration list for PBXNativeTarget "JustPush" */;
+			buildPhases = (
+				7FB580A51837F84E0010793A /* Sources */,
+				7FB580A61837F84E0010793A /* Frameworks */,
+				7FB580A71837F84E0010793A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JustPush;
+			productName = JustPush;
+			productReference = 7FB580A91837F84E0010793A /* JustPush.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7FB580CC1837F84E0010793A /* JustPushTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FB580E01837F84E0010793A /* Build configuration list for PBXNativeTarget "JustPushTests" */;
+			buildPhases = (
+				7FB580C91837F84E0010793A /* Sources */,
+				7FB580CA1837F84E0010793A /* Frameworks */,
+				7FB580CB1837F84E0010793A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7FB580D21837F84E0010793A /* PBXTargetDependency */,
+			);
+			name = JustPushTests;
+			productName = JustPushTests;
+			productReference = 7FB580CD1837F84E0010793A /* JustPushTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7FB580A11837F84E0010793A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = JP;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "John Doe";
+				TargetAttributes = {
+					7FB580CC1837F84E0010793A = {
+						TestTargetID = 7FB580A81837F84E0010793A;
+					};
+				};
+			};
+			buildConfigurationList = 7FB580A41837F84E0010793A /* Build configuration list for PBXProject "JustPush" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7FB580A01837F84E0010793A;
+			productRefGroup = 7FB580AA1837F84E0010793A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7FB580A81837F84E0010793A /* JustPush */,
+				7FB580CC1837F84E0010793A /* JustPushTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7FB580A71837F84E0010793A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FB580B71837F84E0010793A /* InfoPlist.strings in Resources */,
+				7FB580C81837F84E0010793A /* Images.xcassets in Resources */,
+				7FB580BD1837F84E0010793A /* Credits.rtf in Resources */,
+				7FB58113183835C70010793A /* default_app_icon.png in Resources */,
+				7FB580C31837F84E0010793A /* MainMenu.xib in Resources */,
+				7FB581151838475D0010793A /* MobileDevices.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FB580CB1837F84E0010793A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FB580D81837F84E0010793A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7FB580A51837F84E0010793A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FB580EF18380ACD0010793A /* JPDevice.m in Sources */,
+				7FB580C61837F84E0010793A /* JustPush.xcdatamodeld in Sources */,
+				7FB5810F18382EAE0010793A /* JPImageToDataTransformer.m in Sources */,
+				7FB580F218380ACD0010793A /* JPPayload.m in Sources */,
+				7FB580E618380ACC0010793A /* JPDeviceToken.m in Sources */,
+				7FB58108183825FD0010793A /* NSMutableArray+ObjectiveSugar.m in Sources */,
+				7FB58109183825FD0010793A /* NSNumber+ObjectiveSugar.m in Sources */,
+				7FB5810A183825FD0010793A /* NSSet+ObjectiveSugar.m in Sources */,
+				7FB580C01837F84E0010793A /* JPAppDelegate.m in Sources */,
+				7FB580F7183823AB0010793A /* NSManagedObject+ActiveRecord.m in Sources */,
+				7FB580B91837F84E0010793A /* main.m in Sources */,
+				7FB58107183825FD0010793A /* NSDictionary+ObjectiveSugar.m in Sources */,
+				7FB58106183825FD0010793A /* NSArray+ObjectiveSugar.m in Sources */,
+				7FB580EC18380ACD0010793A /* JPNotification.m in Sources */,
+				7FB580E918380ACD0010793A /* JPApp.m in Sources */,
+				7FB5810B183825FD0010793A /* NSString+ObjectiveSugar.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FB580C91837F84E0010793A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FB580DA1837F84E0010793A /* JustPushTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7FB580D21837F84E0010793A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7FB580A81837F84E0010793A /* JustPush */;
+			targetProxy = 7FB580D11837F84E0010793A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7FB580B51837F84E0010793A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FB580B61837F84E0010793A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7FB580BB1837F84E0010793A /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FB580BC1837F84E0010793A /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		7FB580C11837F84E0010793A /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FB580C21837F84E0010793A /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		7FB580D61837F84E0010793A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FB580D71837F84E0010793A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7FB580DB1837F84E0010793A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7FB580DC1837F84E0010793A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7FB580DE1837F84E0010793A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JustPush/JustPush-Prefix.pch";
+				INFOPLIST_FILE = "JustPush/JustPush-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7FB580DF1837F84E0010793A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JustPush/JustPush-Prefix.pch";
+				INFOPLIST_FILE = "JustPush/JustPush-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		7FB580E11837F84E0010793A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JustPush.app/Contents/MacOS/JustPush";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JustPush/JustPush-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "JustPushTests/JustPushTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		7FB580E21837F84E0010793A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JustPush.app/Contents/MacOS/JustPush";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JustPush/JustPush-Prefix.pch";
+				INFOPLIST_FILE = "JustPushTests/JustPushTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7FB580A41837F84E0010793A /* Build configuration list for PBXProject "JustPush" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FB580DB1837F84E0010793A /* Debug */,
+				7FB580DC1837F84E0010793A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FB580DD1837F84E0010793A /* Build configuration list for PBXNativeTarget "JustPush" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FB580DE1837F84E0010793A /* Debug */,
+				7FB580DF1837F84E0010793A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7FB580E01837F84E0010793A /* Build configuration list for PBXNativeTarget "JustPushTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FB580E11837F84E0010793A /* Debug */,
+				7FB580E21837F84E0010793A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7FB580C41837F84E0010793A /* JustPush.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7FB580C51837F84E0010793A /* JustPush.xcdatamodel */,
+			);
+			currentVersion = 7FB580C51837F84E0010793A /* JustPush.xcdatamodel */;
+			path = JustPush.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7FB580A11837F84E0010793A /* Project object */;
+}

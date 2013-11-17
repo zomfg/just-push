@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A598" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="JPApp" representedClassName="JPApp" syncable="YES">
+        <attribute name="icon" optional="YES" attributeType="Transformable" valueTransformerName="JPImageToDataTransofrmer" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="notifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JPNotification" inverseName="app" inverseEntity="JPNotification" syncable="YES"/>
+        <relationship name="tokens" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JPDeviceToken" inverseName="app" inverseEntity="JPDeviceToken" syncable="YES"/>
+    </entity>
+    <entity name="JPDevice" representedClassName="JPDevice" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="typeIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="tokens" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JPDeviceToken" inverseName="device" inverseEntity="JPDeviceToken" syncable="YES"/>
+    </entity>
+    <entity name="JPDeviceToken" representedClassName="JPDeviceToken" syncable="YES">
+        <attribute name="sandbox" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="app" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JPApp" inverseName="tokens" inverseEntity="JPApp" syncable="YES"/>
+        <relationship name="device" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JPDevice" inverseName="tokens" inverseEntity="JPDevice" syncable="YES"/>
+        <fetchedProperty name="notifications" optional="YES" syncable="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="JPNotification" predicateString="app == $FETCH_SOURCE.app AND sandbox == $FETCH_SOURCE.sandbox"/>
+        </fetchedProperty>
+    </entity>
+    <entity name="JPNotification" representedClassName="JPNotification" syncable="YES">
+        <attribute name="certificate" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sandbox" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="app" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JPApp" inverseName="notifications" inverseEntity="JPApp" syncable="YES"/>
+        <relationship name="payload" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JPPayload" inverseName="notifications" inverseEntity="JPPayload" syncable="YES"/>
+        <fetchedProperty name="tokens" optional="YES" syncable="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="JPDeviceToken" predicateString="app == $FETCH_SOURCE.app AND sandbox == $FETCH_SOURCE.sandbox"/>
+        </fetchedProperty>
+    </entity>
+    <entity name="JPPayload" representedClassName="JPPayload" syncable="YES">
+        <attribute name="actionLocKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="alert" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="badge" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contentAvailable" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="customFields" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="launchImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locArgs" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sound" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="notifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JPNotification" inverseName="payload" inverseEntity="JPNotification" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="JPApp" positionX="160" positionY="192" width="128" height="103"/>
+        <element name="JPDevice" positionX="412" positionY="315" width="128" height="88"/>
+        <element name="JPPayload" positionX="117" positionY="-99" width="128" height="208"/>
+        <element name="JPDeviceToken" positionX="781" positionY="171" width="128" height="131"/>
+        <element name="JPNotification" positionX="522" positionY="-171" width="128" height="146"/>
+    </elements>
+</model>

@@ -12,6 +12,8 @@
 
 @implementation JPApp
 
+@dynamic iTunesAppId;
+@dynamic bundleId;
 @dynamic name;
 @dynamic icon;
 @dynamic tokens;

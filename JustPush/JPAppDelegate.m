@@ -118,6 +118,8 @@
     JPDevice* ipod = [JPDevice create:@{@"typeIdentifier": @"com.apple.ipod-touch-5-red"}];
 
     JPApp* angryBirds = [JPApp create:@{@"name": @"Angry Birds",
+                                        @"bundleId" : @"com.rovio.angrybirds",
+                                        @"iTunesAppId" : @"343200656‎",
                                         @"icon": [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://a4.mzstatic.com/us/r30/Purple6/v4/35/9b/29/359b2932-47ff-945d-e269-c4da91b56267/mzl.aygbczdx.175x175-75.jpg"]]}];
 
     JPApp* netflix = [JPApp create:@{@"name": @"Netflix",

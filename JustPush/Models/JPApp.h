@@ -12,6 +12,8 @@
 
 @interface JPApp : NSManagedObject
 
+@property (nonatomic, retain) NSString * iTunesAppId;
+@property (nonatomic, retain) NSString * bundleId;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSImage *icon;
 @property (nonatomic, retain) NSArray *tokens; // JPDeviceToken

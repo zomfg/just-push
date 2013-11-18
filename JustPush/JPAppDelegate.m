@@ -112,8 +112,83 @@
 
 #pragma mark - App runtime
 
+- (void) populateDatabase {
+    JPDevice* iphone = [JPDevice create:@{@"typeIdentifier": @"com.apple.iphone-5s-A1457-d4c5b3"}];
+    JPDevice* ipad = [JPDevice create:@{@"typeIdentifier": @"com.apple.ipad-mini2-A1517-99989b"}];
+    JPDevice* ipod = [JPDevice create:@{@"typeIdentifier": @"com.apple.ipod-touch-5-red"}];
+
+    JPApp* angryBirds = [JPApp create:@{@"name": @"Angry Birds",
+                                        @"icon": [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://a4.mzstatic.com/us/r30/Purple6/v4/35/9b/29/359b2932-47ff-945d-e269-c4da91b56267/mzl.aygbczdx.175x175-75.jpg"]]}];
+
+    JPApp* netflix = [JPApp create:@{@"name": @"Netflix",
+                                     @"icon": [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://a3.mzstatic.com/us/r30/Purple6/v4/f1/f7/5e/f1f75e8a-7067-6cfc-8227-d4eece499045/mzl.dzjqqthz.175x175-75.jpg"]]}];
+    
+    JPDeviceToken* t1 = [JPDeviceToken create:@{@"token": @"740f4707 bebcf74f 9b7c25d4 8e335894 5f6aa01d a5ddb387 462c7eaf 61bb78ad",
+                                                @"sandbox" : @YES,
+                                                @"app" : angryBirds,
+                                                @"device" : iphone}];
+    JPDeviceToken* t2 = [JPDeviceToken create:@{@"token": @"bebcf74f 462c7eaf 9b7c25d4 8e335894 5f6aa01d a5ddb387 462c7eaf 61bb78ad",
+                                                @"sandbox" : @NO,
+                                                @"app" : angryBirds,
+                                                @"device" : iphone}];
+    JPDeviceToken* t3 = [JPDeviceToken create:@{@"token": @"a5ddb387 61bb78ad 9b7c25d4 8e335894 5f6aa01d a5ddb387 462c7eaf 61bb78ad",
+                                                @"sandbox" : @YES,
+                                                @"app" : angryBirds,
+                                                @"device" : ipad}];
+    JPDeviceToken* t4 = [JPDeviceToken create:@{@"token": @"8e335894 8e335894 9b7c25d4 8e335894 5f6aa01d a5ddb387 462c7eaf 61bb78ad",
+                                                @"sandbox" : @YES,
+                                                @"app" : netflix,
+                                                @"device" : ipod}];
+    JPDeviceToken* t5 = [JPDeviceToken create:@{@"token": @"5f6aa01d 9b7c25d4 9b7c25d4 8e335894 5f6aa01d a5ddb387 462c7eaf 61bb78ad",
+                                                @"sandbox" : @YES,
+                                                @"app" : netflix,
+                                                @"device" : iphone}];
+    JPDeviceToken* t6 = [JPDeviceToken create:@{@"token": @"462c7eaf 5f6aa01d 9b7c25d4 8e335894 5f6aa01d a5ddb387 462c7eaf 61bb78ad",
+                                                @"sandbox" : @YES,
+                                                @"app" : netflix,
+                                                @"device" : ipad}];
+
+    JPPayload* genericPayload = [JPPayload create:@{@"alert": @"'sup", @"badge" : @42}];
+    
+    JPNotification* n1 = [JPNotification create:@{@"app": angryBirds,
+                                                  @"payload" : genericPayload,
+                                                  @"sandbox" : @YES}];
+    JPNotification* n2 = [JPNotification create:@{@"app": angryBirds,
+                                                  @"payload" : genericPayload,
+                                                  @"sandbox" : @NO}];
+    JPNotification* n3 = [JPNotification create:@{@"app": netflix,
+                                                  @"payload" : genericPayload,
+                                                  @"sandbox" : @YES}];
+    JPNotification* n4 = [JPNotification create:@{@"app": netflix,
+                                                  @"payload" : genericPayload,
+                                                  @"sandbox" : @NO}];
+
+    [iphone save];
+    [ipad save];
+    [ipod save];
+
+    [angryBirds save];
+    [netflix save];
+
+    [t1 save];
+    [t2 save];
+    [t3 save];
+    [t4 save];
+    [t5 save];
+    [t6 save];
+
+    [genericPayload save];
+
+    [n1 save];
+    [n2 save];
+    [n3 save];
+    [n4 save];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+//    [self populateDatabase];
+
     // Insert code here to initialize your application
 //    JPApp* newApp = nil;
 //    newApp = [JPApp create:@{@"name": @"Star Wars", @"icon" : [NSImage imageNamed:@"default_app_icon.png"]}];
@@ -132,30 +207,35 @@
 //    newToken.app = newApp;
 //    [newToken save];
 //
-    JPNotification* newNotif = nil;
+//    JPNotification* newNotif = nil;
 //    newNotif = [JPNotification create:@{@"app": newApp, @"sandbox" : @(YES)}];
 //    [newNotif save];
 //    return;
-
-    newNotif = [JPNotification all][0];
-    NSLog(@"TOKENS (%lu) FOR NOTIF %@", (unsigned long)newNotif.tokens.count, newNotif.tokens);
+//
+//    newNotif = [JPNotification all][0];
+//    NSLog(@"TOKENS (%lu) FOR NOTIF %@", (unsigned long)newNotif.tokens.count, newNotif.tokens);
 
 
 //    JPApp* oldApp = [JPApp where:@"name == 'Angry Birds'"][0];
 //    NSLog(@"SOME APP %@ %@", oldApp.name, oldApp.icon == nil ? @"NO ICON :(" : NSStringFromSize(oldApp.icon.size));
-//    for (JPApp* app in [JPApp all]) {
-//        NSLog(@"%@ HAS %lu TOKENS", app.name, (unsigned long)app.tokens.count);
-//        for (JPDeviceToken* deviceToken in app.tokens) {
-//            NSLog(@"%@ %@", deviceToken.token, deviceToken.sandbox ? @"sandbox" : @"production");
-//        }
-//    }
+    for (JPApp* app in [JPApp all]) {
+        NSLog(@"%@ HAS %lu TOKENS", app.name, (unsigned long)app.tokens.count);
+        for (JPDeviceToken* deviceToken in app.tokens) {
+            NSLog(@"%@ %@", deviceToken.token, deviceToken.sandbox ? @"sandbox" : @"production");
+        }
+    }
 
 //    JPPayload* pl = [JPPayload create:@{@"body": @"coucou"}];
 //    NSLog(@"%@\n%@", pl.JSON, pl.prettyJSON);
 
 //    JPDevice* device = nil;
+//    device = [JPDevice all][0];
 //    device = [JPDevice create:@{@"typeIdentifier": @"com.apple.ipad-mini2-A1517-99989b"}];
 //    [device save];
+//    for (JPDeviceToken* d in [JPDeviceToken all]) {
+//        d.device = device;
+//        [d save];
+//    }
 //    device = [JPDevice where:@"typeIdentifier == 'com.apple.ipad-mini2-A1517-99989b'"][0];
 //    NSLog(@"[%@] %@ %@", device.typeIdentifier, device.description, NSStringFromSize(device.icon.size));
 //    device.typeIdentifier = @"com.apple.iphone";

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F62461718397BEF00D42EC8 /* MobileDevices.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F62461618397BEF00D42EC8 /* MobileDevices.bundle */; };
+		7F62461818397BEF00D42EC8 /* MobileDevices.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F62461618397BEF00D42EC8 /* MobileDevices.bundle */; };
+		7F624623183996F000D42EC8 /* JPNotificationTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F624622183996F000D42EC8 /* JPNotificationTableCellView.m */; };
+		7F624624183996F000D42EC8 /* JPNotificationTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F624622183996F000D42EC8 /* JPNotificationTableCellView.m */; };
 		7FB580AD1837F84E0010793A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB580AC1837F84E0010793A /* Cocoa.framework */; };
 		7FB580B71837F84E0010793A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FB580B51837F84E0010793A /* InfoPlist.strings */; };
 		7FB580B91837F84E0010793A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB580B81837F84E0010793A /* main.m */; };
@@ -33,7 +37,6 @@
 		7FB5810B183825FD0010793A /* NSString+ObjectiveSugar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB58104183825FD0010793A /* NSString+ObjectiveSugar.m */; };
 		7FB5810F18382EAE0010793A /* JPImageToDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB5810E18382EAE0010793A /* JPImageToDataTransformer.m */; };
 		7FB58113183835C70010793A /* default_app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB58112183835C70010793A /* default_app_icon.png */; };
-		7FB581151838475D0010793A /* MobileDevices.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7FB581141838475D0010793A /* MobileDevices.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F62461618397BEF00D42EC8 /* MobileDevices.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MobileDevices.bundle; path = ../../../../../../System/Library/CoreServices/CoreTypes.bundle/Contents/Library/MobileDevices.bundle; sourceTree = "<group>"; };
+		7F624621183996F000D42EC8 /* JPNotificationTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPNotificationTableCellView.h; sourceTree = "<group>"; };
+		7F624622183996F000D42EC8 /* JPNotificationTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPNotificationTableCellView.m; sourceTree = "<group>"; };
 		7FB580A91837F84E0010793A /* JustPush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustPush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FB580AC1837F84E0010793A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		7FB580AF1837F84E0010793A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -95,7 +101,6 @@
 		7FB5810D18382EAE0010793A /* JPImageToDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPImageToDataTransformer.h; sourceTree = "<group>"; };
 		7FB5810E18382EAE0010793A /* JPImageToDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPImageToDataTransformer.m; sourceTree = "<group>"; };
 		7FB58112183835C70010793A /* default_app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_app_icon.png; sourceTree = "<group>"; };
-		7FB581141838475D0010793A /* MobileDevices.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MobileDevices.bundle; path = ../../../../../../System/Library/CoreServices/CoreTypes.bundle/Contents/Library/MobileDevices.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +124,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F624620183996F000D42EC8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7F624621183996F000D42EC8 /* JPNotificationTableCellView.h */,
+				7F624622183996F000D42EC8 /* JPNotificationTableCellView.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		7FB580A01837F84E0010793A = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +175,7 @@
 		7FB580B21837F84E0010793A /* JustPush */ = {
 			isa = PBXGroup;
 			children = (
+				7F624620183996F000D42EC8 /* ViewControllers */,
 				7FB58110183835000010793A /* Resources */,
 				7FB5810C18382E790010793A /* Helpers */,
 				7FB580F3183823AB0010793A /* Vendor */,
@@ -272,7 +287,7 @@
 		7FB58110183835000010793A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7FB581141838475D0010793A /* MobileDevices.bundle */,
+				7F62461618397BEF00D42EC8 /* MobileDevices.bundle */,
 				7FB58111183835000010793A /* Images */,
 			);
 			path = Resources;
@@ -368,7 +383,7 @@
 				7FB580BD1837F84E0010793A /* Credits.rtf in Resources */,
 				7FB58113183835C70010793A /* default_app_icon.png in Resources */,
 				7FB580C31837F84E0010793A /* MainMenu.xib in Resources */,
-				7FB581151838475D0010793A /* MobileDevices.bundle in Resources */,
+				7F62461718397BEF00D42EC8 /* MobileDevices.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FB580D81837F84E0010793A /* InfoPlist.strings in Resources */,
+				7F62461818397BEF00D42EC8 /* MobileDevices.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +416,7 @@
 				7FB580B91837F84E0010793A /* main.m in Sources */,
 				7FB58107183825FD0010793A /* NSDictionary+ObjectiveSugar.m in Sources */,
 				7FB58106183825FD0010793A /* NSArray+ObjectiveSugar.m in Sources */,
+				7F624623183996F000D42EC8 /* JPNotificationTableCellView.m in Sources */,
 				7FB580EC18380ACD0010793A /* JPNotification.m in Sources */,
 				7FB580E918380ACD0010793A /* JPApp.m in Sources */,
 				7FB5810B183825FD0010793A /* NSString+ObjectiveSugar.m in Sources */,
@@ -410,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F624624183996F000D42EC8 /* JPNotificationTableCellView.m in Sources */,
 				7FB580DA1837F84E0010793A /* JustPushTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,6 +631,7 @@
 				7FB580DF1837F84E0010793A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7FB580E01837F84E0010793A /* Build configuration list for PBXNativeTarget "JustPushTests" */ = {
 			isa = XCConfigurationList;
@@ -621,6 +640,7 @@
 				7FB580E21837F84E0010793A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

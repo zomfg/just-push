@@ -10,6 +10,8 @@
 #import <CoreData/CoreData.h>
 #import "NSManagedObject+ActiveRecord.h"
 
+extern NSString* const kJPTypeIconImageKey;
+
 @interface JPDevice : NSManagedObject
 
 @property (nonatomic, retain) NSString * typeIdentifier;

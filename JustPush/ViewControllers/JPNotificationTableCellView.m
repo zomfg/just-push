@@ -32,8 +32,8 @@
 
 - (void) setObjectValue:(id)objectValue {
     [super setObjectValue:objectValue];
-    self.envText.stringValue = self.environement;
-    self.deviceNumberText.stringValue = self.numberOfDevices.stringValue;
+    self.environementText.stringValue = [self environement];
+    self.deviceNumberText.stringValue = [self numberOfDevices].stringValue;
 }
 
 - (id) objectValue {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A598" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
@@ -675,14 +676,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="1006" height="584"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView autohidesScrollers="YES" horizontalLineScroll="52" horizontalPageScroll="10" verticalLineScroll="52" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNO-J3-xGj">
+                    <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNO-J3-xGj">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="584"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" copiesOnScroll="NO" id="8B9-gr-Gyg">
                             <rect key="frame" x="1" y="1" width="248" height="582"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" rowSizeStyle="automatic" viewBased="YES" id="6dk-ef-Jiv">
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="6dk-ef-Jiv">
                                     <rect key="frame" x="0.0" y="0.0" width="248" height="582"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -759,7 +760,7 @@
                                                     <connections>
                                                         <outlet property="deviceIconView" destination="QUQ-DV-L3P" id="wQO-bV-rPv"/>
                                                         <outlet property="deviceNumberText" destination="Qgb-DZ-p6A" id="Sy4-wF-2BW"/>
-                                                        <outlet property="envText" destination="yf8-Gg-2Wl" id="oTU-Sd-TQA"/>
+                                                        <outlet property="environementText" destination="yf8-Gg-2Wl" id="0gL-SS-WCg"/>
                                                         <outlet property="imageView" destination="9om-ou-9xg" id="vK3-zG-3N5"/>
                                                         <outlet property="textField" destination="Kc0-oT-8OI" id="woc-AR-F8w"/>
                                                     </connections>

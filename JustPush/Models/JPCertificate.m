@@ -14,6 +14,7 @@
 static NSMutableArray* _certificateCache = nil;
 
 @interface JPCertificate () {
+    SecIdentityRef _identity;
     CFStringRef _commonName;
     CFDataRef _der;
 }
@@ -47,8 +48,10 @@ static NSMutableArray* _certificateCache = nil;
     _certificateCache = [[NSMutableArray alloc] initWithCapacity:items.count];
     for (id certificate in items) {
         JPCertificate* c = [[self alloc] initWithCertificate:(__bridge SecCertificateRef)(certificate)];
-        [_certificateCache addObject:c];
-        NSLog(@"%@", c);
+        if (c.identity != NULL) {
+            [_certificateCache addObject:c];
+            NSLog(@"%@", c);
+        }
     }
     CFRelease(results);
     return _certificateCache;
@@ -80,6 +83,8 @@ static NSMutableArray* _certificateCache = nil;
         CFRelease(_commonName);
     if (_der)
         CFRelease(_der);
+    if (_identity)
+        CFRelease(_identity);
 }
 
 - (NSString *) commonName {
@@ -104,10 +109,17 @@ static NSMutableArray* _certificateCache = nil;
     return [self.commonName containsString:@"Development"];
 }
 
+- (SecIdentityRef) identity {
+    if (_identity == NULL)
+        SecIdentityCreateWithCertificate(NULL, self.rawCertificate, &_identity);
+    return _identity;
+}
+
 - (NSString *) description {
     return [@{@"commonName": self.commonName,
               @"bundleId": self.bundleId,
               @"MD5 fingerprint": self.fingerprint,
+              @"has identity" : self.identity == NULL ? @"NO" : @"YES",
               @"sandbox" : @(self.sandbox)} description];
 }
 

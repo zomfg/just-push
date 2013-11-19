@@ -48,9 +48,7 @@ static NSMutableArray* _certificateCache = nil;
     for (id certificate in items) {
         JPCertificate* c = [[self alloc] initWithCertificate:(__bridge SecCertificateRef)(certificate)];
         [_certificateCache addObject:c];
-        NSLog(@"NAME [%@]", c.commonName);
-        NSLog(@"BUNDLE ID [%@]", c.bundleId);
-        NSLog(@"FINGERPRINT [%@]", c.fingerprint);
+        NSLog(@"%@", c);
     }
     CFRelease(results);
     return _certificateCache;
@@ -102,8 +100,15 @@ static NSMutableArray* _certificateCache = nil;
     return [self.commonName substringFromString:@": "];
 }
 
+- (BOOL) sandbox {
+    return [self.commonName containsString:@"Development"];
+}
+
 - (NSString *) description {
-    return self.commonName;
+    return [@{@"commonName": self.commonName,
+              @"bundleId": self.bundleId,
+              @"MD5 fingerprint": self.fingerprint,
+              @"sandbox" : @(self.sandbox)} description];
 }
 
 @end

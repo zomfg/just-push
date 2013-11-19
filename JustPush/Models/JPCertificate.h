@@ -13,6 +13,7 @@
 @property (nonatomic, readonly) NSString* commonName;
 @property (nonatomic, readonly) NSData* fingerprint;
 @property (nonatomic, readonly) NSString* bundleId;
+@property (nonatomic, readonly) BOOL sandbox;
 
 + (NSArray *) fetchAll;
 + (JPCertificate *) certificateWithFingerprint:(NSData *)fingerprint;

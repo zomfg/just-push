@@ -72,6 +72,14 @@ static NSMutableArray* _certificateCache = nil;
     return results;
 }
 
++ (NSArray *) certificatesWithBundleId:(NSString *)bundleId sandbox:(BOOL)sandbox {
+    NSMutableArray* results = [NSMutableArray new];
+    for (JPCertificate* certificate in [self fetchAll])
+        if (certificate.bundleId && [certificate.bundleId isEqualToString:bundleId] && certificate.sandbox == sandbox)
+            [results addObject:certificate];
+    return results;
+}
+
 - (JPCertificate *) initWithCertificate:(SecCertificateRef)certificate {
     if ((self = [super init]))
         self.rawCertificate = certificate;

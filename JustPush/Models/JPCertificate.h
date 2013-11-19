@@ -19,6 +19,6 @@
 + (NSArray *) fetchAll;
 + (JPCertificate *) certificateWithFingerprint:(NSData *)fingerprint;
 + (NSArray *) certificatesWithBundleId:(NSString *)bundleId;
-
++ (NSArray *) certificatesWithBundleId:(NSString *)bundleId sandbox:(BOOL)sandbox;
 
 @end

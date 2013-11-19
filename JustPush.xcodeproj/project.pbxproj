@@ -37,6 +37,13 @@
 		7FB5810B183825FD0010793A /* NSString+ObjectiveSugar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB58104183825FD0010793A /* NSString+ObjectiveSugar.m */; };
 		7FB5810F18382EAE0010793A /* JPImageToDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB5810E18382EAE0010793A /* JPImageToDataTransformer.m */; };
 		7FB58113183835C70010793A /* default_app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB58112183835C70010793A /* default_app_icon.png */; };
+		7FFAC9D1183ABF8B00C0534F /* JPCertificate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAC9D0183ABF8B00C0534F /* JPCertificate.m */; };
+		7FFAC9D2183ABF8B00C0534F /* JPCertificate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAC9D0183ABF8B00C0534F /* JPCertificate.m */; };
+		7FFAC9D4183AC14400C0534F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFAC9D3183AC14400C0534F /* Security.framework */; };
+		7FFAC9DB183AE1AC00C0534F /* JPCertificateToDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAC9DA183AE1AC00C0534F /* JPCertificateToDataTransformer.m */; };
+		7FFAC9DC183AE1AC00C0534F /* JPCertificateToDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAC9DA183AE1AC00C0534F /* JPCertificateToDataTransformer.m */; };
+		7FFAC9DF183AEFB200C0534F /* NSData+Digest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAC9DE183AEFB200C0534F /* NSData+Digest.m */; };
+		7FFAC9E0183AEFB200C0534F /* NSData+Digest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAC9DE183AEFB200C0534F /* NSData+Digest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +108,13 @@
 		7FB5810D18382EAE0010793A /* JPImageToDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPImageToDataTransformer.h; sourceTree = "<group>"; };
 		7FB5810E18382EAE0010793A /* JPImageToDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPImageToDataTransformer.m; sourceTree = "<group>"; };
 		7FB58112183835C70010793A /* default_app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_app_icon.png; sourceTree = "<group>"; };
+		7FFAC9CF183ABF8B00C0534F /* JPCertificate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCertificate.h; sourceTree = "<group>"; };
+		7FFAC9D0183ABF8B00C0534F /* JPCertificate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCertificate.m; sourceTree = "<group>"; };
+		7FFAC9D3183AC14400C0534F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7FFAC9D9183AE1AC00C0534F /* JPCertificateToDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCertificateToDataTransformer.h; sourceTree = "<group>"; };
+		7FFAC9DA183AE1AC00C0534F /* JPCertificateToDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCertificateToDataTransformer.m; sourceTree = "<group>"; };
+		7FFAC9DD183AEFB200C0534F /* NSData+Digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Digest.h"; sourceTree = "<group>"; };
+		7FFAC9DE183AEFB200C0534F /* NSData+Digest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Digest.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FFAC9D4183AC14400C0534F /* Security.framework in Frameworks */,
 				7FB580AD1837F84E0010793A /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +170,7 @@
 		7FB580AB1837F84E0010793A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7FFAC9D3183AC14400C0534F /* Security.framework */,
 				7FB580AC1837F84E0010793A /* Cocoa.framework */,
 				7FB580CE1837F84E0010793A /* XCTest.framework */,
 				7FB580AE1837F84E0010793A /* Other Frameworks */,
@@ -233,6 +249,8 @@
 				7FB580E818380ACD0010793A /* JPApp.m */,
 				7FB580E418380ACC0010793A /* JPDeviceToken.h */,
 				7FB580E518380ACC0010793A /* JPDeviceToken.m */,
+				7FFAC9CF183ABF8B00C0534F /* JPCertificate.h */,
+				7FFAC9D0183ABF8B00C0534F /* JPCertificate.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -251,6 +269,8 @@
 				7FB580F8183825FD0010793A /* ObjectiveSugar */,
 				7FB580F5183823AB0010793A /* NSManagedObject+ActiveRecord.h */,
 				7FB580F6183823AB0010793A /* NSManagedObject+ActiveRecord.m */,
+				7FFAC9DD183AEFB200C0534F /* NSData+Digest.h */,
+				7FFAC9DE183AEFB200C0534F /* NSData+Digest.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -280,6 +300,8 @@
 			children = (
 				7FB5810D18382EAE0010793A /* JPImageToDataTransformer.h */,
 				7FB5810E18382EAE0010793A /* JPImageToDataTransformer.m */,
+				7FFAC9D9183AE1AC00C0534F /* JPCertificateToDataTransformer.h */,
+				7FFAC9DA183AE1AC00C0534F /* JPCertificateToDataTransformer.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -403,9 +425,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FFAC9DB183AE1AC00C0534F /* JPCertificateToDataTransformer.m in Sources */,
 				7FB580EF18380ACD0010793A /* JPDevice.m in Sources */,
 				7FB580C61837F84E0010793A /* JustPush.xcdatamodeld in Sources */,
 				7FB5810F18382EAE0010793A /* JPImageToDataTransformer.m in Sources */,
+				7FFAC9D1183ABF8B00C0534F /* JPCertificate.m in Sources */,
 				7FB580F218380ACD0010793A /* JPPayload.m in Sources */,
 				7FB580E618380ACC0010793A /* JPDeviceToken.m in Sources */,
 				7FB58108183825FD0010793A /* NSMutableArray+ObjectiveSugar.m in Sources */,
@@ -413,6 +437,7 @@
 				7FB5810A183825FD0010793A /* NSSet+ObjectiveSugar.m in Sources */,
 				7FB580C01837F84E0010793A /* JPAppDelegate.m in Sources */,
 				7FB580F7183823AB0010793A /* NSManagedObject+ActiveRecord.m in Sources */,
+				7FFAC9DF183AEFB200C0534F /* NSData+Digest.m in Sources */,
 				7FB580B91837F84E0010793A /* main.m in Sources */,
 				7FB58107183825FD0010793A /* NSDictionary+ObjectiveSugar.m in Sources */,
 				7FB58106183825FD0010793A /* NSArray+ObjectiveSugar.m in Sources */,
@@ -427,6 +452,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FFAC9DC183AE1AC00C0534F /* JPCertificateToDataTransformer.m in Sources */,
+				7FFAC9D2183ABF8B00C0534F /* JPCertificate.m in Sources */,
+				7FFAC9E0183AEFB200C0534F /* NSData+Digest.m in Sources */,
 				7F624624183996F000D42EC8 /* JPNotificationTableCellView.m in Sources */,
 				7FB580DA1837F84E0010793A /* JustPushTests.m in Sources */,
 			);

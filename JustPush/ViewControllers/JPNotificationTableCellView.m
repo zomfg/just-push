@@ -8,6 +8,7 @@
 
 #import "JPNotificationTableCellView.h"
 #import "JPNotification.h"
+#import "JPCertificate.h"
 #import "JPDevice.h"
 #import "ObjectiveSugar.h"
 
@@ -34,12 +35,6 @@
     [super setObjectValue:objectValue];
     self.environementText.stringValue = [self environement];
     self.deviceNumberText.stringValue = [self numberOfDevices].stringValue;
-}
-
-- (id) objectValue {
-    id ov = [super objectValue];
-    NSLog(@"OBJECT VALUE %@", ov);
-    return ov;
 }
 
 - (NSImage *) deviceIcon {

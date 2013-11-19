@@ -13,6 +13,7 @@
 #import "JPPayload.h"
 #import "JPDevice.h"
 #import "JPNotification.h"
+#import "JPCertificate.h"
 
 @implementation JPAppDelegate
 
@@ -155,6 +156,8 @@
     JPNotification* n1 = [JPNotification create:@{@"app": angryBirds,
                                                   @"payload" : genericPayload,
                                                   @"sandbox" : @YES}];
+    n1.certificate = [JPCertificate fetchAll][0];
+    
     JPNotification* n2 = [JPNotification create:@{@"app": angryBirds,
                                                   @"payload" : genericPayload,
                                                   @"sandbox" : @NO}];
@@ -189,6 +192,12 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+//    NSArray* certArray = [JPCertificate certificatesWithBundleId:@"com.lequipe.game.squiz"];
+//    NSLog(@"CERTIFS %@", certArray);
+//    JPCertificate* cert = [JPCertificate fetchAll][0];
+//    JPCertificate* result = [JPCertificate certificateWithFingerprint:cert.fingerprint];
+//    if (cert == result)
+//        NSLog(@"SAME CERT !");
 //    [self populateDatabase];
 
     // Insert code here to initialize your application

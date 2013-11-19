@@ -23,7 +23,7 @@
         </fetchedProperty>
     </entity>
     <entity name="JPNotification" representedClassName="JPNotification" syncable="YES">
-        <attribute name="certificate" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="certificate" optional="YES" attributeType="Transformable" valueTransformerName="JPCertificateToDataTransformer" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sandbox" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="app" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JPApp" inverseName="notifications" inverseEntity="JPApp" syncable="YES"/>

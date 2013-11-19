@@ -114,17 +114,19 @@
 #pragma mark - App runtime
 
 - (void) populateDatabase {
-    JPDevice* iphone = [JPDevice create:@{@"typeIdentifier": @"com.apple.iphone-5s-A1457-d4c5b3"}];
+    JPDevice* iphone = [JPDevice create:@{@"typeIdentifier": @"com.apple.iphone-4s-black"}];
     JPDevice* ipad = [JPDevice create:@{@"typeIdentifier": @"com.apple.ipad-mini2-A1517-99989b"}];
     JPDevice* ipod = [JPDevice create:@{@"typeIdentifier": @"com.apple.ipod-touch-5-red"}];
 
     JPApp* angryBirds = [JPApp create:@{@"name": @"Angry Birds",
-                                        @"bundleId" : @"com.rovio.angrybirds",
-                                        @"iTunesAppId" : @"343200656‎",
+                                        @"bundleId" : @"com.lequipe.game.squiz",
+                                        @"iTunesAppId" : @"343200656",
                                         @"icon": [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://a4.mzstatic.com/us/r30/Purple6/v4/35/9b/29/359b2932-47ff-945d-e269-c4da91b56267/mzl.aygbczdx.175x175-75.jpg"]]}];
 
-    JPApp* netflix = [JPApp create:@{@"name": @"Netflix",
-                                     @"icon": [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://a3.mzstatic.com/us/r30/Purple6/v4/f1/f7/5e/f1f75e8a-7067-6cfc-8227-d4eece499045/mzl.dzjqqthz.175x175-75.jpg"]]}];
+    JPApp* musicMania = [JPApp create:@{@"name": @"Music Mania",
+                                        @"bundleId" : @"com.chugulu.musicmania",
+                                        @"iTunesAppId" : @"736107965",
+                                        @"icon": [[NSImage alloc] initWithContentsOfURL:[NSURL URLWithString:@"http://a2.mzstatic.com/us/r30/Purple/v4/d7/32/ca/d732caf9-be93-0099-4c60-ee8574b4aa5d/mzl.dercblll.175x175-75.jpg"]]}];
     
     JPDeviceToken* t1 = [JPDeviceToken create:@{@"token": @"740f4707 bebcf74f 9b7c25d4 8e335894 5f6aa01d a5ddb387 462c7eaf 61bb78ad",
                                                 @"sandbox" : @YES,
@@ -139,16 +141,16 @@
                                                 @"app" : angryBirds,
                                                 @"device" : ipad}];
     JPDeviceToken* t4 = [JPDeviceToken create:@{@"token": @"8e335894 8e335894 9b7c25d4 8e335894 5f6aa01d a5ddb387 462c7eaf 61bb78ad",
-                                                @"sandbox" : @YES,
-                                                @"app" : netflix,
+                                                @"sandbox" : @NO,
+                                                @"app" : musicMania,
                                                 @"device" : ipod}];
-    JPDeviceToken* t5 = [JPDeviceToken create:@{@"token": @"5f6aa01d 9b7c25d4 9b7c25d4 8e335894 5f6aa01d a5ddb387 462c7eaf 61bb78ad",
+    JPDeviceToken* t5 = [JPDeviceToken create:@{@"token": @"e7da293e 18701227 2f6a0296 f9c6032d 0aedb381 b6f39bf0 58484716 7b217f82",
                                                 @"sandbox" : @YES,
-                                                @"app" : netflix,
+                                                @"app" : musicMania,
                                                 @"device" : iphone}];
     JPDeviceToken* t6 = [JPDeviceToken create:@{@"token": @"462c7eaf 5f6aa01d 9b7c25d4 8e335894 5f6aa01d a5ddb387 462c7eaf 61bb78ad",
-                                                @"sandbox" : @YES,
-                                                @"app" : netflix,
+                                                @"sandbox" : @NO,
+                                                @"app" : musicMania,
                                                 @"device" : ipad}];
 
     JPPayload* genericPayload = [JPPayload create:@{@"alert": @"'sup", @"badge" : @42}];
@@ -156,15 +158,17 @@
     JPNotification* n1 = [JPNotification create:@{@"app": angryBirds,
                                                   @"payload" : genericPayload,
                                                   @"sandbox" : @YES}];
-    n1.certificate = [JPCertificate fetchAll][0];
     
     JPNotification* n2 = [JPNotification create:@{@"app": angryBirds,
                                                   @"payload" : genericPayload,
                                                   @"sandbox" : @NO}];
-    JPNotification* n3 = [JPNotification create:@{@"app": netflix,
+    JPNotification* n3 = [JPNotification create:@{@"app": musicMania,
                                                   @"payload" : genericPayload,
                                                   @"sandbox" : @YES}];
-    JPNotification* n4 = [JPNotification create:@{@"app": netflix,
+
+    n3.certificate = [JPCertificate certificatesWithBundleId:musicMania.bundleId sandbox:n3.sandbox][0];
+
+    JPNotification* n4 = [JPNotification create:@{@"app": musicMania,
                                                   @"payload" : genericPayload,
                                                   @"sandbox" : @NO}];
 
@@ -173,7 +177,7 @@
     [ipod save];
 
     [angryBirds save];
-    [netflix save];
+    [musicMania save];
 
     [t1 save];
     [t2 save];
@@ -229,11 +233,8 @@
 
 //    JPApp* oldApp = [JPApp where:@"name == 'Angry Birds'"][0];
 //    NSLog(@"SOME APP %@ %@", oldApp.name, oldApp.icon == nil ? @"NO ICON :(" : NSStringFromSize(oldApp.icon.size));
-    for (JPApp* app in [JPApp all]) {
-        NSLog(@"%@ HAS %lu TOKENS", app.name, (unsigned long)app.tokens.count);
-        for (JPDeviceToken* deviceToken in app.tokens) {
-            NSLog(@"%@ %@", deviceToken.token, deviceToken.sandbox ? @"sandbox" : @"production");
-        }
+    for (JPNotification* n in [JPNotification all]) {
+        NSLog(@"%@", n);
     }
 
 //    JPPayload* pl = [JPPayload create:@{@"body": @"coucou"}];

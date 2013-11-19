@@ -149,12 +149,12 @@
                                                 @"sandbox" : @YES,
                                                 @"app" : musicMania,
                                                 @"device" : iphone}];
-    JPDeviceToken* t6 = [JPDeviceToken create:@{@"token": @"462c7eaf 5f6aa01d 9b7c25d4 8e335894 5f6aa01d a5ddb387 462c7eaf 61bb78ad",
+    JPDeviceToken* t6 = [JPDeviceToken create:@{@"token": @"558c48f2 f63b7b44 9b94f9ee 3562dd3b b259350a 2eae479a 8211092e aa0fad05",
                                                 @"sandbox" : @NO,
                                                 @"app" : musicMania,
-                                                @"device" : ipad}];
+                                                @"device" : iphone}];
 
-    JPPayload* genericPayload = [JPPayload create:@{@"alert": @"'sup", @"badge" : @42}];
+    JPPayload* genericPayload = [JPPayload create:@{@"alert": @"just push", @"badge" : @42}];
     
     JPNotification* n1 = [JPNotification create:@{@"app": angryBirds,
                                                   @"payload" : genericPayload,
@@ -172,6 +172,8 @@
     JPNotification* n4 = [JPNotification create:@{@"app": musicMania,
                                                   @"payload" : genericPayload,
                                                   @"sandbox" : @NO}];
+    
+    n4.certificate = [JPCertificate certificatesWithBundleId:musicMania.bundleId sandbox:n4.sandbox][0];
 
     [iphone save];
     [ipad save];
@@ -237,13 +239,14 @@
 
     for (JPNotification* n in [JPNotification all]) {
         NSLog(@"%@", n);
-        if (n.sandbox && [n.app.name isEqualToString:@"Music Mania"]) {
+        if (!n.sandbox && [n.app.name isEqualToString:@"Music Mania"]) {
             newNotif = n;
             break;
         }
     }
     if (newNotif) {
-        [JPPusher push:newNotif];
+        JPPusher* pusher = [JPPusher pusherWithNotification:newNotif];
+        [pusher push];
     }
 
 //    JPPayload* pl = [JPPayload create:@{@"body": @"coucou"}];

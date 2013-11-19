@@ -52,5 +52,7 @@ NSString *NSStringWithFormat(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
  */
 - (NSString *)strip;
 
+- (NSString *)substringFromString:(NSString*)from;
+
 @end
 

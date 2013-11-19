@@ -58,4 +58,11 @@ NSString *NSStringWithFormat(NSString *formatString, ...) {
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
+- (NSString *)substringFromString:(NSString *)from {
+    NSRange range = [self rangeOfString:from];
+    if (range.location != NSNotFound)
+        return [self substringFromIndex:range.location + from.length];
+    return nil;
+}
+
 @end

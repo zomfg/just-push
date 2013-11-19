@@ -15,6 +15,7 @@
 @interface JPDeviceToken : NSManagedObject
 
 @property (nonatomic, retain) NSString * token;
+@property (nonatomic, readonly) NSData *tokenData;
 @property (nonatomic) BOOL sandbox;
 @property (nonatomic, retain) JPDevice *device;
 @property (nonatomic, retain) JPApp *app;

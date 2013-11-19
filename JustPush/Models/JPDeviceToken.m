@@ -17,4 +17,16 @@
 @dynamic app;
 @dynamic notifications;
 
+- (NSData *) tokenData {
+    NSMutableData *deviceTokenData = [NSMutableData data];
+	unsigned value;
+	NSScanner *scanner = [NSScanner scannerWithString:self.token];
+	while (![scanner isAtEnd]) {
+		[scanner scanHexInt:&value];
+		value = htonl(value);
+		[deviceTokenData appendBytes:&value length:sizeof(value)];
+	}
+    return deviceTokenData;
+}
+
 @end

@@ -56,10 +56,10 @@ NSString* const kPayloadKeyAlertLaunchImage     = @"launch-image";
         [apsDico setObject:alert forKey:kPayloadKeyAlert];
     if (self.sound && ![self.sound isEqualToString:@""])
         [apsDico setObject:self.sound forKey:kPayloadKeySound];
-    if (self.badge && ![self.badge isEqualToString:@""])
+    if (self.badge)
         [apsDico setObject:self.badge forKey:kPayloadKeyBadge];
     if (self.contentAvailable)
-        [apsDico setObject:@"1" forKey:kPayloadKeyContentAvailable];
+        [apsDico setObject:@1 forKey:kPayloadKeyContentAvailable];
 
     NSError *error = nil;
     NSDictionary* customDico = nil;

@@ -19,7 +19,7 @@
 @property (nonatomic, retain) NSString * locArgs;
 @property (nonatomic, retain) NSString * launchImage;
 @property (nonatomic) BOOL contentAvailable;
-@property (nonatomic, retain) NSString * badge;
+@property (nonatomic, retain) NSNumber * badge;
 @property (nonatomic, retain) NSString * sound;
 @property (nonatomic, retain) NSString * customFields;
 @property (nonatomic, retain) NSArray *notifications; //JPNotification

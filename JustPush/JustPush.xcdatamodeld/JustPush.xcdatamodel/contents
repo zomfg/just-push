@@ -35,7 +35,7 @@
     <entity name="JPPayload" representedClassName="JPPayload" syncable="YES">
         <attribute name="actionLocKey" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="alert" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="badge" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="badge" optional="YES" attributeType="Integer 16" syncable="YES"/>
         <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="contentAvailable" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="customFields" optional="YES" attributeType="String" syncable="YES"/>

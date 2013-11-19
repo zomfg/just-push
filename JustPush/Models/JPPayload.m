@@ -91,4 +91,8 @@ NSString* const kPayloadKeyAlertLaunchImage     = @"launch-image";
     return [self generateJSON:YES];
 }
 
+- (NSString *) description {
+    return [self JSON];
+}
+
 @end

@@ -13,139 +13,150 @@
 #import "JPPayload.h"
 #import "JPDeviceToken.h"
 
-static otSocket _socket       = -1;
-static SSLContextRef _context = NULL;
+// https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/CommunicatingWIthAPS.html#//apple_ref/doc/uid/TP40008194-CH101-SW1
+
+const char* kJPPushRemoteServer        = "gateway.push.apple.com";
+const char* kJPPushRemoteSandboxServer = "gateway.sandbox.push.apple.com";
+const int   kJPPushRemotePort          = 2195;
+
+const NSUInteger kJPPushMessageLength  = 293; // 1(cmd byte) + 2(token length) + 32(token) + 2(payload length) + 256(payload)
+
+@interface JPPusher ()
+
+@property (nonatomic, assign) otSocket       socket;
+@property (nonatomic, assign) SSLContextRef  context;
+@property (nonatomic, strong) JPNotification *notification;
+
+@end
 
 @implementation JPPusher
 
-+ (const char*) pushServerHostname:(BOOL)sandbox {
-    if (sandbox)
-        return "gateway.sandbox.push.apple.com";
-    return "gateway.push.apple.com";
+- (JPPusher *) initWithNotification:(JPNotification *)notification {
+    if ((self = [super init]))
+        self.notification = notification;
+    return self;
 }
 
-+ (void) SSLDebug:(NSString*)func SSLResult:(OSStatus)result {
++ (JPPusher *) pusherWithNotification:(JPNotification *)notification {
+    return [[[self class] alloc] initWithNotification:notification];
+}
+
+- (const char*) pushServerHostname {
+    if (self.notification.sandbox)
+        return kJPPushRemoteSandboxServer;
+    return kJPPushRemoteServer;
+}
+
+- (void) SSLError:(NSString*)func SSLResult:(OSStatus)result {
     NSLog(@"%@(): [%s] - %s", func, (char *)GetMacOSStatusErrorString(result), (char *)GetMacOSStatusCommentString(result));
 }
 
-+ (BOOL) connect:(JPNotification *)notification {
+- (BOOL) connect {
 	OSStatus result;
 	PeerSpec peer;
-    const char* applePushServer = [self pushServerHostname:notification.sandbox];
 
-	result = MakeServerConnection(applePushServer, 2195, 1, &_socket, &peer);
-    [self SSLDebug:@"MakeServerConnection" SSLResult:result];
+	result = MakeServerConnection(self.pushServerHostname, kJPPushRemotePort, 1, &_socket, &peer);
+    if (result != errSecSuccess) {
+        [self SSLError:@"MakeServerConnection" SSLResult:result];
+        return NO;
+    }
 
 	result = SSLNewContext(false, &_context);
-    [self SSLDebug:@"SSLNewContext" SSLResult:result];
-    if (result != errSecSuccess || _context == NULL)
+    if (result != errSecSuccess) {
+        [self SSLError:@"SSLNewContext" SSLResult:result];
         return NO;
+    }
 
 	result = SSLSetIOFuncs(_context, SocketRead, SocketWrite);
-    [self SSLDebug:@"SSLSetIOFuncs" SSLResult:result];
+    if (result != errSecSuccess) {
+        [self SSLError:@"SSLSetIOFuncs" SSLResult:result];
+        return NO;
+    }
 
 	result = SSLSetConnection(_context, (SSLConnectionRef)_socket);
-    [self SSLDebug:@"SSLSetConnection" SSLResult:result];
+    if (result != errSecSuccess) {
+        [self SSLError:@"SSLSetConnection" SSLResult:result];
+        return NO;
+    }
 
-	result = SSLSetPeerDomainName(_context, applePushServer, strlen(applePushServer));
-    [self SSLDebug:@"SSLSetPeerDomainName" SSLResult:result];
+	result = SSLSetPeerDomainName(_context, self.pushServerHostname, strlen(self.pushServerHostname));
+    if (result != errSecSuccess) {
+        [self SSLError:@"SSLSetPeerDomainName" SSLResult:result];
+        return NO;
+    }
 
-    SecIdentityRef identity = notification.certificate.identity;
+    SecIdentityRef identity = self.notification.certificate.identity;
 	CFArrayRef certificates = CFArrayCreate(NULL, (const void **)&identity, 1, NULL);
 	result = SSLSetCertificate(_context, certificates);
-    [self SSLDebug:@"SSLSetCertificate" SSLResult:result];
-	CFRelease(certificates);
+    CFRelease(certificates);
+    if (result != errSecSuccess) {
+        [self SSLError:@"SSLSetCertificate" SSLResult:result];
+        return NO;
+    }
 
 	do {
 		result = SSLHandshake(_context);
-        NSLog(@"SSLHandshake(): %d", result);
-        [self SSLDebug:@"SSLHandshake" SSLResult:result];
 	} while (result == errSSLWouldBlock);
+
+    if (result != errSecSuccess)
+        [self SSLError:@"SSLHandshake" SSLResult:result];
 	return result == errSecSuccess;
 }
 
-+ (void) disconnect {
-    if (_context != NULL) {
+- (void) disconnect {
+    if (self.context != NULL) {
         SSLClose(_context);
         close((int)_socket);
         SSLDisposeContext(_context);
     }
+    self.context = NULL;
 }
 
-+ (void) send:(JPPayload *)payload toDevice:(JPDeviceToken *)deviceToken {
-	// Validate input.
-	if (payload == nil)
-		return;
-    if (NO && ![deviceToken.token rangeOfString:@" "].length)
-    {
-        //put in spaces in device token
-        NSMutableString* tempString =  [NSMutableString stringWithString:deviceToken.token];
-        int offset = 0;
-        for (int i = 0; i < tempString.length; i++)
-        {
-            if (i%8 == 0 && i != 0 && i+offset < tempString.length-1)
-            {
-                //NSLog(@"i = %d + offset[%d] = %d", i, offset, i+offset);
-                [tempString insertString:@" " atIndex:i+offset];
-                offset++;
-            }
-        }
-        NSLog(@" device token string after adding spaces = '%@'", tempString);
-//        deviceToken.token = tempString;
-    }
+- (void) dealloc {
+    [self disconnect];
+}
 
-	// Convert string into device token data.
-	NSMutableData *deviceTokenData = [NSMutableData data];
-	unsigned value;
-	NSScanner *scanner = [NSScanner scannerWithString:deviceToken.token];
-	while(![scanner isAtEnd]) {
-		[scanner scanHexInt:&value];
-        //NSLog(@"scanned value %x", value);
-		value = htonl(value);
-		[deviceTokenData appendBytes:&value length:sizeof(value)];
-	}
-	NSLog(@"device token data %@, length = %ld", deviceTokenData, deviceTokenData.length);
-	// Create C input variables.
-	char *deviceTokenBinary = (char *)[deviceTokenData bytes];
-	char *payloadBinary = (char *)[payload.JSON UTF8String];
-	size_t payloadLength = strlen(payloadBinary);
+- (BOOL) sendSingle:(JPPayload *)payload toDevice:(JPDeviceToken *)deviceToken {
+	if (payload == nil || deviceToken == nil)
+		return NO;
+    NSData *tokenData = deviceToken.tokenData;
+    if (tokenData == nil || tokenData.length < 1)
+        return NO;
+	char *deviceTokenBinary  = (char *)[tokenData bytes];
+	char *payloadBinary      = (char *)[payload.JSON UTF8String];
+	size_t payloadLength     = strlen(payloadBinary);
+    size_t deviceTokenLength = tokenData.length;
 
-	// Define some variables.
-	uint8_t command = 0;
-	char message[293];
+	char message[kJPPushMessageLength];
 	char *pointer = message;
-	uint16_t networkTokenLength = htons(32);
+	uint16_t networkTokenLength   = htons(deviceTokenLength);
 	uint16_t networkPayloadLength = htons(payloadLength);
 
-	// Compose message.
-	memcpy(pointer, &command, sizeof(uint8_t));
-	pointer += sizeof(uint8_t);
-	memcpy(pointer, &networkTokenLength, sizeof(uint16_t));
-	pointer += sizeof(uint16_t);
-	memcpy(pointer, deviceTokenBinary, 32);
-	pointer += 32;
-	memcpy(pointer, &networkPayloadLength, sizeof(uint16_t));
-	pointer += sizeof(uint16_t);
+    uint8_t command = 0;
+	memcpy(pointer, &command, sizeof(command));
+	pointer += sizeof(command);
+	memcpy(pointer, &networkTokenLength, sizeof(networkTokenLength));
+	pointer += sizeof(networkTokenLength);
+	memcpy(pointer, deviceTokenBinary, deviceTokenLength);
+	pointer += deviceTokenLength;
+	memcpy(pointer, &networkPayloadLength, sizeof(networkPayloadLength));
+	pointer += sizeof(networkPayloadLength);
 	memcpy(pointer, payloadBinary, payloadLength);
 	pointer += payloadLength;
 
-	NSLog(@"pointer - message- %ld", (pointer -message));
-	// Send message over SSL.
 	size_t processed = 0;
-	OSStatus result = SSLWrite(_context, &message, (pointer - message), &processed);// NSLog(@"SSLWrite(): %d %d", result, processed);
-	NSLog(@"SSLWrite(): [%s]- %s", (char *)GetMacOSStatusErrorString(result), (char *)GetMacOSStatusCommentString(result));
-    NSLog(@"SSLWrite(): %d %ld", result, processed);
+	OSStatus result = SSLWrite(self.context, &message, (pointer - message), &processed);
+    if (result != errSecSuccess)
+        [self SSLError:@"SSLWrite" SSLResult:result];
+    return result == errSecSuccess;
 }
 
-+ (void) push:(JPNotification *)notification {
-    [self disconnect];
-    if ([self connect:notification]) {
-        NSLog(@"CONNECT SUCCESS");
-        for (JPDeviceToken* deviceToken in notification.tokens)
-            [self send:notification.payload toDevice:deviceToken];
-    } else
-        NSLog(@"CONNECT FAIL :(");
-    [self disconnect];
+- (BOOL) push {
+    if (self.context == NULL && ![self connect])
+        return NO;
+    for (JPDeviceToken* deviceToken in self.notification.tokens)
+        [self sendSingle:self.notification.payload toDevice:deviceToken];
+    return YES;
 }
 
 @end

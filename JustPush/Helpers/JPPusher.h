@@ -12,6 +12,11 @@
 
 @interface JPPusher : NSObject
 
-+ (void) push:(JPNotification *)notification;
+@property (nonatomic, readonly) const char* pushServerHostname;
+
+- (JPPusher *) initWithNotification:(JPNotification *)notification;
++ (JPPusher *) pusherWithNotification:(JPNotification *)notification;
+
+- (BOOL) push;
 
 @end

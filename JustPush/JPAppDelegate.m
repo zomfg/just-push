@@ -14,6 +14,7 @@
 #import "JPDevice.h"
 #import "JPNotification.h"
 #import "JPCertificate.h"
+#import "JPPusher.h"
 
 @implementation JPAppDelegate
 
@@ -222,7 +223,7 @@
 //    newToken.app = newApp;
 //    [newToken save];
 //
-//    JPNotification* newNotif = nil;
+    JPNotification* newNotif = nil;
 //    newNotif = [JPNotification create:@{@"app": newApp, @"sandbox" : @(YES)}];
 //    [newNotif save];
 //    return;
@@ -233,8 +234,16 @@
 
 //    JPApp* oldApp = [JPApp where:@"name == 'Angry Birds'"][0];
 //    NSLog(@"SOME APP %@ %@", oldApp.name, oldApp.icon == nil ? @"NO ICON :(" : NSStringFromSize(oldApp.icon.size));
+
     for (JPNotification* n in [JPNotification all]) {
         NSLog(@"%@", n);
+        if (n.sandbox && [n.app.name isEqualToString:@"Music Mania"]) {
+            newNotif = n;
+            break;
+        }
+    }
+    if (newNotif) {
+        [JPPusher push:newNotif];
     }
 
 //    JPPayload* pl = [JPPayload create:@{@"body": @"coucou"}];

@@ -50,7 +50,7 @@ static NSString* const kPayloadLocArgsDelimiter        = @",";
             [alert setObject:self.locKey forKey:kPayloadKeyAlertLocKey];
             if (self.locArgs > 0) {
                 NSArray* args = [self.locArgs componentsSeparatedByString:kPayloadLocArgsDelimiter];
-                if (args && args.count > 0)
+                if (args.count > 0)
                     [alert setObject:args forKey:kPayloadKeyAlertLocArgs];
             }
         }
@@ -77,6 +77,8 @@ static NSString* const kPayloadLocArgsDelimiter        = @",";
         NSData *customData = [[NSData alloc] initWithBytes:bytes length:strlen(bytes)];
         if (customData)
             customDico = [NSJSONSerialization JSONObjectWithData:customData options:NSJSONReadingAllowFragments error:&error];
+        if (error)
+            NSLog(@"[%@ customFields]: %@", NSStringFromClass(self.class), error);
     }
     NSMutableDictionary* payloadDico = [[NSMutableDictionary alloc] initWithObjectsAndKeys:apsDico, kPayloadKeyAPS, nil];
     [payloadDico addEntriesFromDictionary:customDico];
@@ -86,7 +88,7 @@ static NSString* const kPayloadLocArgsDelimiter        = @",";
                                                          error:&error];
     NSString *jsonString = nil;
     if (!jsonData)
-        NSLog(@"Got an error: %@", error);
+        NSLog(@"[%@ generateJSON]: %@", NSStringFromClass(self.class), error);
     else
         jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     return jsonString;

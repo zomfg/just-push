@@ -360,7 +360,7 @@ OSStatus SocketRead(
 	 									 * RETURNED */
 	size_t 				*dataLength)	/* IN/OUT */ 
 {
-	UInt32			bytesToGo = *dataLength;
+	UInt32			bytesToGo = (UInt32)*dataLength;
 	UInt32 			initLen = bytesToGo;
 	UInt8			*currData = (UInt8 *)data;
 	int				sock = (int)((long)connection);
@@ -413,7 +413,7 @@ OSStatus SocketRead(
 			/* in any case, we're done with this call if rrtn <= 0 */
 			break;
 		}
-		bytesRead = rrtn;
+		bytesRead = (UInt32)rrtn;
 		bytesToGo -= bytesRead;
 		currData  += bytesRead;
 		
@@ -448,7 +448,7 @@ OSStatus SocketWrite(
 {
 	size_t		bytesSent = 0;
 	int			sock = (int)((long)connection);
-	int 		length;
+	ssize_t     length;
 	size_t		dataLen = *dataLength;
 	const UInt8 *dataPtr = (UInt8 *)data;
 	OSStatus	ortn;

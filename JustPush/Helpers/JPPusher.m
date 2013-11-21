@@ -61,11 +61,7 @@ static const NSUInteger kJPPushMessageMaxLength = 293; // 1(cmd byte) + 2(token 
         return NO;
     }
 
-	result = SSLNewContext(false, &_context);
-    if (result != errSecSuccess) {
-        [self SSLError:@"SSLNewContext" SSLResult:result];
-        return NO;
-    }
+    _context = SSLCreateContext(NULL, kSSLClientSide, kSSLStreamType);
 
 	result = SSLSetIOFuncs(_context, SocketRead, SocketWrite);
     if (result != errSecSuccess) {
@@ -106,8 +102,8 @@ static const NSUInteger kJPPushMessageMaxLength = 293; // 1(cmd byte) + 2(token 
 - (void) disconnect {
     if (self.context != NULL) {
         SSLClose(_context);
-        close((int)_socket);
-        SSLDisposeContext(_context);
+        endpointShutdown(_socket);
+        CFRelease(_context);
     }
     self.context = NULL;
 }

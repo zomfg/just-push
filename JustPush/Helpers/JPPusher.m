@@ -15,11 +15,11 @@
 
 // https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/CommunicatingWIthAPS.html#//apple_ref/doc/uid/TP40008194-CH101-SW1
 
-const char* kJPPushRemoteServer        = "gateway.push.apple.com";
-const char* kJPPushRemoteSandboxServer = "gateway.sandbox.push.apple.com";
-const int   kJPPushRemotePort          = 2195;
+static const char* kJPPushRemoteServer          = "gateway.push.apple.com";
+static const char* kJPPushRemoteSandboxServer   = "gateway.sandbox.push.apple.com";
+static const int   kJPPushRemotePort            = 2195;
 
-const NSUInteger kJPPushMessageLength  = 293; // 1(cmd byte) + 2(token length) + 32(token) + 2(payload length) + 256(payload)
+static const NSUInteger kJPPushMessageMaxLength = 293; // 1(cmd byte) + 2(token length) + 32(token) + 2(payload length) + 256(payload)
 
 @interface JPPusher ()
 
@@ -127,7 +127,7 @@ const NSUInteger kJPPushMessageLength  = 293; // 1(cmd byte) + 2(token length) +
 	size_t payloadLength     = strlen(payloadBinary);
     size_t deviceTokenLength = tokenData.length;
 
-	char message[kJPPushMessageLength];
+	char message[kJPPushMessageMaxLength];
 	char *pointer = message;
 	uint16_t networkTokenLength   = htons(deviceTokenLength);
 	uint16_t networkPayloadLength = htons(payloadLength);

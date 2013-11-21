@@ -9,16 +9,18 @@
 #import "JPPayload.h"
 #import "JPNotification.h"
 
-NSString* const kPayloadKeyAPS                  = @"aps";
-NSString* const kPayloadKeyBadge                = @"badge";
-NSString* const kPayloadKeySound                = @"sound";
-NSString* const kPayloadKeyContentAvailable     = @"content-available";
-NSString* const kPayloadKeyAlert                = @"alert";
-NSString* const kPayloadKeyAlertBody            = @"body";
-NSString* const kPayloadKeyAlertActionLocKey    = @"action-loc-key";
-NSString* const kPayloadKeyAlertLocKey          = @"loc-key";
-NSString* const kPayloadKeyAlertLocArgs         = @"loc-args";
-NSString* const kPayloadKeyAlertLaunchImage     = @"launch-image";
+static NSString* const kPayloadKeyAPS                  = @"aps";
+static NSString* const kPayloadKeyBadge                = @"badge";
+static NSString* const kPayloadKeySound                = @"sound";
+static NSString* const kPayloadKeyContentAvailable     = @"content-available";
+static NSString* const kPayloadKeyAlert                = @"alert";
+static NSString* const kPayloadKeyAlertBody            = @"body";
+static NSString* const kPayloadKeyAlertActionLocKey    = @"action-loc-key";
+static NSString* const kPayloadKeyAlertLocKey          = @"loc-key";
+static NSString* const kPayloadKeyAlertLocArgs         = @"loc-args";
+static NSString* const kPayloadKeyAlertLaunchImage     = @"launch-image";
+
+static NSString* const kPayloadLocArgsDelimiter        = @",";
 
 @implementation JPPayload
 
@@ -36,25 +38,32 @@ NSString* const kPayloadKeyAlertLaunchImage     = @"launch-image";
 
 - (NSString*) generateJSON:(BOOL)pretty {
     id alert = nil;
-    if (self.alert && ![self.alert isEqualToString:@""])
+    if (self.alert.length > 0)
         alert = self.alert;
     else {
         alert = [NSMutableDictionary dictionary];
-        if (self.body && ![self.body isEqualToString:@""])
-            [alert setObject:self.body forKey:kPayloadKeyAlertBody];
-        if (self.actionLocKey && ![self.actionLocKey isEqualToString:@""])
+
+        if (self.actionLocKey.length > 0)
             [alert setObject:self.actionLocKey forKey:kPayloadKeyAlertActionLocKey];
-        if (self.locKey && ![self.locKey isEqualToString:@""])
+
+        if (self.locKey.length > 0) {
             [alert setObject:self.locKey forKey:kPayloadKeyAlertLocKey];
-        if (self.locArgs && ![self.locArgs isEqualToString:@""])
-            [alert setObject:self.locArgs forKey:kPayloadKeyAlertLocArgs];
-        if (self.launchImage && ![self.launchImage isEqualToString:@""])
+            if (self.locArgs > 0) {
+                NSArray* args = [self.locArgs componentsSeparatedByString:kPayloadLocArgsDelimiter];
+                if (args && args.count > 0)
+                    [alert setObject:args forKey:kPayloadKeyAlertLocArgs];
+            }
+        }
+        else if (self.body.length > 0)
+            [alert setObject:self.body forKey:kPayloadKeyAlertBody];
+
+        if (self.launchImage.length > 0)
             [alert setObject:self.launchImage forKey:kPayloadKeyAlertLaunchImage];
     }
     NSMutableDictionary* apsDico = [NSMutableDictionary new];
     if (alert)
         [apsDico setObject:alert forKey:kPayloadKeyAlert];
-    if (self.sound && ![self.sound isEqualToString:@""])
+    if (self.sound.length > 0)
         [apsDico setObject:self.sound forKey:kPayloadKeySound];
     if (self.badge)
         [apsDico setObject:self.badge forKey:kPayloadKeyBadge];

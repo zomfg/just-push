@@ -26,7 +26,7 @@
 - (id) sample {
     if (self.count == 0) return nil;
 
-    NSUInteger index = arc4random_uniform(self.count);
+    NSUInteger index = arc4random_uniform((u_int32_t)self.count);
     return self[index];
 }
 
@@ -60,7 +60,7 @@
     
 }
 
-- (void)eachWithIndex:(void (^)(id object, int index))block {
+- (void)eachWithIndex:(void (^)(id object, NSUInteger index))block {
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         block(obj, idx); 
     }];

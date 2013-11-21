@@ -225,7 +225,7 @@
 //    newToken.app = newApp;
 //    [newToken save];
 //
-    JPNotification* newNotif = nil;
+//    JPNotification* newNotif = nil;
 //    newNotif = [JPNotification create:@{@"app": newApp, @"sandbox" : @(YES)}];
 //    [newNotif save];
 //    return;
@@ -237,20 +237,28 @@
 //    JPApp* oldApp = [JPApp where:@"name == 'Angry Birds'"][0];
 //    NSLog(@"SOME APP %@ %@", oldApp.name, oldApp.icon == nil ? @"NO ICON :(" : NSStringFromSize(oldApp.icon.size));
 
-    for (JPNotification* n in [JPNotification all]) {
-        NSLog(@"%@", n);
-        if (!n.sandbox && [n.app.name isEqualToString:@"Music Mania"]) {
-            newNotif = n;
-            break;
-        }
-    }
-    if (newNotif) {
-        JPPusher* pusher = [JPPusher pusherWithNotification:newNotif];
-        [pusher push];
-    }
-
-//    JPPayload* pl = [JPPayload create:@{@"body": @"coucou"}];
+//    for (JPNotification* n in [JPNotification all]) {
+//        NSLog(@"%@", n);
+//        if (!n.sandbox && [n.app.name isEqualToString:@"Music Mania"]) {
+//            newNotif = n;
+//            break;
+//        }
+//    }
+//
+//    JPPayload* pl = [JPPayload create];
+//    pl.locKey = @"SOME_KEY";
+//    pl.locArgs= @"ARG1, ARG2, ARG3 ";
+//    pl.body = @"coucou";
+//    pl.customFields = @"{\"field1\":42, \"field2\":null, \"field3\":{}, \"field4\":[], \"field5\":true, \"field6\":\"valol\"}";
 //    NSLog(@"%@\n%@", pl.JSON, pl.prettyJSON);
+//
+//    newNotif.payload = pl;
+//
+//    if (newNotif) {
+//        JPPusher* pusher = [JPPusher pusherWithNotification:newNotif];
+//        [pusher push];
+//    }
+//
 
 //    JPDevice* device = nil;
 //    device = [JPDevice all][0];

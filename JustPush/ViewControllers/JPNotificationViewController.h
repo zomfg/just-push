@@ -14,4 +14,6 @@
 
 @property (nonatomic, readonly) JPNotification *notification;
 
+@property (nonatomic, weak) IBOutlet NSPopUpButton* certificatesButton;
+
 @end

@@ -31,10 +31,17 @@
     return @(((JPNotification*)self.objectValue).tokens.count);
 }
 
+- (NSImage *) identityStatusIcon {
+    if (((JPNotification*)self.objectValue).certificate.identity)
+        return [NSImage imageNamed:@"NSStatusAvailable"];
+    return [NSImage imageNamed:@"NSStatusUnavailable"];
+}
+
 - (void) setObjectValue:(id)objectValue {
     [super setObjectValue:objectValue];
     self.environementText.stringValue = [self environement];
     self.deviceNumberText.stringValue = [self numberOfDevices].stringValue;
+    self.identityStatusView.image     = [self identityStatusIcon];
 }
 
 - (NSImage *) deviceIcon {

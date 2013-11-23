@@ -676,14 +676,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="1006" height="584"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNO-J3-xGj">
+                    <scrollView autohidesScrollers="YES" horizontalLineScroll="52" horizontalPageScroll="10" verticalLineScroll="52" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNO-J3-xGj">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="584"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" copiesOnScroll="NO" id="8B9-gr-Gyg">
                             <rect key="frame" x="1" y="1" width="248" height="582"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="6dk-ef-Jiv">
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" rowSizeStyle="automatic" viewBased="YES" id="6dk-ef-Jiv">
                                     <rect key="frame" x="0.0" y="0.0" width="248" height="582"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -707,15 +707,20 @@
                                                     <rect key="frame" x="1" y="1" width="245" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9om-ou-9xg">
+                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RCh-R3-YAt" userLabel="Identity Status Icon">
+                                                            <rect key="frame" x="55" y="31" width="22" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSStatusUnavailable" id="3OY-r9-2Mn"/>
+                                                        </imageView>
+                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9om-ou-9xg" userLabel="App Icon">
                                                             <rect key="frame" x="3" y="-2" width="52" height="52"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="dBI-HE-T9F"/>
+                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="dBI-HE-T9F"/>
                                                             <connections>
                                                                 <binding destination="y5N-xx-BGl" name="value" keyPath="objectValue.app.icon" id="BFX-It-F4f"/>
                                                             </connections>
                                                         </imageView>
-                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kc0-oT-8OI">
+                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kc0-oT-8OI" userLabel="App Name">
                                                             <rect key="frame" x="73" y="33" width="171" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="NeJ-dd-m2Y">
@@ -727,7 +732,7 @@
                                                                 <binding destination="y5N-xx-BGl" name="value" keyPath="objectValue.app.name" id="Oee-R8-lVK"/>
                                                             </connections>
                                                         </textField>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yf8-Gg-2Wl">
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yf8-Gg-2Wl" userLabel="Notification Env">
                                                             <rect key="frame" x="73" y="8" width="106" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="BpL-Co-dU6">
@@ -736,7 +741,7 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qgb-DZ-p6A">
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qgb-DZ-p6A" userLabel="Device Count">
                                                             <rect key="frame" x="202" y="8" width="30" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="juR-gQ-9q4">
@@ -748,7 +753,7 @@
                                                                 <binding destination="y5N-xx-BGl" name="value" keyPath="numberOfDevices" id="2rV-cQ-bJL"/>
                                                             </connections>
                                                         </textField>
-                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUQ-DV-L3P">
+                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUQ-DV-L3P" userLabel="Device Icon">
                                                             <rect key="frame" x="177" y="-2" width="30" height="39"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSComputer" id="WE0-u3-9DN"/>
@@ -761,6 +766,7 @@
                                                         <outlet property="deviceIconView" destination="QUQ-DV-L3P" id="wQO-bV-rPv"/>
                                                         <outlet property="deviceNumberText" destination="Qgb-DZ-p6A" id="Sy4-wF-2BW"/>
                                                         <outlet property="environementText" destination="yf8-Gg-2Wl" id="0gL-SS-WCg"/>
+                                                        <outlet property="identityStatusView" destination="RCh-R3-YAt" id="qKr-O6-wIa"/>
                                                         <outlet property="imageView" destination="9om-ou-9xg" id="vK3-zG-3N5"/>
                                                         <outlet property="textField" destination="Kc0-oT-8OI" id="woc-AR-F8w"/>
                                                     </connections>
@@ -787,6 +793,17 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EKB-1p-HL1">
+                        <rect key="frame" x="276" y="266" width="66" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="new" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dgJ-4n-QhM">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="openNewNotification:" target="494" id="UmF-B3-5O4"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="TNO-J3-xGj" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="Czf-Pw-b0e"/>
@@ -801,9 +818,11 @@
             </connections>
         </customObject>
         <customObject id="420" customClass="NSFontManager"/>
+        <objectController mode="entity" id="kP6-pR-bht"/>
     </objects>
     <resources>
-        <image name="NSActionTemplate" width="14" height="14"/>
+        <image name="NSApplicationIcon" width="128" height="128"/>
         <image name="NSComputer" width="32" height="32"/>
+        <image name="NSStatusUnavailable" width="16" height="16"/>
     </resources>
 </document>

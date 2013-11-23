@@ -14,6 +14,7 @@
 
 @property (nonatomic, retain) IBOutlet NSTextField* deviceNumberText;
 @property (nonatomic, retain) IBOutlet NSTextField* environementText;
+@property (nonatomic, retain) IBOutlet NSImageView* identityStatusView;
 
 @property (nonatomic, readonly) NSImage* deviceIcon;
 

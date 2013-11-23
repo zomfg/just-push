@@ -796,10 +796,18 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
+                    <customView identifier="JPNotificationViewContainer" translatesAutoresizingMaskIntoConstraints="NO" id="Yzh-Nc-Jlw" userLabel="Notification View Container">
+                        <rect key="frame" x="255" y="5" width="746" height="574"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </customView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="TNO-J3-xGj" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="Czf-Pw-b0e"/>
+                    <constraint firstItem="Yzh-Nc-Jlw" firstAttribute="top" secondItem="372" secondAttribute="top" constant="5" id="Dck-Ju-VMc"/>
                     <constraint firstAttribute="bottom" secondItem="TNO-J3-xGj" secondAttribute="bottom" id="H3A-7y-r2Q"/>
+                    <constraint firstAttribute="trailing" secondItem="Yzh-Nc-Jlw" secondAttribute="trailing" constant="5" id="JpD-Lg-KxJ"/>
+                    <constraint firstItem="Yzh-Nc-Jlw" firstAttribute="leading" secondItem="TNO-J3-xGj" secondAttribute="trailing" constant="5" id="U5M-BR-L3S"/>
+                    <constraint firstAttribute="bottom" secondItem="Yzh-Nc-Jlw" secondAttribute="bottom" constant="5" id="sKI-E9-xuS"/>
                     <constraint firstItem="TNO-J3-xGj" firstAttribute="top" secondItem="372" secondAttribute="top" id="xbF-4w-KXJ"/>
                 </constraints>
             </view>
@@ -807,11 +815,12 @@
         <customObject id="494" customClass="JPAppDelegate">
             <connections>
                 <outlet property="notificationArrayController" destination="Ca9-Zj-amc" id="fAD-n3-IjK"/>
+                <outlet property="notificationViewController" destination="7h3-rd-18t" id="RDC-kN-rBE"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>
         <customObject id="420" customClass="NSFontManager"/>
-        <objectController mode="entity" id="kP6-pR-bht"/>
+        <viewController nibName="JPNotificationViewController" id="7h3-rd-18t" userLabel="Notification View Controller" customClass="JPNotificationViewController"/>
     </objects>
     <resources>
         <image name="NSApplicationIcon" width="128" height="128"/>

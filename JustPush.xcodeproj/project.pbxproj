@@ -16,6 +16,10 @@
 		7F62461818397BEF00D42EC8 /* MobileDevices.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F62461618397BEF00D42EC8 /* MobileDevices.bundle */; };
 		7F624623183996F000D42EC8 /* JPNotificationTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F624622183996F000D42EC8 /* JPNotificationTableCellView.m */; };
 		7F624624183996F000D42EC8 /* JPNotificationTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F624622183996F000D42EC8 /* JPNotificationTableCellView.m */; };
+		7F82B8E81840FCBB000694A8 /* JPNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B8E61840FCBB000694A8 /* JPNotificationViewController.m */; };
+		7F82B8E91840FCBB000694A8 /* JPNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B8E61840FCBB000694A8 /* JPNotificationViewController.m */; };
+		7F82B8ED1840FF49000694A8 /* JPNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F82B8EC1840FF49000694A8 /* JPNotificationViewController.xib */; };
+		7F82B8EE1840FF49000694A8 /* JPNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F82B8EC1840FF49000694A8 /* JPNotificationViewController.xib */; };
 		7FB580AD1837F84E0010793A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FB580AC1837F84E0010793A /* Cocoa.framework */; };
 		7FB580B71837F84E0010793A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FB580B51837F84E0010793A /* InfoPlist.strings */; };
 		7FB580B91837F84E0010793A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB580B81837F84E0010793A /* main.m */; };
@@ -70,6 +74,9 @@
 		7F62461618397BEF00D42EC8 /* MobileDevices.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MobileDevices.bundle; path = /System/Library/CoreServices/CoreTypes.bundle/Contents/Library/MobileDevices.bundle; sourceTree = "<absolute>"; };
 		7F624621183996F000D42EC8 /* JPNotificationTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPNotificationTableCellView.h; sourceTree = "<group>"; };
 		7F624622183996F000D42EC8 /* JPNotificationTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPNotificationTableCellView.m; sourceTree = "<group>"; };
+		7F82B8E51840FCBB000694A8 /* JPNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPNotificationViewController.h; sourceTree = "<group>"; };
+		7F82B8E61840FCBB000694A8 /* JPNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPNotificationViewController.m; sourceTree = "<group>"; };
+		7F82B8EC1840FF49000694A8 /* JPNotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JPNotificationViewController.xib; sourceTree = "<group>"; };
 		7FB580A91837F84E0010793A /* JustPush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustPush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FB580AC1837F84E0010793A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		7FB580AF1837F84E0010793A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -155,6 +162,9 @@
 			children = (
 				7F624621183996F000D42EC8 /* JPNotificationTableCellView.h */,
 				7F624622183996F000D42EC8 /* JPNotificationTableCellView.m */,
+				7F82B8E51840FCBB000694A8 /* JPNotificationViewController.h */,
+				7F82B8E61840FCBB000694A8 /* JPNotificationViewController.m */,
+				7F82B8EC1840FF49000694A8 /* JPNotificationViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -422,6 +432,7 @@
 				7FB58113183835C70010793A /* default_app_icon.png in Resources */,
 				7FB580C31837F84E0010793A /* MainMenu.xib in Resources */,
 				7F62461718397BEF00D42EC8 /* MobileDevices.bundle in Resources */,
+				7F82B8ED1840FF49000694A8 /* JPNotificationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FB580D81837F84E0010793A /* InfoPlist.strings in Resources */,
+				7F82B8EE1840FF49000694A8 /* JPNotificationViewController.xib in Resources */,
 				7F62461818397BEF00D42EC8 /* MobileDevices.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +471,7 @@
 				7FB58106183825FD0010793A /* NSArray+ObjectiveSugar.m in Sources */,
 				7F624623183996F000D42EC8 /* JPNotificationTableCellView.m in Sources */,
 				7FB580EC18380ACD0010793A /* JPNotification.m in Sources */,
+				7F82B8E81840FCBB000694A8 /* JPNotificationViewController.m in Sources */,
 				7FB580E918380ACD0010793A /* JPApp.m in Sources */,
 				7FB5810B183825FD0010793A /* NSString+ObjectiveSugar.m in Sources */,
 				235C1DE6183BDA17003D3867 /* JPPusher.m in Sources */,
@@ -471,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FFAC9DC183AE1AC00C0534F /* JPCertificateToDataTransformer.m in Sources */,
+				7F82B8E91840FCBB000694A8 /* JPNotificationViewController.m in Sources */,
 				7FFAC9D2183ABF8B00C0534F /* JPCertificate.m in Sources */,
 				235C1DE7183BDA17003D3867 /* JPPusher.m in Sources */,
 				7FFAC9E0183AEFB200C0534F /* NSData+Digest.m in Sources */,

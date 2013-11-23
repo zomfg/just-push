@@ -15,6 +15,7 @@
 #import "JPNotification.h"
 #import "JPCertificate.h"
 #import "JPPusher.h"
+#import "JPNotificationViewController.h"
 
 @implementation JPAppDelegate
 
@@ -198,12 +199,25 @@
 }
 
 - (void)tableViewSelectionDidChange:(NSNotification *)notification {
-    JPNotification* n = self.notificationArrayController.selectedObjects[0];
+    JPNotification* n = [self.notificationArrayController.selectedObjects lastObject];
+    self.notificationViewController.representedObject = n;
     NSLog(@"selected notification %@", n);
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    for (NSView* v in ((NSView*)self.window.contentView).subviews) {
+        if ([v.identifier isEqualToString:@"JPNotificationViewContainer"]) {
+            NSRect f = v.frame;
+            f.origin = CGPointZero;
+            self.notificationViewController.view.frame = f;
+            v.autoresizesSubviews = YES;
+            self.notificationViewController.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+            [v addSubview:self.notificationViewController.view];
+            break;
+        }
+    }
+//    [self.window.contentView addSubview:];
     return;
 //    NSArray* certArray = [JPCertificate certificatesWithBundleId:@"com.lequipe.game.squiz"];
 //    NSLog(@"CERTIFS %@", certArray);

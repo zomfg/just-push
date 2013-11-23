@@ -12,8 +12,7 @@
 
 @interface JPPayload : NSManagedObject
 
-@property (nonatomic, retain) NSString *alert;
-@property (nonatomic, retain) NSString *body;
+@property (nonatomic, retain) NSString *message;
 @property (nonatomic, retain) NSString *actionLocKey;
 @property (nonatomic, retain) NSString *locKey;
 @property (nonatomic, retain) NSString *locArgs;

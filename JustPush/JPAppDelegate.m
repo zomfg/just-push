@@ -155,23 +155,24 @@
                                                 @"app" : musicMania,
                                                 @"device" : iphone}];
 
-    JPPayload* genericPayload = [JPPayload create:@{@"alert": @"just push", @"badge" : @42}];
+    JPPayload* p1 = [JPPayload create:@{@"message": @"just push", @"badge" : @42, @"locKey" : @"SOME_KEY", @"locArgs" : @"arg1,arg2"}];
+    JPPayload* p2 = [JPPayload create:@{@"message": @"just push", @"badge" : @42}];
     
     JPNotification* n1 = [JPNotification create:@{@"app": angryBirds,
-                                                  @"payload" : genericPayload,
+                                                  @"payload" : p1,
                                                   @"sandbox" : @YES}];
     
     JPNotification* n2 = [JPNotification create:@{@"app": angryBirds,
-                                                  @"payload" : genericPayload,
+                                                  @"payload" : p2,
                                                   @"sandbox" : @NO}];
     JPNotification* n3 = [JPNotification create:@{@"app": musicMania,
-                                                  @"payload" : genericPayload,
+                                                  @"payload" : p1,
                                                   @"sandbox" : @YES}];
 
     n3.certificate = [JPCertificate certificatesWithBundleId:musicMania.bundleId sandbox:n3.sandbox][0];
 
     JPNotification* n4 = [JPNotification create:@{@"app": musicMania,
-                                                  @"payload" : genericPayload,
+                                                  @"payload" : p2,
                                                   @"sandbox" : @NO}];
     
     n4.certificate = [JPCertificate certificatesWithBundleId:musicMania.bundleId sandbox:n4.sandbox][0];
@@ -190,7 +191,8 @@
     [t5 save];
     [t6 save];
 
-    [genericPayload save];
+    [p1 save];
+    [p2 save];
 
     [n1 save];
     [n2 save];

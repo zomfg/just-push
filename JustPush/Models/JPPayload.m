@@ -24,8 +24,7 @@ static NSString* const kPayloadLocArgsDelimiter        = @",";
 
 @implementation JPPayload
 
-@dynamic alert;
-@dynamic body;
+@dynamic message;
 @dynamic actionLocKey;
 @dynamic locKey;
 @dynamic locArgs;
@@ -37,30 +36,29 @@ static NSString* const kPayloadLocArgsDelimiter        = @",";
 @dynamic notifications;
 
 - (NSString*) generateJSON:(BOOL)pretty {
-    id alert = nil;
-    if (self.alert.length > 0)
-        alert = self.alert;
-    else {
-        alert = [NSMutableDictionary dictionary];
+    id alert = [NSMutableDictionary dictionary];
 
-        if (self.actionLocKey.length > 0)
-            [alert setObject:self.actionLocKey forKey:kPayloadKeyAlertActionLocKey];
+    if (self.actionLocKey.length > 0)
+        [alert setObject:self.actionLocKey forKey:kPayloadKeyAlertActionLocKey];
 
-        if (self.locKey.length > 0) {
-            [alert setObject:self.locKey forKey:kPayloadKeyAlertLocKey];
-            if (self.locArgs > 0) {
-                NSArray* args = [self.locArgs componentsSeparatedByString:kPayloadLocArgsDelimiter];
-                if (args.count > 0)
-                    [alert setObject:args forKey:kPayloadKeyAlertLocArgs];
-            }
+    if (self.locKey.length > 0) {
+        [alert setObject:self.locKey forKey:kPayloadKeyAlertLocKey];
+        if (self.locArgs > 0) {
+            NSArray* args = [self.locArgs componentsSeparatedByString:kPayloadLocArgsDelimiter];
+            if (args.count > 0)
+                [alert setObject:args forKey:kPayloadKeyAlertLocArgs];
         }
-        else if (self.body.length > 0)
-            [alert setObject:self.body forKey:kPayloadKeyAlertBody];
-
-        if (self.launchImage.length > 0)
-            [alert setObject:self.launchImage forKey:kPayloadKeyAlertLaunchImage];
     }
-    NSMutableDictionary* apsDico = [NSMutableDictionary new];
+    else if (self.message.length > 0)
+        [alert setObject:self.message forKey:kPayloadKeyAlertBody];
+
+    if (self.launchImage.length > 0)
+        [alert setObject:self.launchImage forKey:kPayloadKeyAlertLaunchImage];
+
+    if ([alert isEmpty] && self.message.length > 0)
+        alert = self.message;
+
+    NSMutableDictionary* apsDico = [NSMutableDictionary dictionary];
     if (alert)
         [apsDico setObject:alert forKey:kPayloadKeyAlert];
     if (self.sound.length > 0)

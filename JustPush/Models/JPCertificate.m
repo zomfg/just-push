@@ -64,18 +64,11 @@ static NSMutableArray* _certificateCache = nil;
     return nil;
 }
 
-+ (NSArray *) certificatesWithBundleId:(NSString *)bundleId {
-    NSMutableArray* results = [NSMutableArray new];
-    for (JPCertificate* certificate in [self fetchAll])
-        if (certificate.bundleId && [certificate.bundleId isEqualToString:bundleId])
-            [results addObject:certificate];
-    return results;
-}
-
 + (NSArray *) certificatesWithBundleId:(NSString *)bundleId sandbox:(BOOL)sandbox {
+    
     NSMutableArray* results = [NSMutableArray new];
     for (JPCertificate* certificate in [self fetchAll])
-        if (certificate.bundleId && [certificate.bundleId isEqualToString:bundleId] && certificate.sandbox == sandbox)
+        if (certificate.sandbox == sandbox && (bundleId.length < 1 || [certificate.bundleId isEqualToString:bundleId]))
             [results addObject:certificate];
     return results;
 }

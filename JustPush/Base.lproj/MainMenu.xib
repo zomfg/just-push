@@ -777,6 +777,9 @@
                                             </connections>
                                         </tableColumn>
                                     </tableColumns>
+                                    <connections>
+                                        <outlet property="delegate" destination="494" id="4f0-wq-Zvt"/>
+                                    </connections>
                                 </tableView>
                             </subviews>
                             <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -793,17 +796,6 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EKB-1p-HL1">
-                        <rect key="frame" x="276" y="266" width="66" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="new" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dgJ-4n-QhM">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="openNewNotification:" target="494" id="UmF-B3-5O4"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="TNO-J3-xGj" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="Czf-Pw-b0e"/>
@@ -814,6 +806,7 @@
         </window>
         <customObject id="494" customClass="JPAppDelegate">
             <connections>
+                <outlet property="notificationArrayController" destination="Ca9-Zj-amc" id="fAD-n3-IjK"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>

@@ -197,8 +197,14 @@
     [n4 save];
 }
 
+- (void)tableViewSelectionDidChange:(NSNotification *)notification {
+    JPNotification* n = self.notificationArrayController.selectedObjects[0];
+    NSLog(@"selected notification %@", n);
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    return;
 //    NSArray* certArray = [JPCertificate certificatesWithBundleId:@"com.lequipe.game.squiz"];
 //    NSLog(@"CERTIFS %@", certArray);
 //    JPCertificate* cert = [JPCertificate fetchAll][0];
@@ -225,7 +231,7 @@
 //    newToken.app = newApp;
 //    [newToken save];
 //
-//    JPNotification* newNotif = nil;
+    JPNotification* newNotif = nil;
 //    newNotif = [JPNotification create:@{@"app": newApp, @"sandbox" : @(YES)}];
 //    [newNotif save];
 //    return;
@@ -237,13 +243,13 @@
 //    JPApp* oldApp = [JPApp where:@"name == 'Angry Birds'"][0];
 //    NSLog(@"SOME APP %@ %@", oldApp.name, oldApp.icon == nil ? @"NO ICON :(" : NSStringFromSize(oldApp.icon.size));
 
-//    for (JPNotification* n in [JPNotification all]) {
-//        NSLog(@"%@", n);
-//        if (!n.sandbox && [n.app.name isEqualToString:@"Music Mania"]) {
-//            newNotif = n;
-//            break;
-//        }
-//    }
+    for (JPNotification* n in [JPNotification all]) {
+        NSLog(@"%@", n);
+        if (!n.sandbox && [n.app.name isEqualToString:@"Music Mania"]) {
+            newNotif = n;
+            break;
+        }
+    }
 //
 //    JPPayload* pl = [JPPayload create];
 //    pl.locKey = @"SOME_KEY";
@@ -254,10 +260,10 @@
 //
 //    newNotif.payload = pl;
 //
-//    if (newNotif) {
-//        JPPusher* pusher = [JPPusher pusherWithNotification:newNotif];
-//        [pusher push];
-//    }
+    if (newNotif) {
+        JPPusher* pusher = [JPPusher pusherWithNotification:newNotif];
+        [pusher push];
+    }
 //
 
 //    JPDevice* device = nil;

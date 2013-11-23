@@ -8,9 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface JPAppDelegate : NSObject <NSApplicationDelegate>
+@interface JPAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (weak) IBOutlet NSArrayController *notificationArrayController;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;

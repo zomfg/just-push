@@ -12,10 +12,10 @@
 
 @interface JPNotificationTableCellView : NSTableCellView
 
-@property (nonatomic, retain) IBOutlet NSTextField* deviceNumberText;
-@property (nonatomic, retain) IBOutlet NSTextField* environementText;
-@property (nonatomic, retain) IBOutlet NSImageView* identityStatusView;
-
-@property (nonatomic, readonly) NSImage* deviceIcon;
+@property (nonatomic, readonly) JPNotification *notification;
+@property (nonatomic, readonly) NSString       *environment;
+@property (nonatomic, readonly) NSString       *numberOfDevices;
+@property (nonatomic, readonly) NSImage        *deviceIcon;
+@property (nonatomic, readonly) NSImage        *identityStatusIcon;
 
 @end

@@ -711,13 +711,16 @@
                                                             <rect key="frame" x="55" y="31" width="22" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSStatusUnavailable" id="3OY-r9-2Mn"/>
+                                                            <connections>
+                                                                <binding destination="y5N-xx-BGl" name="value" keyPath="self.identityStatusIcon" id="iZ0-lj-AP9"/>
+                                                            </connections>
                                                         </imageView>
                                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9om-ou-9xg" userLabel="App Icon">
                                                             <rect key="frame" x="3" y="-2" width="52" height="52"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="dBI-HE-T9F"/>
                                                             <connections>
-                                                                <binding destination="y5N-xx-BGl" name="value" keyPath="objectValue.app.icon" id="BFX-It-F4f"/>
+                                                                <binding destination="y5N-xx-BGl" name="value" keyPath="self.notification.app.icon" id="60g-Lq-9NW"/>
                                                             </connections>
                                                         </imageView>
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kc0-oT-8OI" userLabel="App Name">
@@ -729,7 +732,7 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                             <connections>
-                                                                <binding destination="y5N-xx-BGl" name="value" keyPath="objectValue.app.name" id="Oee-R8-lVK"/>
+                                                                <binding destination="y5N-xx-BGl" name="value" keyPath="self.notification.app.name" id="GLG-ss-U0l"/>
                                                             </connections>
                                                         </textField>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yf8-Gg-2Wl" userLabel="Notification Env">
@@ -740,6 +743,9 @@
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
+                                                            <connections>
+                                                                <binding destination="y5N-xx-BGl" name="value" keyPath="self.environment" id="ldH-CP-ezI"/>
+                                                            </connections>
                                                         </textField>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qgb-DZ-p6A" userLabel="Device Count">
                                                             <rect key="frame" x="202" y="8" width="30" height="17"/>
@@ -750,7 +756,7 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                             <connections>
-                                                                <binding destination="y5N-xx-BGl" name="value" keyPath="numberOfDevices" id="2rV-cQ-bJL"/>
+                                                                <binding destination="y5N-xx-BGl" name="value" keyPath="self.numberOfDevices" id="Afs-Qi-kgh"/>
                                                             </connections>
                                                         </textField>
                                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUQ-DV-L3P" userLabel="Device Icon">
@@ -762,14 +768,6 @@
                                                             </connections>
                                                         </imageView>
                                                     </subviews>
-                                                    <connections>
-                                                        <outlet property="deviceIconView" destination="QUQ-DV-L3P" id="wQO-bV-rPv"/>
-                                                        <outlet property="deviceNumberText" destination="Qgb-DZ-p6A" id="Sy4-wF-2BW"/>
-                                                        <outlet property="environementText" destination="yf8-Gg-2Wl" id="0gL-SS-WCg"/>
-                                                        <outlet property="identityStatusView" destination="RCh-R3-YAt" id="qKr-O6-wIa"/>
-                                                        <outlet property="imageView" destination="9om-ou-9xg" id="vK3-zG-3N5"/>
-                                                        <outlet property="textField" destination="Kc0-oT-8OI" id="woc-AR-F8w"/>
-                                                    </connections>
                                                 </tableCellView>
                                             </prototypeCellViews>
                                             <connections>

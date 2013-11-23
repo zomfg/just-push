@@ -23,25 +23,34 @@
     return self;
 }
 
-- (NSString *) environement {
-    return ((JPNotification*)self.objectValue).sandbox ? @"Sandbox" : @"Production";
+- (JPNotification *) notification {
+    return self.objectValue;
 }
 
-- (NSNumber *) numberOfDevices {
-    return @(((JPNotification*)self.objectValue).tokens.count);
+- (NSString *) environment {
+    return self.notification.sandbox ? @"Sandbox" : @"Production";
+}
+
+- (NSString *) numberOfDevices {
+    return @(self.notification.tokens.count).stringValue;
 }
 
 - (NSImage *) identityStatusIcon {
-    if (((JPNotification*)self.objectValue).certificate.identity)
+    if (self.notification.certificate.identity)
         return [NSImage imageNamed:@"NSStatusAvailable"];
     return [NSImage imageNamed:@"NSStatusUnavailable"];
 }
 
 - (void) setObjectValue:(id)objectValue {
+    [self willChangeValueForKey:@"notification"];
+    [self willChangeValueForKey:@"environment"];
+    [self willChangeValueForKey:@"numberOfDevices"];
+    [self willChangeValueForKey:@"identityStatusIcon"];
     [super setObjectValue:objectValue];
-    self.environementText.stringValue = [self environement];
-    self.deviceNumberText.stringValue = [self numberOfDevices].stringValue;
-    self.identityStatusView.image     = [self identityStatusIcon];
+    [self didChangeValueForKey:@"notification"];
+    [self didChangeValueForKey:@"environment"];
+    [self didChangeValueForKey:@"numberOfDevices"];
+    [self didChangeValueForKey:@"identityStatusIcon"];
 }
 
 - (NSImage *) deviceIcon {

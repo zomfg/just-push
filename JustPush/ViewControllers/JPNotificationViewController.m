@@ -57,8 +57,6 @@ typedef enum {
 
 @interface JPNotificationViewController ()
 
-@property (nonatomic, strong) NSTimer* updateTimer;
-
 @end
 
 @implementation JPNotificationViewController
@@ -72,31 +70,31 @@ typedef enum {
     return self;
 }
 
-- (void) loadView {
-    [super loadView];
-    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updatePayloadLength) userInfo:nil repeats:YES];
-}
-
 - (void) dealloc {
-    [self.updateTimer invalidate];
     [self.representedObject removeObserver:self forKeyPath:@"sandbox"];
 }
 
+#pragma mark - KVO
+
++ (NSSet *) keyPathsForValuesAffectingNotification {
+    return [NSSet setWithObject:@"representedObject"];
+}
+
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if ([object isEqualTo:self.representedObject] && [keyPath isEqualToString:@"sandbox"]) {
-        [self.notification willChangeValueForKey:@"tokens"];
-        [self.notification didChangeValueForKey:@"tokens"];
+    if ([object isEqualTo:self.representedObject] && [keyPath isEqualToString:@"sandbox"])
         [self refreshCertificatesList];
-    }
+    else if ([object isEqualTo:self.notification.payload] && [keyPath isEqualToString:@"JSON"])
+        [self updatePayloadLength];
 }
 
 - (void) setRepresentedObject:(id)representedObject {
     [self.representedObject removeObserver:self forKeyPath:@"sandbox"];
     [representedObject addObserver:self forKeyPath:@"sandbox" options:NSKeyValueObservingOptionNew context:NULL];
-    [self willChangeValueForKey:@"notification"];
+    [self.notification.payload removeObserver:self forKeyPath:@"JSON"];
     [super setRepresentedObject:representedObject];
-    [self didChangeValueForKey:@"notification"];
+    [self.notification.payload addObserver:self forKeyPath:@"JSON" options:NSKeyValueObservingOptionNew context:NULL];
     [self refreshCertificatesList];
+    [self updatePayloadLength];
 }
 
 - (JPNotification *) notification {

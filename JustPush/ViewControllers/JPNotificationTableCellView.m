@@ -41,16 +41,20 @@
     return [NSImage imageNamed:@"NSStatusUnavailable"];
 }
 
-- (void) setObjectValue:(id)objectValue {
-    [self willChangeValueForKey:@"notification"];
-    [self willChangeValueForKey:@"environment"];
-    [self willChangeValueForKey:@"numberOfDevices"];
-    [self willChangeValueForKey:@"identityStatusIcon"];
-    [super setObjectValue:objectValue];
-    [self didChangeValueForKey:@"notification"];
-    [self didChangeValueForKey:@"environment"];
-    [self didChangeValueForKey:@"numberOfDevices"];
-    [self didChangeValueForKey:@"identityStatusIcon"];
++ (NSSet *) keyPathsForValuesAffectingNotification {
+    return [NSSet setWithObject:@"objectValue"];
+}
+
++ (NSSet *) keyPathsForValuesAffectingEnvironment {
+    return [NSSet setWithObject:@"notification.sandbox"];
+}
+
++ (NSSet *) keyPathsForValuesAffectingIdentityStatusIcon {
+    return [NSSet setWithObject:@"notification.certificate"];
+}
+
++ (NSSet *) keyPathsForValuesAffectingNumberOfDevices {
+    return [NSSet setWithObject:@"notification.numberOfDeviceTokens"];
 }
 
 - (NSImage *) deviceIcon {

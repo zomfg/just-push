@@ -27,4 +27,12 @@
     return [JPDeviceToken countWhere:@{@"app" : self.app, @"sandbox" : @(self.sandbox)}];
 }
 
++ (NSSet *) keyPathsForValuesAffectingTokens {
+    return [NSSet setWithObjects:@"app", @"sandbox", nil];
+}
+
++ (NSSet *) keyPathsForValuesAffectingNumberOfDeviceTokens {
+    return [self keyPathsForValuesAffectingTokens];
+}
+
 @end

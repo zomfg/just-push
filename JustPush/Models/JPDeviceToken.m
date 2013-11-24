@@ -28,4 +28,8 @@
     return deviceTokenData;
 }
 
++ (NSSet *) keyPathsForValuesAffectingTokenData {
+    return [NSSet setWithObject:@"token"];
+}
+
 @end

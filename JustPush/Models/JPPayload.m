@@ -113,4 +113,12 @@ static NSString* const kPayloadLocArgsDelimiter        = @"|";
     return ([result isKindOfClass:[NSDictionary class]] && *error == nil);
 }
 
++ (NSSet *) keyPathsForValuesAffectingJSON {
+    return [NSSet setWithObjects:@"message", @"locKey", @"locArgs", @"actionLocKey", @"launchImage", @"badge", @"sound", @"contentAvailable", @"customFields", nil];
+}
+
++ (NSSet *) keyPathsForValuesAffectingPrettyJSON {
+    return [self keyPathsForValuesAffectingJSON];
+}
+
 @end

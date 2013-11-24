@@ -9,8 +9,6 @@
 #import "JPDevice.h"
 #import "JPDeviceToken.h"
 
-//NSString const*
-
 NSString* const kJPTypeIconImageKey = @"JPTypeIconImage";
 
 static NSMutableDictionary* _devices = nil;
@@ -78,6 +76,18 @@ static NSMutableDictionary* _devices = nil;
 
 - (NSImage *) icon {
     return self.deviceDetails[kJPTypeIconImageKey];
+}
+
++ (NSSet *) keyPathsForValuesAffectingIcon {
+    return [NSSet setWithObject:@"typeIdentifier"];
+}
+
++ (NSSet *) keyPathsForValuesAffectingIconFileName {
+    return [self keyPathsForValuesAffectingIcon];
+}
+
++ (NSSet *) keyPathsForValuesAffectingDescription {
+    return [self keyPathsForValuesAffectingIcon];
 }
 
 @end

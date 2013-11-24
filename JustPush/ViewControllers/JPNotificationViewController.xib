@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="JPNotificationViewController">
             <connections>
                 <outlet property="certificatesButton" destination="oQD-hw-IaQ" id="RBo-9V-x72"/>
+                <outlet property="payloadLengthLabel" destination="tD8-XS-oNu" id="vdo-sU-2yi"/>
                 <outlet property="view" destination="1" id="2"/>
             </connections>
         </customObject>
@@ -358,6 +359,15 @@
                                             <action selector="copyPayloadToPasteboard:" target="-2" id="y0l-fc-d0t"/>
                                         </connections>
                                     </button>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tD8-XS-oNu" userLabel="Payload length Label">
+                                        <rect key="frame" x="178" y="21" width="38" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="0" id="6Kr-bu-r2b">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                 </subviews>
                             </view>
                         </tabViewItem>

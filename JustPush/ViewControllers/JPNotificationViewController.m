@@ -57,6 +57,8 @@ typedef enum {
 
 @interface JPNotificationViewController ()
 
+@property (nonatomic, strong) NSTimer* updateTimer;
+
 @end
 
 @implementation JPNotificationViewController
@@ -70,7 +72,13 @@ typedef enum {
     return self;
 }
 
+- (void) loadView {
+    [super loadView];
+    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updatePayloadLength) userInfo:nil repeats:YES];
+}
+
 - (void) dealloc {
+    [self.updateTimer invalidate];
     [self.representedObject removeObserver:self forKeyPath:@"sandbox"];
 }
 
@@ -120,6 +128,14 @@ typedef enum {
         [self.certificatesButton selectItem:item];
     }
     [self selectedNewCertificate:self.certificatesButton];
+}
+
+- (void) updatePayloadLength {
+    self.payloadLengthLabel.integerValue = 256 - self.notification.payload.JSON.length;
+    if (self.payloadLengthLabel.integerValue < 0)
+        self.payloadLengthLabel.textColor = [NSColor redColor];
+    else
+        self.payloadLengthLabel.textColor = [NSColor blackColor];
 }
 
 #pragma mark - Actions

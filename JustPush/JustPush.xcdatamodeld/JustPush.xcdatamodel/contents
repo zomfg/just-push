@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="JPApp" representedClassName="JPApp" syncable="YES">
-        <attribute name="bundleId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bundleId" optional="YES" attributeType="String" regularExpressionString="^([0-9a-zA-Z-]+\.?)+$" syncable="YES"/>
         <attribute name="icon" optional="YES" attributeType="Transformable" valueTransformerName="JPImageToDataTransofrmer" syncable="YES"/>
         <attribute name="iTunesAppId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" minValueString="2" maxValueString="255" syncable="YES"/>
         <relationship name="notifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JPNotification" inverseName="app" inverseEntity="JPNotification" syncable="YES"/>
         <relationship name="tokens" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JPDeviceToken" inverseName="app" inverseEntity="JPDeviceToken" syncable="YES"/>
     </entity>
@@ -15,7 +15,7 @@
     </entity>
     <entity name="JPDeviceToken" representedClassName="JPDeviceToken" syncable="YES">
         <attribute name="sandbox" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="token" attributeType="String" minValueString="71" maxValueString="71" regularExpressionString="^([a-fA-F0-9]{8} ){7}[a-fA-F0-9]{8}$" syncable="YES"/>
         <relationship name="app" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JPApp" inverseName="tokens" inverseEntity="JPApp" syncable="YES"/>
         <relationship name="device" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JPDevice" inverseName="tokens" inverseEntity="JPDevice" syncable="YES"/>
     </entity>
@@ -32,7 +32,7 @@
         <attribute name="contentAvailable" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="customFields" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="launchImage" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="locArgs" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locArgs" optional="YES" attributeType="String" regularExpressionString="^([^|]+\|?)+$" syncable="YES"/>
         <attribute name="locKey" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sound" optional="YES" attributeType="String" syncable="YES"/>

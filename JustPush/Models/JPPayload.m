@@ -20,7 +20,7 @@ static NSString* const kPayloadKeyAlertLocKey          = @"loc-key";
 static NSString* const kPayloadKeyAlertLocArgs         = @"loc-args";
 static NSString* const kPayloadKeyAlertLaunchImage     = @"launch-image";
 
-static NSString* const kPayloadLocArgsDelimiter        = @",";
+static NSString* const kPayloadLocArgsDelimiter        = @"|";
 
 @implementation JPPayload
 
@@ -102,6 +102,16 @@ static NSString* const kPayloadLocArgsDelimiter        = @",";
 
 - (NSString *) description {
     return [self JSON];
+}
+
+- (BOOL) validateCustomFields:(NSString *__autoreleasing *)value error:(NSError *__autoreleasing *)error {
+    *error = nil;
+    if ((*value).length < 1)
+        return YES;
+    const char * bytes = [*value UTF8String];
+    id result = [NSJSONSerialization JSONObjectWithData:[NSData dataWithBytes:bytes length:strlen(bytes)]
+                                                options:NSJSONReadingAllowFragments error:error];
+    return ([result isKindOfClass:[NSDictionary class]] && *error == nil);
 }
 
 @end

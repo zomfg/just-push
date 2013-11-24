@@ -11,6 +11,7 @@
 #import "JPCertificate.h"
 #import "JPApp.h"
 #import "JPPayload.h"
+#import "JPPusher.h"
 
 typedef enum {
     JPCertificateMenuItemNoValueType,
@@ -147,6 +148,11 @@ typedef enum {
     NSPasteboard* pboard = [NSPasteboard generalPasteboard];
     [pboard clearContents];
     [pboard setString:self.notification.payload.JSON forType:NSPasteboardTypeString];
+}
+
+- (IBAction) push:(id)sender {
+    JPPusher* pusher = [JPPusher pusherWithNotification:self.notification];
+    [pusher push];
 }
 
 @end

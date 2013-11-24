@@ -25,5 +25,6 @@
 
 - (IBAction) selectedNewCertificate:(NSPopUpButton *)sender;
 - (IBAction) copyPayloadToPasteboard:(id)sender;
+- (IBAction) push:(id)sender;
 
 @end

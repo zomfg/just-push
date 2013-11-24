@@ -116,10 +116,20 @@ static NSMutableArray* _certificateCache = nil;
     return _identity;
 }
 
+- (NSString *) fingerprintString {
+    if (self.fingerprint.length < 1)
+        return nil;
+    NSMutableString* formattedFingerPrint = [NSMutableString stringWithCapacity:self.fingerprint.length * 3 - 1];
+    const unsigned char* bytes = self.fingerprint.bytes;
+    for (NSUInteger i = 0; i < self.fingerprint.length; i++)
+        [formattedFingerPrint appendFormat:i == 0 ? @"%02X" : @" %02X", bytes[i]];
+    return formattedFingerPrint;
+}
+
 - (NSString *) description {
     return [@{@"commonName": self.commonName,
               @"bundleId": self.bundleId,
-              @"MD5 fingerprint": self.fingerprint,
+              @"MD5 fingerprint": self.fingerprintString,
               @"has identity" : self.identity == NULL ? @"NO" : @"YES",
               @"sandbox" : @(self.sandbox)} description];
 }

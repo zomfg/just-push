@@ -15,6 +15,7 @@
 @property (nonatomic, readonly) NSString* bundleId;
 @property (nonatomic, readonly) BOOL sandbox;
 @property (nonatomic, readonly) SecIdentityRef identity;
+@property (nonatomic, readonly) NSString* fingerprintString;
 
 + (NSArray *) fetchAll;
 + (JPCertificate *) certificateWithFingerprint:(NSData *)fingerprint;

@@ -93,13 +93,16 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" imagePosition="left" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="PKI-OE-Ta4" id="wxh-0J-x8h">
                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
+                                <font key="font" metaFont="menu"/>
                                 <menu key="menu" title="OtherViews" id="j4i-45-5ZH">
                                     <items>
-                                        <menuItem title="Item 1" state="on" image="CertSmallStd" onStateImage="CertSmallStd" offStateImage="CertSmallStd_Invalid" id="PKI-OE-Ta4"/>
+                                        <menuItem title="Item 1" state="on" image="CertSmallStd" onStateImage="CertSmallStd" offStateImage="CertSmallStd_Invalid" id="PKI-OE-Ta4" customClass="JPCertificateMenuItem"/>
                                     </items>
                                 </menu>
                             </popUpButtonCell>
+                            <connections>
+                                <action selector="selectedNewCertificate:" target="-2" id="V4I-cI-86F"/>
+                            </connections>
                         </popUpButton>
                     </subviews>
                     <constraints>
@@ -315,14 +318,14 @@
                                 <rect key="frame" x="10" y="33" width="819" height="439"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="58" horizontalPageScroll="10" verticalLineScroll="58" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGg-2T-dAR" userLabel="Device Token Table">
+                                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGg-2T-dAR" userLabel="Device Token Table">
                                         <rect key="frame" x="2" y="17" width="815" height="424"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <clipView key="contentView" ambiguous="YES" misplaced="YES" copiesOnScroll="NO" id="aTL-tX-El9">
                                             <rect key="frame" x="1" y="1" width="813" height="422"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="56" rowSizeStyle="automatic" viewBased="YES" id="sSf-8N-FcG">
+                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="sSf-8N-FcG">
                                                     <rect key="frame" x="0.0" y="0.0" width="813" height="422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -433,8 +436,8 @@
         </customView>
         <arrayController mode="entity" entityName="JPDeviceToken" editable="NO" automaticallyPreparesContent="YES" id="crn-k7-I8D" userLabel="Device Token Array Controller">
             <connections>
-                <binding destination="-2" name="contentArray" keyPath="self.notification.tokens" id="TW1-YC-KCo"/>
                 <binding destination="-2" name="managedObjectContext" keyPath="self.notification.managedObjectContext" id="iZX-fH-bI4"/>
+                <binding destination="-2" name="contentArray" keyPath="self.notification.tokens" id="TW1-YC-KCo"/>
             </connections>
         </arrayController>
     </objects>

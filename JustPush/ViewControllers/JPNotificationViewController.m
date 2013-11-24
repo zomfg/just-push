@@ -11,9 +11,50 @@
 #import "JPCertificate.h"
 #import "JPApp.h"
 
-@interface JPNotificationViewController ()
+typedef enum {
+    JPCertificateMenuItemNoValueType,
+    JPCertificateMenuItemNoContentType
+} JPCertificateMenuItemType;
 
-@property (nonatomic, retain) NSArray* pwet;
+@implementation JPCertificateMenuItem
+
++ (id) itemWithType:(JPCertificateMenuItemType)type {
+    JPCertificateMenuItem* item = [JPCertificateMenuItem new];
+    if (type == JPCertificateMenuItemNoContentType) {
+        item.title = @"Add a valid APNS Certificate to your Keychain";
+        item.image = [NSImage imageNamed:@"Keychain"];
+    } else if (type == JPCertificateMenuItemNoValueType) {
+        item.title = @"Select a valid APNS Certificate";
+        item.image = [NSImage imageNamed:@"CertSmallPersonal"];
+    }
+    return item;
+}
+
++ (id) itemWithCertificate:(JPCertificate *)certificate sandbox:(BOOL)sandbox {
+    JPCertificateMenuItem* item = [JPCertificateMenuItem new];
+    [item configureForCertificate:certificate sandbox:sandbox];
+    return item;
+}
+
+- (void) configureForCertificate:(JPCertificate *)certificate sandbox:(BOOL)sandbox {
+    self.subtitle = [NSString stringWithFormat:@"MD5 Fingerprint: %@", certificate.fingerprintString];
+    NSString* title = [NSString stringWithFormat:@"%@\n%@", certificate.commonName, self.subtitle];
+    NSMutableAttributedString* attributedTitle = [[NSMutableAttributedString alloc] initWithString:title];
+
+    NSDictionary* attributes = @{NSFontAttributeName : [NSFont systemFontOfSize:[NSFont systemFontSize]]};
+    [attributedTitle addAttributes:attributes range:[title rangeOfString:certificate.commonName]];
+    attributes = @{NSFontAttributeName : [NSFont systemFontOfSize:[NSFont systemFontSize] * 0.9f],
+                   NSForegroundColorAttributeName : [NSColor disabledControlTextColor]};
+    [attributedTitle addAttributes:attributes range:[title rangeOfString:self.subtitle]];
+
+    self.attributedTitle = attributedTitle;
+    self.representedObject = certificate;
+    self.image = [NSImage imageNamed:(sandbox == certificate.sandbox ? @"CertSmallStd" : @"CertSmallStd_Invalid")];
+}
+
+@end
+
+@interface JPNotificationViewController ()
 
 @end
 
@@ -44,10 +85,8 @@
     [self.representedObject removeObserver:self forKeyPath:@"sandbox"];
     [representedObject addObserver:self forKeyPath:@"sandbox" options:NSKeyValueObservingOptionNew context:NULL];
     [self willChangeValueForKey:@"notification"];
-    [self willChangeValueForKey:@"certificateIcon"];
     [super setRepresentedObject:representedObject];
     [self didChangeValueForKey:@"notification"];
-    [self didChangeValueForKey:@"certificateIcon"];
     [self refreshCertificatesList];
 }
 
@@ -55,34 +94,36 @@
     return self.representedObject;
 }
 
+- (IBAction) selectedNewCertificate:(NSPopUpButton *)sender {
+    if ([sender.selectedItem.representedObject isKindOfClass:[JPCertificate class]])
+        self.notification.certificate = sender.selectedItem.representedObject;
+}
+
 - (void) refreshCertificatesList {
     NSArray* certificates = [JPCertificate certificatesWithBundleId:self.notification.app.bundleId
                                                             sandbox:self.notification.sandbox];
     [self.certificatesButton removeAllItems];
-    NSMenuItem* item = nil;
+    JPCertificateMenuItem* item = nil;
     for (JPCertificate* certificate in certificates) {
-        [self.certificatesButton addItemWithTitle:certificate.commonName];
-        self.certificatesButton.lastItem.image = [NSImage imageNamed:@"CertSmallStd"];
+        item = [JPCertificateMenuItem itemWithCertificate:certificate sandbox:self.notification.sandbox];
+        [self.certificatesButton.menu addItem:item];
+        if ([certificate.fingerprint isEqualToData:self.notification.certificate.fingerprint])
+            [self.certificatesButton selectItem:item];
     }
-    if (certificates.count < 1) {
-        [self.certificatesButton addItemWithTitle:@"Add a valid APNS Certificate to your Keychain"];
-        item = self.certificatesButton.lastItem;
-        item.image = [NSImage imageNamed:@"Keychain"];
-    } else if (self.notification.certificate) {
-        if (self.notification.certificate.sandbox != self.notification.sandbox) {
-            [self.certificatesButton addItemWithTitle:self.notification.certificate.commonName];
-            item = self.certificatesButton.lastItem;
-            item.image = [NSImage imageNamed:@"CertSmallStd_Invalid"];
-        }
-        [self.certificatesButton selectItemWithTitle:self.notification.certificate.commonName];
+    if (certificates.count < 1)
+        [self.certificatesButton.menu addItem:[JPCertificateMenuItem itemWithType:JPCertificateMenuItemNoContentType]];
+    else if (self.notification.certificate && self.notification.certificate.sandbox != self.notification.sandbox) {
+        item = [JPCertificateMenuItem itemWithCertificate:self.notification.certificate sandbox:self.notification.sandbox];
+        [self.certificatesButton.menu addItem:item];
+        [self.certificatesButton selectItem:item];
     } else if (self.notification.app.bundleId.length > 0)
         [self.certificatesButton selectItem:self.certificatesButton.lastItem];
-    else {
-        [self.certificatesButton addItemWithTitle:@"Select a valid APNS Certificate"];
-        item = self.certificatesButton.lastItem;
-        item.image = [NSImage imageNamed:@"CertSmallPersonal"];
+    else if (self.notification.certificate == nil) {
+        item = [JPCertificateMenuItem itemWithType:JPCertificateMenuItemNoValueType];
+        [self.certificatesButton.menu addItem:item];
         [self.certificatesButton selectItem:item];
     }
+    [self selectedNewCertificate:self.certificatesButton];
 }
 
 @end

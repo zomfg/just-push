@@ -8,6 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
+@interface JPCertificateMenuItem : NSMenuItem
+
+@property (nonatomic, strong) NSString* subtitle;
+
+@end
+
 @class JPNotification;
 
 @interface JPNotificationViewController : NSViewController
@@ -16,6 +22,6 @@
 
 @property (nonatomic, weak) IBOutlet NSPopUpButton* certificatesButton;
 
-@property (nonatomic, weak) IBOutlet NSTableView* deviceTokenTableView;
+- (IBAction) selectedNewCertificate:(NSPopUpButton *)sender;
 
 @end

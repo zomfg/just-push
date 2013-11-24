@@ -15,7 +15,6 @@
 @dynamic sandbox;
 @dynamic device;
 @dynamic app;
-@dynamic notifications;
 
 - (NSData *) tokenData {
     NSMutableData *deviceTokenData = [NSMutableData data];

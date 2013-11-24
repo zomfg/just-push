@@ -17,7 +17,14 @@
 @dynamic sandbox;
 @dynamic certificate;
 @dynamic app;
-@dynamic tokens;
 @dynamic payload;
+
+- (NSArray *) tokens {
+    return [JPDeviceToken where:@{@"app" : self.app, @"sandbox" : @(self.sandbox)}];
+}
+
+- (NSUInteger) numberOfDeviceTokens {
+    return [JPDeviceToken countWhere:@{@"app" : self.app, @"sandbox" : @(self.sandbox)}];
+}
 
 @end

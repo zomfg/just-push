@@ -19,6 +19,5 @@
 @property (nonatomic) BOOL sandbox;
 @property (nonatomic, retain) JPDevice *device;
 @property (nonatomic, retain) JPApp *app;
-@property (nonatomic, retain) NSArray *notifications; // JPNotification
 
 @end

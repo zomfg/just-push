@@ -18,9 +18,6 @@
         <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="app" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JPApp" inverseName="tokens" inverseEntity="JPApp" syncable="YES"/>
         <relationship name="device" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JPDevice" inverseName="tokens" inverseEntity="JPDevice" syncable="YES"/>
-        <fetchedProperty name="notifications" optional="YES" syncable="YES">
-            <fetchRequest name="fetchedPropertyFetchRequest" entity="JPNotification" predicateString="app == $FETCH_SOURCE.app AND sandbox == $FETCH_SOURCE.sandbox"/>
-        </fetchedProperty>
     </entity>
     <entity name="JPNotification" representedClassName="JPNotification" syncable="YES">
         <attribute name="certificate" optional="YES" attributeType="Transformable" valueTransformerName="JPCertificateToDataTransformer" syncable="YES"/>
@@ -28,9 +25,6 @@
         <attribute name="sandbox" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="app" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JPApp" inverseName="notifications" inverseEntity="JPApp" syncable="YES"/>
         <relationship name="payload" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JPPayload" inverseName="notifications" inverseEntity="JPPayload" syncable="YES"/>
-        <fetchedProperty name="tokens" optional="YES" syncable="YES">
-            <fetchRequest name="fetchedPropertyFetchRequest" entity="JPDeviceToken" predicateString="app == $FETCH_SOURCE.app AND sandbox == $FETCH_SOURCE.sandbox"/>
-        </fetchedProperty>
     </entity>
     <entity name="JPPayload" representedClassName="JPPayload" syncable="YES">
         <attribute name="actionLocKey" optional="YES" attributeType="String" syncable="YES"/>

@@ -18,7 +18,9 @@
 @property (nonatomic) BOOL sandbox;
 @property (nonatomic, retain) JPCertificate *certificate;
 @property (nonatomic, retain) JPApp *app;
-@property (nonatomic, retain) NSArray *tokens; // JPDeviceToken
 @property (nonatomic, retain) JPPayload *payload;
+
+@property (nonatomic, readonly) NSArray *tokens; // JPDeviceToken
+@property (nonatomic, readonly) NSUInteger numberOfDeviceTokens;
 
 @end

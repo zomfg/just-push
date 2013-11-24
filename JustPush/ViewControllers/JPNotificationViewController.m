@@ -13,6 +13,8 @@
 
 @interface JPNotificationViewController ()
 
+@property (nonatomic, retain) NSArray* pwet;
+
 @end
 
 @implementation JPNotificationViewController
@@ -31,8 +33,11 @@
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if ([object isEqualTo:self.representedObject] && [keyPath isEqualToString:@"sandbox"])
+    if ([object isEqualTo:self.representedObject] && [keyPath isEqualToString:@"sandbox"]) {
+        [self.notification willChangeValueForKey:@"tokens"];
+        [self.notification didChangeValueForKey:@"tokens"];
         [self refreshCertificatesList];
+    }
 }
 
 - (void) setRepresentedObject:(id)representedObject {

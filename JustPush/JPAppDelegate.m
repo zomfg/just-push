@@ -220,7 +220,6 @@
         }
     }
 //    [self.window.contentView addSubview:];
-    return;
 //    NSArray* certArray = [JPCertificate certificatesWithBundleId:@"com.lequipe.game.squiz"];
 //    NSLog(@"CERTIFS %@", certArray);
 //    JPCertificate* cert = [JPCertificate fetchAll][0];
@@ -228,6 +227,7 @@
 //    if (cert == result)
 //        NSLog(@"SAME CERT !");
 //    [self populateDatabase];
+    return;
 
     // Insert code here to initialize your application
 //    JPApp* newApp = nil;

@@ -31,8 +31,8 @@
     return self.notification.sandbox ? @"Sandbox" : @"Production";
 }
 
-- (NSString *) numberOfDevices {
-    return @(self.notification.tokens.count).stringValue;
+- (NSNumber *) numberOfDevices {
+    return @(self.notification.numberOfDeviceTokens);
 }
 
 - (NSImage *) identityStatusIcon {

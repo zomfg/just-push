@@ -14,7 +14,7 @@
 
 @property (nonatomic, readonly) JPNotification *notification;
 @property (nonatomic, readonly) NSString       *environment;
-@property (nonatomic, readonly) NSString       *numberOfDevices;
+@property (nonatomic, readonly) NSNumber       *numberOfDevices;
 @property (nonatomic, readonly) NSImage        *deviceIcon;
 @property (nonatomic, readonly) NSImage        *identityStatusIcon;
 

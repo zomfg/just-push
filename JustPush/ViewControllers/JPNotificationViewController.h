@@ -16,4 +16,6 @@
 
 @property (nonatomic, weak) IBOutlet NSPopUpButton* certificatesButton;
 
+@property (nonatomic, weak) IBOutlet NSTableView* deviceTokenTableView;
+
 @end

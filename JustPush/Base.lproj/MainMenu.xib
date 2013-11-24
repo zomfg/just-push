@@ -17,16 +17,6 @@
                 <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="Yra-4W-FfW"/>
             </connections>
         </arrayController>
-        <arrayController mode="entity" entityName="JPDeviceToken" editable="NO" automaticallyPreparesContent="YES" id="VVl-1Y-UI6" userLabel="Device Token Array Controller">
-            <connections>
-                <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="Zrp-98-Bxn"/>
-            </connections>
-        </arrayController>
-        <arrayController mode="entity" entityName="JPDevice" editable="NO" automaticallyPreparesContent="YES" id="8t9-eg-KlN" userLabel="Device Array Controller">
-            <connections>
-                <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="2GW-9E-6MQ"/>
-            </connections>
-        </arrayController>
         <arrayController mode="entity" entityName="JPApp" editable="NO" automaticallyPreparesContent="YES" id="HjA-GN-mMT" userLabel="App Array Controller">
             <connections>
                 <binding destination="494" name="managedObjectContext" keyPath="managedObjectContext" id="wPp-Lj-vBH"/>
@@ -676,14 +666,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="1006" height="584"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView autohidesScrollers="YES" horizontalLineScroll="52" horizontalPageScroll="10" verticalLineScroll="52" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNO-J3-xGj">
+                    <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNO-J3-xGj">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="584"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" copiesOnScroll="NO" id="8B9-gr-Gyg">
                             <rect key="frame" x="1" y="1" width="248" height="582"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" rowSizeStyle="automatic" viewBased="YES" id="6dk-ef-Jiv">
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="6dk-ef-Jiv">
                                     <rect key="frame" x="0.0" y="0.0" width="248" height="582"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -756,7 +746,7 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                             <connections>
-                                                                <binding destination="y5N-xx-BGl" name="value" keyPath="self.numberOfDevices" id="Afs-Qi-kgh"/>
+                                                                <binding destination="y5N-xx-BGl" name="value" keyPath="self.numberOfDevices.stringValue" id="Q0v-C1-4Re"/>
                                                             </connections>
                                                         </textField>
                                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUQ-DV-L3P" userLabel="Device Icon">

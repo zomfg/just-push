@@ -40,6 +40,9 @@ static NSString* const kPayloadLocArgsDelimiter        = @"|";
 
     if (self.actionLocKey.length > 0)
         [alert setObject:self.actionLocKey forKey:kPayloadKeyAlertActionLocKey];
+    
+    if (self.launchImage.length > 0)
+        [alert setObject:self.launchImage forKey:kPayloadKeyAlertLaunchImage];
 
     if (self.locKey.length > 0) {
         [alert setObject:self.locKey forKey:kPayloadKeyAlertLocKey];
@@ -49,13 +52,9 @@ static NSString* const kPayloadLocArgsDelimiter        = @"|";
                 [alert setObject:args forKey:kPayloadKeyAlertLocArgs];
         }
     }
-    else if (self.message.length > 0)
+    else if (self.message.length > 0 && [alert count] > 0)
         [alert setObject:self.message forKey:kPayloadKeyAlertBody];
-
-    if (self.launchImage.length > 0)
-        [alert setObject:self.launchImage forKey:kPayloadKeyAlertLaunchImage];
-
-    if ([alert isEmpty] && self.message.length > 0)
+    else if (self.message.length > 0)
         alert = self.message;
 
     NSMutableDictionary* apsDico = [NSMutableDictionary dictionary];

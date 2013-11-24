@@ -68,6 +68,21 @@
     return [self fetchWithPredicate:predicate inContext:context];
 }
 
+#pragma mark - Counting
+
++ (NSUInteger) countWhere:(id)condition {
+    NSFetchRequest* request = [self createFetchRequestInContext:[NSManagedObjectContext defaultContext]];
+    request.includesSubentities = NO;
+    if (condition)
+        request.predicate = [self predicateFromStringOrDict:condition];
+    NSUInteger count = [[NSManagedObjectContext defaultContext] countForFetchRequest:request error:nil];
+    return count == NSNotFound ? 0 : count;
+}
+
++ (NSUInteger) count {
+    return [self countWhere:nil];
+}
+
 #pragma mark - Creation / Deletion
 
 + (id)create {

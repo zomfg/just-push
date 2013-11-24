@@ -30,6 +30,9 @@
 + (NSArray *)whereFormat:(NSString *)format, ...;
 + (instancetype)findOrCreate:(NSDictionary *)attributes;
 
++ (NSUInteger) count;
++ (NSUInteger) countWhere:(id)condition;
+
 #pragma mark - Custom Context
 
 + (id)createInContext:(NSManagedObjectContext *)context;

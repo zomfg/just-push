@@ -10,6 +10,7 @@
 #import "JPNotification.h"
 #import "JPCertificate.h"
 #import "JPApp.h"
+#import "JPPayload.h"
 
 typedef enum {
     JPCertificateMenuItemNoValueType,
@@ -94,11 +95,6 @@ typedef enum {
     return self.representedObject;
 }
 
-- (IBAction) selectedNewCertificate:(NSPopUpButton *)sender {
-    if ([sender.selectedItem.representedObject isKindOfClass:[JPCertificate class]])
-        self.notification.certificate = sender.selectedItem.representedObject;
-}
-
 - (void) refreshCertificatesList {
     NSArray* certificates = [JPCertificate certificatesWithBundleId:self.notification.app.bundleId
                                                             sandbox:self.notification.sandbox];
@@ -124,6 +120,19 @@ typedef enum {
         [self.certificatesButton selectItem:item];
     }
     [self selectedNewCertificate:self.certificatesButton];
+}
+
+#pragma mark - Actions
+
+- (IBAction) selectedNewCertificate:(NSPopUpButton *)sender {
+    if ([sender.selectedItem.representedObject isKindOfClass:[JPCertificate class]])
+        self.notification.certificate = sender.selectedItem.representedObject;
+}
+
+- (IBAction) copyPayloadToPasteboard:(id)sender {
+    NSPasteboard* pboard = [NSPasteboard generalPasteboard];
+    [pboard clearContents];
+    [pboard setString:self.notification.payload.JSON forType:NSPasteboardTypeString];
 }
 
 @end

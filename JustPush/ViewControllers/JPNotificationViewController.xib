@@ -226,7 +226,11 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <connections>
-                                            <binding destination="-2" name="value" keyPath="self.notification.payload.badge" id="jAQ-um-lv5"/>
+                                            <binding destination="-2" name="value" keyPath="self.notification.payload.badge" id="kFt-4x-I7A">
+                                                <dictionary key="options">
+                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                </dictionary>
+                                            </binding>
                                         </connections>
                                     </textField>
                                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BPV-46-Nex" userLabel="Custom Fields Text">
@@ -237,6 +241,15 @@
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
+                                        <connections>
+                                            <binding destination="-2" name="value" keyPath="self.notification.payload.customFields" id="VHJ-cM-GDZ">
+                                                <dictionary key="options">
+                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                    <bool key="NSValidatesImmediately" value="YES"/>
+                                                    <bool key="NSAlwaysPresentsApplicationModalAlerts" value="YES"/>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
                                     </textField>
                                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dth-TJ-iFA" userLabel="sound key Text">
                                         <rect key="frame" x="119" y="200" width="287" height="22"/>
@@ -247,7 +260,11 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <connections>
-                                            <binding destination="-2" name="value" keyPath="self.notification.payload.sound" id="nl4-PW-QZc"/>
+                                            <binding destination="-2" name="value" keyPath="self.notification.payload.sound" id="4MQ-EI-eof">
+                                                <dictionary key="options">
+                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                </dictionary>
+                                            </binding>
                                         </connections>
                                     </textField>
                                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0lH-TO-2yf" userLabel="launchImage key Text">
@@ -259,7 +276,11 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <connections>
-                                            <binding destination="-2" name="value" keyPath="self.notification.payload.launchImage" id="kpv-JA-gWx"/>
+                                            <binding destination="-2" name="value" keyPath="self.notification.payload.launchImage" id="CaP-b0-XCr">
+                                                <dictionary key="options">
+                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                </dictionary>
+                                            </binding>
                                         </connections>
                                     </textField>
                                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0cP-PN-4Tj" userLabel="actionLocKey key Text">
@@ -271,7 +292,11 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <connections>
-                                            <binding destination="-2" name="value" keyPath="self.notification.payload.actionLocKey" id="SDz-eh-YhU"/>
+                                            <binding destination="-2" name="value" keyPath="self.notification.payload.actionLocKey" id="chD-m5-6wE">
+                                                <dictionary key="options">
+                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                </dictionary>
+                                            </binding>
                                         </connections>
                                     </textField>
                                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RyV-Rg-5eI" userLabel="locArgs key Text">
@@ -283,7 +308,11 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <connections>
-                                            <binding destination="-2" name="value" keyPath="self.notification.payload.locArgs" id="Rfj-ry-gGU"/>
+                                            <binding destination="-2" name="value" keyPath="self.notification.payload.locArgs" id="kOc-ew-r5b">
+                                                <dictionary key="options">
+                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                </dictionary>
+                                            </binding>
                                         </connections>
                                     </textField>
                                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L5w-6V-wbO" userLabel="locKey key Text">
@@ -295,7 +324,11 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <connections>
-                                            <binding destination="-2" name="value" keyPath="self.notification.payload.locKey" id="STV-uc-aMa"/>
+                                            <binding destination="-2" name="value" keyPath="self.notification.payload.locKey" id="81a-Wp-J5j">
+                                                <dictionary key="options">
+                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                </dictionary>
+                                            </binding>
                                         </connections>
                                     </textField>
                                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IJ2-wF-dLB" userLabel="Message Text">
@@ -307,9 +340,24 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <connections>
-                                            <binding destination="-2" name="value" keyPath="self.notification.payload.message" id="UiW-gd-Zhk"/>
+                                            <binding destination="-2" name="value" keyPath="self.notification.payload.message" id="XLB-wt-Rxm">
+                                                <dictionary key="options">
+                                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                </dictionary>
+                                            </binding>
                                         </connections>
                                     </textField>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wpa-2W-4My" userLabel="Copy to clipboard Button">
+                                        <rect key="frame" x="67" y="10" width="82" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="copy" bezelStyle="rounded" image="NSShareTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Oe7-KH-LSK">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="copyPayloadToPasteboard:" target="-2" id="y0l-fc-d0t"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </view>
                         </tabViewItem>
@@ -446,5 +494,6 @@
         <image name="CertSmallStd_Invalid" width="17" height="16"/>
         <image name="NSApplicationIcon" width="128" height="128"/>
         <image name="NSComputer" width="32" height="32"/>
+        <image name="NSShareTemplate" width="18" height="16"/>
     </resources>
 </document>

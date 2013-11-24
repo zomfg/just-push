@@ -23,5 +23,6 @@
 @property (nonatomic, weak) IBOutlet NSPopUpButton* certificatesButton;
 
 - (IBAction) selectedNewCertificate:(NSPopUpButton *)sender;
+- (IBAction) copyPayloadToPasteboard:(id)sender;
 
 @end

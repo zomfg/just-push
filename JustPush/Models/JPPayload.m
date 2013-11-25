@@ -70,7 +70,9 @@ static NSString* const kPayloadLocArgsDelimiter        = @"|";
     if (self.contentAvailable)
         apsHash[kPayloadKeyContentAvailable] = @1;
     
-    NSMutableDictionary* payloadHash = [NSMutableDictionary dictionaryWithObjectsAndKeys:apsHash, kPayloadKeyAPS, nil];
+    NSMutableDictionary* payloadHash = [NSMutableDictionary dictionary];
+    if (apsHash.count > 0)
+        payloadHash[kPayloadKeyAPS] = apsHash;
 
     NSError *error = nil;
     if (self.customFields) {

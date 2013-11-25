@@ -39,59 +39,59 @@ static NSString* const kPayloadLocArgsDelimiter        = @"|";
 @dynamic notifications;
 
 - (NSString*) generateJSON:(BOOL)pretty {
-    id alert = [NSMutableDictionary dictionary];
+    NSMutableDictionary *apsHash   = [NSMutableDictionary dictionary];
+    NSMutableDictionary *alertHash = [NSMutableDictionary dictionary];
 
     if (self.actionLocKey.length > 0)
-        [alert setObject:self.actionLocKey forKey:kPayloadKeyAlertActionLocKey];
+        alertHash[kPayloadKeyAlertActionLocKey] = self.actionLocKey;
     
     if (self.launchImage.length > 0)
-        [alert setObject:self.launchImage forKey:kPayloadKeyAlertLaunchImage];
+        alertHash[kPayloadKeyAlertLaunchImage] = self.launchImage;
 
     if (self.locKey.length > 0) {
-        [alert setObject:self.locKey forKey:kPayloadKeyAlertLocKey];
-        if (self.locArgs > 0) {
+        alertHash[kPayloadKeyAlertLocKey] = self.locKey;
+        if (self.locArgs.length > 0) {
             NSArray* args = [self.locArgs componentsSeparatedByString:kPayloadLocArgsDelimiter];
             if (args.count > 0)
-                [alert setObject:args forKey:kPayloadKeyAlertLocArgs];
+                alertHash[kPayloadKeyAlertLocArgs] = args;
         }
     }
-    else if (self.message.length > 0 && [alert count] > 0)
-        [alert setObject:self.message forKey:kPayloadKeyAlertBody];
+    else if (self.message.length > 0 && alertHash.count > 0)
+        alertHash[kPayloadKeyAlertBody] = self.message;
     else if (self.message.length > 0)
-        alert = self.message;
+        apsHash[kPayloadKeyAlert] = self.message;
+    if (alertHash.count > 0)
+        apsHash[kPayloadKeyAlert] = alertHash;
 
-    NSMutableDictionary* apsDico = [NSMutableDictionary dictionary];
-    if (alert)
-        [apsDico setObject:alert forKey:kPayloadKeyAlert];
     if (self.sound.length > 0)
-        [apsDico setObject:self.sound forKey:kPayloadKeySound];
+        apsHash[kPayloadKeySound] = self.sound;
     if (self.badge)
-        [apsDico setObject:self.badge forKey:kPayloadKeyBadge];
+        apsHash[kPayloadKeyBadge] = self.badge;
     if (self.contentAvailable)
-        [apsDico setObject:@1 forKey:kPayloadKeyContentAvailable];
+        apsHash[kPayloadKeyContentAvailable] = @1;
+    
+    NSMutableDictionary* payloadHash = [NSMutableDictionary dictionaryWithObjectsAndKeys:apsHash, kPayloadKeyAPS, nil];
 
     NSError *error = nil;
-    NSDictionary* customDico = nil;
     if (self.customFields) {
         const char * bytes = [self.customFields UTF8String];
-        NSData *customData = [[NSData alloc] initWithBytes:bytes length:strlen(bytes)];
-        if (customData)
-            customDico = [NSJSONSerialization JSONObjectWithData:customData options:NSJSONReadingAllowFragments error:&error];
+        NSDictionary* customHash = [NSJSONSerialization JSONObjectWithData:[NSData dataWithBytes:bytes length:strlen(bytes)]
+                                                                   options:NSJSONReadingAllowFragments
+                                                                     error:&error];
         if (error)
             NSLog(@"[%@ customFields]: %@", NSStringFromClass(self.class), error);
+        else if (customHash)
+            [payloadHash addEntriesFromDictionary:customHash];
     }
-    NSMutableDictionary* payloadDico = [[NSMutableDictionary alloc] initWithObjectsAndKeys:apsDico, kPayloadKeyAPS, nil];
-    [payloadDico addEntriesFromDictionary:customDico];
 
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:payloadDico
-                                                       options:(pretty ? NSJSONWritingPrettyPrinted : 0) // Pass 0 if you don't care about the readability of the generated string
+    NSData *JSONData = [NSJSONSerialization dataWithJSONObject:payloadHash
+                                                       options:(pretty ? NSJSONWritingPrettyPrinted : 0)
                                                          error:&error];
-    NSString *jsonString = nil;
-    if (!jsonData)
+    if (!JSONData)
         NSLog(@"[%@ generateJSON]: %@", NSStringFromClass(self.class), error);
     else
-        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    return jsonString;
+        return [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
+    return nil;
 }
 
 - (NSString *) JSON {

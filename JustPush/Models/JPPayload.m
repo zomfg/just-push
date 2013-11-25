@@ -9,6 +9,9 @@
 #import "JPPayload.h"
 #import "JPNotification.h"
 
+const NSInteger kJPPayloadLengthLimit              = 256;
+const NSInteger kJPPayloadMessageTruncateThreshold = 127;
+
 static NSString* const kPayloadKeyAPS                  = @"aps";
 static NSString* const kPayloadKeyBadge                = @"badge";
 static NSString* const kPayloadKeySound                = @"sound";

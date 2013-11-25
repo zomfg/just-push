@@ -10,6 +10,9 @@
 #import <CoreData/CoreData.h>
 #import "NSManagedObject+ActiveRecord.h"
 
+extern const NSInteger kJPPayloadLengthLimit;
+extern const NSInteger kJPPayloadMessageTruncateThreshold;
+
 @interface JPPayload : NSManagedObject
 
 @property (nonatomic, retain) NSString *message;

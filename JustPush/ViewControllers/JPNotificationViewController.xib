@@ -183,7 +183,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hGC-bj-7SB" userLabel="contentAvailable key Label">
-                                        <rect key="frame" x="-8" y="148" width="127" height="17"/>
+                                        <rect key="frame" x="165" y="173" width="127" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="content-available:" id="iz9-R0-FHv">
                                             <font key="font" metaFont="system"/>
@@ -192,7 +192,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dud-Si-L6w" userLabel="customFields key Label">
-                                        <rect key="frame" x="4" y="123" width="115" height="17"/>
+                                        <rect key="frame" x="4" y="145" width="115" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Custom Fields" placeholderString="" id="f8Y-27-xiJ">
                                             <font key="font" metaFont="system"/>
@@ -201,7 +201,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rgZ-lF-ppK" userLabel="contentAvailable key Check Box">
-                                        <rect key="frame" x="117" y="146" width="18" height="18"/>
+                                        <rect key="frame" x="291" y="171" width="18" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="only" state="on" inset="2" id="qi3-q7-64A">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -234,7 +234,7 @@
                                         </connections>
                                     </textField>
                                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BPV-46-Nex" userLabel="Custom Fields Text">
-                                        <rect key="frame" x="119" y="57" width="287" height="83"/>
+                                        <rect key="frame" x="119" y="79" width="287" height="83"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="{&quot;key1&quot;:&quot;value&quot;,&quot;key2&quot;:42,&quot;key3&quot;:true,&quot;key4&quot;:null,&quot;key5&quot;:[&quot;one&quot;,2],&quot;key6&quot;:{&quot;foo&quot;:&quot;bar&quot;}}" drawsBackground="YES" id="2wt-Ix-Tri">
                                             <font key="font" metaFont="system"/>
@@ -348,7 +348,7 @@
                                         </connections>
                                     </textField>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wpa-2W-4My" userLabel="Copy to clipboard Button">
-                                        <rect key="frame" x="67" y="10" width="82" height="32"/>
+                                        <rect key="frame" x="113" y="43" width="82" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="push" title="copy" bezelStyle="rounded" image="NSShareTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Oe7-KH-LSK">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -359,7 +359,7 @@
                                         </connections>
                                     </button>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tD8-XS-oNu" userLabel="Payload length Label">
-                                        <rect key="frame" x="178" y="21" width="38" height="17"/>
+                                        <rect key="frame" x="291" y="52" width="38" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="0" id="6Kr-bu-r2b">
                                             <font key="font" metaFont="system"/>
@@ -384,7 +384,7 @@
                                         </connections>
                                     </textField>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3sk-S9-ZPR">
-                                        <rect key="frame" x="237" y="10" width="82" height="32"/>
+                                        <rect key="frame" x="195" y="43" width="82" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="push" title="push" bezelStyle="rounded" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dVv-oV-6Tj">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

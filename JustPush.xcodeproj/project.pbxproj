@@ -16,6 +16,13 @@
 		7F62461818397BEF00D42EC8 /* MobileDevices.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F62461618397BEF00D42EC8 /* MobileDevices.bundle */; };
 		7F624623183996F000D42EC8 /* JPNotificationTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F624622183996F000D42EC8 /* JPNotificationTableCellView.m */; };
 		7F624624183996F000D42EC8 /* JPNotificationTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F624622183996F000D42EC8 /* JPNotificationTableCellView.m */; };
+		7F64B2431843EA5F000BB0CB /* preview_wallpaper@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7F64B2421843EA5F000BB0CB /* preview_wallpaper@2x.jpg */; };
+		7F64B2441843EA5F000BB0CB /* preview_wallpaper@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7F64B2421843EA5F000BB0CB /* preview_wallpaper@2x.jpg */; };
+		7F64B2461843EBDA000BB0CB /* preview_example@2x.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 7F64B2451843EBDA000BB0CB /* preview_example@2x.PNG */; };
+		7F64B2471843EBDA000BB0CB /* preview_example@2x.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 7F64B2451843EBDA000BB0CB /* preview_example@2x.PNG */; };
+		7F64B24A1843FCD2000BB0CB /* NSImage+Effects.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F64B2491843FCD2000BB0CB /* NSImage+Effects.m */; };
+		7F64B24B1843FCD2000BB0CB /* NSImage+Effects.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F64B2491843FCD2000BB0CB /* NSImage+Effects.m */; };
+		7F64B24D1843FEC5000BB0CB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F64B24C1843FEC5000BB0CB /* QuartzCore.framework */; };
 		7F82B8E81840FCBB000694A8 /* JPNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B8E61840FCBB000694A8 /* JPNotificationViewController.m */; };
 		7F82B8E91840FCBB000694A8 /* JPNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B8E61840FCBB000694A8 /* JPNotificationViewController.m */; };
 		7F82B8ED1840FF49000694A8 /* JPNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F82B8EC1840FF49000694A8 /* JPNotificationViewController.xib */; };
@@ -90,6 +97,11 @@
 		7F62461618397BEF00D42EC8 /* MobileDevices.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MobileDevices.bundle; path = /System/Library/CoreServices/CoreTypes.bundle/Contents/Library/MobileDevices.bundle; sourceTree = "<absolute>"; };
 		7F624621183996F000D42EC8 /* JPNotificationTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPNotificationTableCellView.h; sourceTree = "<group>"; };
 		7F624622183996F000D42EC8 /* JPNotificationTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPNotificationTableCellView.m; sourceTree = "<group>"; };
+		7F64B2421843EA5F000BB0CB /* preview_wallpaper@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "preview_wallpaper@2x.jpg"; sourceTree = "<group>"; };
+		7F64B2451843EBDA000BB0CB /* preview_example@2x.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "preview_example@2x.PNG"; sourceTree = "<group>"; };
+		7F64B2481843FCD2000BB0CB /* NSImage+Effects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Effects.h"; sourceTree = "<group>"; };
+		7F64B2491843FCD2000BB0CB /* NSImage+Effects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Effects.m"; sourceTree = "<group>"; };
+		7F64B24C1843FEC5000BB0CB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7F82B8E51840FCBB000694A8 /* JPNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPNotificationViewController.h; sourceTree = "<group>"; };
 		7F82B8E61840FCBB000694A8 /* JPNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPNotificationViewController.m; sourceTree = "<group>"; };
 		7F82B8EC1840FF49000694A8 /* JPNotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JPNotificationViewController.xib; sourceTree = "<group>"; };
@@ -163,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F64B24D1843FEC5000BB0CB /* QuartzCore.framework in Frameworks */,
 				235C1DED183BE4B7003D3867 /* CoreServices.framework in Frameworks */,
 				7FFAC9D4183AC14400C0534F /* Security.framework in Frameworks */,
 				7FB580AD1837F84E0010793A /* Cocoa.framework in Frameworks */,
@@ -215,6 +228,7 @@
 		7FB580AB1837F84E0010793A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7F64B24C1843FEC5000BB0CB /* QuartzCore.framework */,
 				235C1DEC183BE4B7003D3867 /* CoreServices.framework */,
 				7FFAC9D3183AC14400C0534F /* Security.framework */,
 				7FB580AC1837F84E0010793A /* Cocoa.framework */,
@@ -319,6 +333,8 @@
 				7FB580F6183823AB0010793A /* NSManagedObject+ActiveRecord.m */,
 				7FFAC9DD183AEFB200C0534F /* NSData+Digest.h */,
 				7FFAC9DE183AEFB200C0534F /* NSData+Digest.m */,
+				7F64B2481843FCD2000BB0CB /* NSImage+Effects.h */,
+				7F64B2491843FCD2000BB0CB /* NSImage+Effects.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -368,6 +384,7 @@
 		7FB58111183835000010793A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7F64B2451843EBDA000BB0CB /* preview_example@2x.PNG */,
 				7FCC5BC718416D7A0021F34A /* CertSmallPersonal.png */,
 				7FCC5BC818416D7A0021F34A /* CertSmallPersonal@2x.png */,
 				7FCC5BC118416BB60021F34A /* Keychain.png */,
@@ -377,6 +394,7 @@
 				7FCC5BB5184155A90021F34A /* CertSmallStd.png */,
 				7FCC5BB6184155A90021F34A /* CertSmallStd@2x.png */,
 				7FB58112183835C70010793A /* default_app_icon.png */,
+				7F64B2421843EA5F000BB0CB /* preview_wallpaper@2x.jpg */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -468,8 +486,10 @@
 				7FB58113183835C70010793A /* default_app_icon.png in Resources */,
 				7FB580C31837F84E0010793A /* MainMenu.xib in Resources */,
 				7F62461718397BEF00D42EC8 /* MobileDevices.bundle in Resources */,
+				7F64B2431843EA5F000BB0CB /* preview_wallpaper@2x.jpg in Resources */,
 				7F82B8ED1840FF49000694A8 /* JPNotificationViewController.xib in Resources */,
 				7FCC5BB7184155A90021F34A /* CertSmallStd.png in Resources */,
+				7F64B2461843EBDA000BB0CB /* preview_example@2x.PNG in Resources */,
 				7FCC5BB9184155A90021F34A /* CertSmallStd@2x.png in Resources */,
 				7FCC5BC318416BB60021F34A /* Keychain.png in Resources */,
 				7FCC5BC518416BB60021F34A /* Keychain@2x.png in Resources */,
@@ -488,8 +508,10 @@
 				7FCC5BC618416BB60021F34A /* Keychain@2x.png in Resources */,
 				7FCC5BCC18416D7A0021F34A /* CertSmallPersonal@2x.png in Resources */,
 				7FCC5BBA184155A90021F34A /* CertSmallStd@2x.png in Resources */,
+				7F64B2471843EBDA000BB0CB /* preview_example@2x.PNG in Resources */,
 				7F62461818397BEF00D42EC8 /* MobileDevices.bundle in Resources */,
 				7FCC5BC0184161D10021F34A /* CertSmallStd_Invalid@2x.png in Resources */,
+				7F64B2441843EA5F000BB0CB /* preview_wallpaper@2x.jpg in Resources */,
 				7FCC5BCA18416D7A0021F34A /* CertSmallPersonal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,6 +542,7 @@
 				7F624623183996F000D42EC8 /* JPNotificationTableCellView.m in Sources */,
 				7FB580EC18380ACD0010793A /* JPNotification.m in Sources */,
 				7F82B8E81840FCBB000694A8 /* JPNotificationViewController.m in Sources */,
+				7F64B24A1843FCD2000BB0CB /* NSImage+Effects.m in Sources */,
 				7FB580E918380ACD0010793A /* JPApp.m in Sources */,
 				7FB5810B183825FD0010793A /* NSString+ObjectiveSugar.m in Sources */,
 				235C1DE6183BDA17003D3867 /* JPPusher.m in Sources */,
@@ -532,6 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FFAC9DC183AE1AC00C0534F /* JPCertificateToDataTransformer.m in Sources */,
+				7F64B24B1843FCD2000BB0CB /* NSImage+Effects.m in Sources */,
 				7F82B8E91840FCBB000694A8 /* JPNotificationViewController.m in Sources */,
 				7FFAC9D2183ABF8B00C0534F /* JPCertificate.m in Sources */,
 				235C1DE7183BDA17003D3867 /* JPPusher.m in Sources */,

@@ -81,21 +81,32 @@ typedef enum {
     return [NSSet setWithObject:@"representedObject"];
 }
 
++ (NSSet *) keyPathsForValuesAffectingPayloadLengthColor {
+    return [NSSet setWithObject:@"notification.payload.JSON"];
+}
+
++ (NSSet *) keyPathsForValuesAffectingPayloadRemainingLength {
+    return [self keyPathsForValuesAffectingPayloadLengthColor];
+}
+
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([object isEqualTo:self.representedObject] && [keyPath isEqualToString:@"sandbox"])
         [self refreshCertificatesList];
-    else if ([object isEqualTo:self.notification.payload] && [keyPath isEqualToString:@"JSON"])
-        [self updatePayloadLength];
 }
 
 - (void) setRepresentedObject:(id)representedObject {
     [self.representedObject removeObserver:self forKeyPath:@"sandbox"];
-    [representedObject addObserver:self forKeyPath:@"sandbox" options:NSKeyValueObservingOptionNew context:NULL];
-    [self.notification.payload removeObserver:self forKeyPath:@"JSON"];
+    [representedObject addObserver:self forKeyPath:@"sandbox" options:0 context:NULL];
     [super setRepresentedObject:representedObject];
-    [self.notification.payload addObserver:self forKeyPath:@"JSON" options:NSKeyValueObservingOptionNew context:NULL];
     [self refreshCertificatesList];
-    [self updatePayloadLength];
+}
+
+- (NSInteger) payloadRemainingLength {
+    return kJPPayloadLengthLimit - self.notification.payload.JSON.length;
+}
+
+- (NSColor *) payloadLengthColor {
+    return kJPPayloadLengthLimit < self.notification.payload.JSON.length ? [NSColor redColor] : [NSColor textColor];
 }
 
 - (JPNotification *) notification {
@@ -127,14 +138,6 @@ typedef enum {
         [self.certificatesButton selectItem:item];
     }
     [self selectedNewCertificate:self.certificatesButton];
-}
-
-- (void) updatePayloadLength {
-    self.payloadLengthLabel.integerValue = 256 - self.notification.payload.JSON.length;
-    if (self.payloadLengthLabel.integerValue < 0)
-        self.payloadLengthLabel.textColor = [NSColor redColor];
-    else
-        self.payloadLengthLabel.textColor = [NSColor blackColor];
 }
 
 #pragma mark - Actions

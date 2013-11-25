@@ -19,9 +19,10 @@
 @interface JPNotificationViewController : NSViewController
 
 @property (nonatomic, readonly) JPNotification *notification;
+@property (nonatomic, readonly) NSColor  *payloadLengthColor;
+@property (nonatomic, readonly) NSInteger payloadRemainingLength;
 
 @property (nonatomic, weak) IBOutlet NSPopUpButton* certificatesButton;
-@property (nonatomic, weak) IBOutlet NSTextField* payloadLengthLabel;
 
 - (IBAction) selectedNewCertificate:(NSPopUpButton *)sender;
 - (IBAction) copyPayloadToPasteboard:(id)sender;

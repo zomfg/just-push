@@ -11,7 +11,6 @@
 #import "NSManagedObject+ActiveRecord.h"
 
 extern const NSInteger kJPPayloadLengthLimit;
-extern const NSInteger kJPPayloadMessageTruncateThreshold;
 
 @interface JPPayload : NSManagedObject
 

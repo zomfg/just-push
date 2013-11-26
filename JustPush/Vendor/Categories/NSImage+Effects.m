@@ -14,6 +14,7 @@
 - (NSImage *) blurry:(CGFloat)blur {
     if (blur <= 0)
         return self;
+    [NSGraphicsContext saveGraphicsState];
     CIImage* inputImage = [CIImage imageWithData:[self TIFFRepresentation]];
     CIFilter* filter = [CIFilter filterWithName:@"CIGaussianBlur"];
     [filter setDefaults];
@@ -28,10 +29,12 @@
     [outputImage drawAtPoint:NSZeroPoint fromRect:outputImageRect
                    operation:NSCompositeCopy fraction:1.0];
     [blurredImage unlockFocus];
+    [NSGraphicsContext restoreGraphicsState];
     return blurredImage;
 }
 
 - (NSImage *) darken:(CGFloat)opacity {
+    [NSGraphicsContext saveGraphicsState];
     NSRect iconRect = NSMakeRect(0.0, 0.0, self.size.width, self.size.height);
     [self lockFocus];
     [[NSColor colorWithCalibratedWhite:0.0 alpha:opacity] set];
@@ -41,6 +44,7 @@
             fromRect:iconRect
            operation:NSCompositeSourceOver
             fraction:1.0];
+    [NSGraphicsContext restoreGraphicsState];
     return self;
 }
 

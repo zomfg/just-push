@@ -23,6 +23,10 @@
 		7F64B24A1843FCD2000BB0CB /* NSImage+Effects.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F64B2491843FCD2000BB0CB /* NSImage+Effects.m */; };
 		7F64B24B1843FCD2000BB0CB /* NSImage+Effects.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F64B2491843FCD2000BB0CB /* NSImage+Effects.m */; };
 		7F64B24D1843FEC5000BB0CB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F64B24C1843FEC5000BB0CB /* QuartzCore.framework */; };
+		7F64B25118440D1E000BB0CB /* JPNotificationIOS7PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F64B24F18440D1E000BB0CB /* JPNotificationIOS7PreviewViewController.m */; };
+		7F64B25218440D1E000BB0CB /* JPNotificationIOS7PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F64B24F18440D1E000BB0CB /* JPNotificationIOS7PreviewViewController.m */; };
+		7F64B25318440D1E000BB0CB /* JPNotificationIOS7PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F64B25018440D1E000BB0CB /* JPNotificationIOS7PreviewViewController.xib */; };
+		7F64B25418440D1E000BB0CB /* JPNotificationIOS7PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F64B25018440D1E000BB0CB /* JPNotificationIOS7PreviewViewController.xib */; };
 		7F82B8E81840FCBB000694A8 /* JPNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B8E61840FCBB000694A8 /* JPNotificationViewController.m */; };
 		7F82B8E91840FCBB000694A8 /* JPNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F82B8E61840FCBB000694A8 /* JPNotificationViewController.m */; };
 		7F82B8ED1840FF49000694A8 /* JPNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F82B8EC1840FF49000694A8 /* JPNotificationViewController.xib */; };
@@ -102,6 +106,9 @@
 		7F64B2481843FCD2000BB0CB /* NSImage+Effects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Effects.h"; sourceTree = "<group>"; };
 		7F64B2491843FCD2000BB0CB /* NSImage+Effects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Effects.m"; sourceTree = "<group>"; };
 		7F64B24C1843FEC5000BB0CB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7F64B24E18440D1E000BB0CB /* JPNotificationIOS7PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPNotificationIOS7PreviewViewController.h; sourceTree = "<group>"; };
+		7F64B24F18440D1E000BB0CB /* JPNotificationIOS7PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPNotificationIOS7PreviewViewController.m; sourceTree = "<group>"; };
+		7F64B25018440D1E000BB0CB /* JPNotificationIOS7PreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JPNotificationIOS7PreviewViewController.xib; sourceTree = "<group>"; };
 		7F82B8E51840FCBB000694A8 /* JPNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPNotificationViewController.h; sourceTree = "<group>"; };
 		7F82B8E61840FCBB000694A8 /* JPNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPNotificationViewController.m; sourceTree = "<group>"; };
 		7F82B8EC1840FF49000694A8 /* JPNotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JPNotificationViewController.xib; sourceTree = "<group>"; };
@@ -202,6 +209,9 @@
 				7F82B8E51840FCBB000694A8 /* JPNotificationViewController.h */,
 				7F82B8E61840FCBB000694A8 /* JPNotificationViewController.m */,
 				7F82B8EC1840FF49000694A8 /* JPNotificationViewController.xib */,
+				7F64B24E18440D1E000BB0CB /* JPNotificationIOS7PreviewViewController.h */,
+				7F64B24F18440D1E000BB0CB /* JPNotificationIOS7PreviewViewController.m */,
+				7F64B25018440D1E000BB0CB /* JPNotificationIOS7PreviewViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -490,6 +500,7 @@
 				7F82B8ED1840FF49000694A8 /* JPNotificationViewController.xib in Resources */,
 				7FCC5BB7184155A90021F34A /* CertSmallStd.png in Resources */,
 				7F64B2461843EBDA000BB0CB /* preview_example@2x.PNG in Resources */,
+				7F64B25318440D1E000BB0CB /* JPNotificationIOS7PreviewViewController.xib in Resources */,
 				7FCC5BB9184155A90021F34A /* CertSmallStd@2x.png in Resources */,
 				7FCC5BC318416BB60021F34A /* Keychain.png in Resources */,
 				7FCC5BC518416BB60021F34A /* Keychain@2x.png in Resources */,
@@ -504,6 +515,7 @@
 				7F82B8EE1840FF49000694A8 /* JPNotificationViewController.xib in Resources */,
 				7FCC5BC418416BB60021F34A /* Keychain.png in Resources */,
 				7FCC5BBE184161D10021F34A /* CertSmallStd_Invalid.png in Resources */,
+				7F64B25418440D1E000BB0CB /* JPNotificationIOS7PreviewViewController.xib in Resources */,
 				7FCC5BB8184155A90021F34A /* CertSmallStd.png in Resources */,
 				7FCC5BC618416BB60021F34A /* Keychain@2x.png in Resources */,
 				7FCC5BCC18416D7A0021F34A /* CertSmallPersonal@2x.png in Resources */,
@@ -537,6 +549,7 @@
 				7FB580F7183823AB0010793A /* NSManagedObject+ActiveRecord.m in Sources */,
 				7FFAC9DF183AEFB200C0534F /* NSData+Digest.m in Sources */,
 				7FB580B91837F84E0010793A /* main.m in Sources */,
+				7F64B25118440D1E000BB0CB /* JPNotificationIOS7PreviewViewController.m in Sources */,
 				7FB58107183825FD0010793A /* NSDictionary+ObjectiveSugar.m in Sources */,
 				7FB58106183825FD0010793A /* NSArray+ObjectiveSugar.m in Sources */,
 				7F624623183996F000D42EC8 /* JPNotificationTableCellView.m in Sources */,
@@ -558,6 +571,7 @@
 				7F64B24B1843FCD2000BB0CB /* NSImage+Effects.m in Sources */,
 				7F82B8E91840FCBB000694A8 /* JPNotificationViewController.m in Sources */,
 				7FFAC9D2183ABF8B00C0534F /* JPCertificate.m in Sources */,
+				7F64B25218440D1E000BB0CB /* JPNotificationIOS7PreviewViewController.m in Sources */,
 				235C1DE7183BDA17003D3867 /* JPPusher.m in Sources */,
 				7FFAC9E0183AEFB200C0534F /* NSData+Digest.m in Sources */,
 				235C1DEB183BDDC9003D3867 /* ioSock.c in Sources */,

@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="JPNotificationViewController">
             <connections>
                 <outlet property="certificatesButton" destination="oQD-hw-IaQ" id="RBo-9V-x72"/>
+                <outlet property="previewContainerView" destination="WMO-iN-GLg" id="FrU-8h-WuY"/>
                 <outlet property="view" destination="1" id="2"/>
             </connections>
         </customObject>
@@ -402,59 +403,10 @@
                                             <action selector="push:" target="-2" id="5kz-VA-uff"/>
                                         </connections>
                                     </button>
-                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OWZ-F1-MAc" userLabel="Device Preview wallpaper Image">
-                                        <rect key="frame" x="460" y="29" width="320" height="182"/>
+                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WMO-iN-GLg" userLabel="Notification Preview">
+                                        <rect key="frame" x="460" y="12" width="320" height="210"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="preview_wallpaper" id="Os9-jp-HOk"/>
-                                        <connections>
-                                            <binding destination="-2" name="value" keyPath="self.previewBackground" id="vQo-X2-jke"/>
-                                        </connections>
-                                    </imageView>
-                                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bmO-M3-x4k" userLabel="Device Preview App Name Label">
-                                        <rect key="frame" x="506" y="155" width="263" height="18"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" focusRingType="none" title="Music Mania" usesSingleLineMode="YES" id="ztM-Wn-CQw">
-                                            <font key="font" size="17" name="HelveticaNeue-Light"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                        <connections>
-                                            <binding destination="-2" name="value" keyPath="self.previewAppName" id="kYV-Yc-OQK"/>
-                                        </connections>
-                                    </textField>
-                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="302-89-qUS" userLabel="Device Preview App Icon">
-                                        <rect key="frame" x="475" y="155" width="20" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="QJz-E4-Jbi"/>
-                                        <connections>
-                                            <binding destination="-2" name="value" keyPath="self.previewAppIcon" id="T4d-A0-KHK"/>
-                                        </connections>
-                                    </imageView>
-                                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hn9-AG-ULE" userLabel="Device Preview Message Text">
-                                        <rect key="frame" x="507" y="66" width="261" height="94"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" id="0lg-IP-cqj">
-                                            <font key="font" size="16" name="HelveticaNeue-Light"/>
-                                            <string key="title">just push just push just push just push just push just push just push just push just push just push just push just push just push</string>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                        <connections>
-                                            <binding destination="-2" name="value" keyPath="self.previewMessage" id="1n1-0y-FvW"/>
-                                        </connections>
-                                    </textField>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BCq-yy-a7g">
-                                        <rect key="frame" x="506" y="53" width="261" height="17"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="slide to view" usesSingleLineMode="YES" id="NB8-rs-ntG">
-                                            <font key="font" size="12" name="HelveticaNeue-Light"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                        <connections>
-                                            <binding destination="-2" name="value" keyPath="self.previewActionLocKey" id="Gpn-qx-7o0"/>
-                                        </connections>
-                                    </textField>
+                                    </customView>
                                 </subviews>
                             </view>
                         </tabViewItem>
@@ -592,6 +544,5 @@
         <image name="NSApplicationIcon" width="128" height="128"/>
         <image name="NSComputer" width="32" height="32"/>
         <image name="NSShareTemplate" width="18" height="16"/>
-        <image name="preview_wallpaper" width="320" height="568"/>
     </resources>
 </document>

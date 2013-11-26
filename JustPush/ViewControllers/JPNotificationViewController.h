@@ -22,13 +22,8 @@
 @property (nonatomic, readonly) NSColor  *payloadLengthColor;
 @property (nonatomic, readonly) NSInteger payloadRemainingLength;
 
-@property (nonatomic, readonly) NSAttributedString* previewActionLocKey;
-@property (nonatomic, readonly) NSAttributedString* previewAppName;
-@property (nonatomic, readonly) NSString* previewMessage;
-@property (nonatomic, readonly) NSImage* previewBackground;
-@property (nonatomic, readonly) NSImage* previewAppIcon;
-
 @property (nonatomic, weak) IBOutlet NSPopUpButton* certificatesButton;
+@property (nonatomic, weak) IBOutlet NSView* previewContainerView;
 
 - (IBAction) selectedNewCertificate:(NSPopUpButton *)sender;
 - (IBAction) copyPayloadToPasteboard:(id)sender;

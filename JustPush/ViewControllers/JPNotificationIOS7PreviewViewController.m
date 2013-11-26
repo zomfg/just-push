@@ -63,7 +63,7 @@ static const NSUInteger kJPPayloadMessageTruncateThreshold = 138;
 - (NSAttributedString *) previewActionLocKey {
     NSString* previewString = [NSString stringWithFormat:@"slide to %@", self.notification.payload.actionLocKey ? self.notification.payload.actionLocKey : @"view"];
     NSDictionary* attributes = @{NSFontAttributeName : [NSFont fontWithName:@"HelveticaNeue-Light" size:12.3f],
-                                 NSForegroundColorAttributeName : [NSColor colorWithRed:44/255.0 green:108/255.0 blue:145/255.0 alpha:1.0]};
+                                 NSForegroundColorAttributeName : [NSColor colorWithDeviceRed:44/255.0 green:108/255.0 blue:145/255.0 alpha:1.0]};
     return [[NSAttributedString alloc] initWithString:previewString attributes:attributes];
 }
 
@@ -81,7 +81,7 @@ static const NSUInteger kJPPayloadMessageTruncateThreshold = 138;
     [preview addAttributes:attributes range:[previewString rangeOfString:appName]];
     
     attributes = @{NSFontAttributeName : [NSFont fontWithName:@"HelveticaNeue-Light" size:12.3f],
-                   NSForegroundColorAttributeName : [NSColor colorWithRed:44/255.0 green:108/255.0 blue:145/255.0 alpha:1.0]};
+                   NSForegroundColorAttributeName : [NSColor colorWithDeviceRed:44/255.0 green:108/255.0 blue:145/255.0 alpha:1.0]};
     [preview addAttributes:attributes range:[previewString rangeOfString:@"now"]];
     return preview;
 }

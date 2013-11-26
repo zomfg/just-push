@@ -15,6 +15,27 @@
 static const NSUInteger kJPPayloadMessageTruncateThreshold = 138;
 
 @implementation JPNotificationPreviewViewController
+
+- (NSString *) previewMessage {
+    NSString* preview = self.notification.payload.message ? self.notification.payload.message : @"Message";
+    if (self.notification.payload.locArgs.length) {
+        NSArray* args = [self.notification.payload.locArgs componentsSeparatedByString:@"|"];
+        if (args.count > 0) {
+            NSMutableString* p = preview.mutableCopy;
+            for (NSString* arg in args) {
+                NSRange range = [p rangeOfString:@"%@"];
+                if (range.location == NSNotFound)
+                    break;
+                [p replaceCharactersInRange:[p rangeOfString:@"%@"]
+                                 withString:arg];
+            }
+            preview = p;
+        }
+    }
+    return preview;
+}
+
+
 @end
 
 @interface JPNotificationIOS7PreviewViewController ()
@@ -66,11 +87,11 @@ static const NSUInteger kJPPayloadMessageTruncateThreshold = 138;
 }
 
 + (NSSet *) keyPathsForValuesAffectingPreviewMessage {
-    return [NSSet setWithObjects:@"notification.payload.message", nil];
+    return [NSSet setWithObjects:@"notification.payload.message", @"notification.payload.locArgs", nil];
 }
 
 - (NSString *) previewMessage {
-    NSString* preview = self.notification.payload.message ? self.notification.payload.message : @"Message";
+    NSString* preview = [super previewMessage];
     if (preview.length > kJPPayloadMessageTruncateThreshold)
         return [NSString stringWithFormat:@"%@...", [self.notification.payload.message substringToIndex:kJPPayloadMessageTruncateThreshold]];
     return preview;

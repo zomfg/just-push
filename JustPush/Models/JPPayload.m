@@ -108,13 +108,14 @@ static NSString* const kPayloadLocArgsDelimiter        = @"|";
 }
 
 - (BOOL) validateCustomFields:(NSString *__autoreleasing *)value error:(NSError *__autoreleasing *)error {
-    *error = nil;
+    if (error)
+        *error = nil;
     if ((*value).length < 1)
         return YES;
     const char * bytes = [*value UTF8String];
     id result = [NSJSONSerialization JSONObjectWithData:[NSData dataWithBytes:bytes length:strlen(bytes)]
                                                 options:NSJSONReadingAllowFragments error:error];
-    return ([result isKindOfClass:[NSDictionary class]] && *error == nil);
+    return ([result isKindOfClass:[NSDictionary class]] && (error == NULL || *error == nil));
 }
 
 + (NSSet *) keyPathsForValuesAffectingJSON {

@@ -47,7 +47,10 @@
                 <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="inS-0b-DUx" userLabel="Device Preview Message Text">
                     <rect key="frame" x="46" y="59" width="261" height="92"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" id="vo9-De-3ri">
+                    <constraints>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="92" id="czL-hR-5ws"/>
+                    </constraints>
+                    <textFieldCell key="cell" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" id="vo9-De-3ri">
                         <font key="font" size="16" name="HelveticaNeue-Light"/>
                         <string key="title">just push just push just push just push just push just push just push just push just push just push just push just push just push</string>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

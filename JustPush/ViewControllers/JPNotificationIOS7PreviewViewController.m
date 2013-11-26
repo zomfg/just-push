@@ -12,9 +12,11 @@
 #import "JPApp.h"
 #import "NSImage+Effects.h"
 
-static const NSUInteger kJPPayloadMessageTruncateThreshold = 138;
-
 @implementation JPNotificationPreviewViewController
+
++ (NSSet *) keyPathsForValuesAffectingPreviewMessage {
+    return [NSSet setWithObjects:@"notification.payload.message", @"notification.payload.locArgs", nil];
+}
 
 - (NSString *) previewMessage {
     NSString* preview = self.notification.payload.message ? self.notification.payload.message : @"Message";
@@ -83,17 +85,6 @@ static const NSUInteger kJPPayloadMessageTruncateThreshold = 138;
     attributes = @{NSFontAttributeName : [NSFont fontWithName:@"HelveticaNeue-Light" size:12.3f],
                    NSForegroundColorAttributeName : [NSColor colorWithDeviceRed:44/255.0 green:108/255.0 blue:145/255.0 alpha:1.0]};
     [preview addAttributes:attributes range:[previewString rangeOfString:@"now"]];
-    return preview;
-}
-
-+ (NSSet *) keyPathsForValuesAffectingPreviewMessage {
-    return [NSSet setWithObjects:@"notification.payload.message", @"notification.payload.locArgs", nil];
-}
-
-- (NSString *) previewMessage {
-    NSString* preview = [super previewMessage];
-    if (preview.length > kJPPayloadMessageTruncateThreshold)
-        return [NSString stringWithFormat:@"%@...", [self.notification.payload.message substringToIndex:kJPPayloadMessageTruncateThreshold]];
     return preview;
 }
 

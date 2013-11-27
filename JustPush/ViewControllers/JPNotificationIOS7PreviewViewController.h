@@ -14,15 +14,18 @@
 
 @property (nonatomic, weak) JPNotification* notification;
 
-@property (nonatomic, readonly) NSString* previewMessage;
+@property (nonatomic, readonly) NSString* message;
 
 @end
 
 @interface JPNotificationIOS7PreviewViewController : JPNotificationPreviewViewController
 
-@property (nonatomic, readonly) NSAttributedString* previewActionLocKey;
-@property (nonatomic, readonly) NSAttributedString* previewAppName;
-@property (nonatomic, readonly) NSImage* previewBackground;
-@property (nonatomic, readonly) NSImage* previewAppIcon;
+@property (nonatomic, readonly) NSString* wallpaperName;
+@property (nonatomic, readonly) NSImage* wallpaperImage;
+@property (nonatomic, readonly) NSImage* backgroundImage;
+@property (nonatomic, readonly) NSColor* subtextColor;
+@property (nonatomic, readonly) NSAttributedString* appName;
+@property (nonatomic, readonly) NSAttributedString* actionLocKey;
+@property (nonatomic, readonly) NSImage* appIcon;
 
 @end

@@ -14,11 +14,11 @@
 
 @implementation JPNotificationPreviewViewController
 
-+ (NSSet *) keyPathsForValuesAffectingPreviewMessage {
++ (NSSet *) keyPathsForValuesAffectingMessage {
     return [NSSet setWithObjects:@"notification.payload.message", @"notification.payload.locArgs", nil];
 }
 
-- (NSString *) previewMessage {
+- (NSString *) message {
     NSString* preview = self.notification.payload.message ? self.notification.payload.message : @"Message";
     if (self.notification.payload.locArgs.length) {
         NSArray* args = [self.notification.payload.locArgs componentsSeparatedByString:@"|"];
@@ -46,46 +46,70 @@
 
 @implementation JPNotificationIOS7PreviewViewController
 
-- (NSImage *) previewBackground {
-    return [[[NSImage imageNamed:@"preview_wallpaper"] blurry:12.0] darken:0.5];
+- (NSString *) wallpaperName {
+    return @"preview_wallpaper";
 }
 
-+ (NSSet *) keyPathsForValuesAffectingPreviewAppIcon {
+- (NSImage *) wallpaperImage {
+    return [NSImage imageNamed:self.wallpaperName];
+}
+
+- (NSColor *) subtextColor {
+    return [self.wallpaperImage averageColor];
+}
+
+- (NSImage *) backgroundImage {
+    return [[self.wallpaperImage blurry:20.0] darken:0.5];
+}
+
++ (NSSet *) keyPathsForValuesAffectingAppIcon {
     return [NSSet setWithObject:@"notification.app.icon"];
 }
 
-- (NSImage *) previewAppIcon {
+- (NSImage *) appIcon {
     return [self.notification.app.icon roundCorners:0.2f];
 }
 
-+ (NSSet *) keyPathsForValuesAffectingPreviewActionLocKey {
++ (NSSet *) keyPathsForValuesAffectingActionLocKey {
     return [NSSet setWithObject:@"notification.payload.actionLocKey"];
 }
 
-- (NSAttributedString *) previewActionLocKey {
+- (NSAttributedString *) actionLocKey {
     NSString* previewString = [NSString stringWithFormat:@"slide to %@", self.notification.payload.actionLocKey ? self.notification.payload.actionLocKey : @"view"];
-    NSDictionary* attributes = @{NSFontAttributeName : [NSFont fontWithName:@"HelveticaNeue-Light" size:12.3f],
-                                 NSForegroundColorAttributeName : [NSColor colorWithDeviceRed:44/255.0 green:108/255.0 blue:145/255.0 alpha:1.0]};
+    NSDictionary* attributes = @{NSFontAttributeName : [NSFont fontWithName:@"HelveticaNeue-Medium" size:11.5f],
+                                 NSKernAttributeName : @0.5,
+                                 NSForegroundColorAttributeName : self.subtextColor};
     return [[NSAttributedString alloc] initWithString:previewString attributes:attributes];
 }
 
-+ (NSSet *) keyPathsForValuesAffectingPreviewAppName {
++ (NSSet *) keyPathsForValuesAffectingAppName {
     return [NSSet setWithObject:@"notification.app.name"];
 }
-
-- (NSAttributedString *) previewAppName {
+/*
+just push dghfhfh fhhfgh  jhjg hgjfj  jgjh ghjhjjgh ghjgj gjgjghjj jg jhj gjhg jghj gjgjghjg jhgjhjghj ghj j gh jghj ghjg j gjgh ghjghj ghjghjhg fg|dfdkfjskfskdfjsfk
+ */
+- (NSAttributedString *) appName {
     NSString* appName = self.notification.app.name ? self.notification.app.name : @"App Name";
     NSString* previewString = [NSString stringWithFormat:@"%@ now", appName];
     NSMutableAttributedString* preview = [[NSMutableAttributedString alloc] initWithString:previewString];
     
-    NSDictionary* attributes = @{NSFontAttributeName : [NSFont fontWithName:@"HelveticaNeue-Light" size:17.0f],
+    NSDictionary* attributes = @{NSFontAttributeName : [NSFont fontWithName:@"HelveticaNeue-Medium" size:15.0f],
+                                 NSKernAttributeName : @0.5,
                                  NSForegroundColorAttributeName : [NSColor whiteColor]};
     [preview addAttributes:attributes range:[previewString rangeOfString:appName]];
     
-    attributes = @{NSFontAttributeName : [NSFont fontWithName:@"HelveticaNeue-Light" size:12.3f],
-                   NSForegroundColorAttributeName : [NSColor colorWithDeviceRed:44/255.0 green:108/255.0 blue:145/255.0 alpha:1.0]};
+    attributes = @{NSFontAttributeName : [NSFont fontWithName:@"HelveticaNeue-Medium" size:11.5f],
+                   NSKernAttributeName : @0.5,
+                   NSForegroundColorAttributeName : self.subtextColor};
     [preview addAttributes:attributes range:[previewString rangeOfString:@"now"]];
     return preview;
+}
+
+- (NSString *) message {
+    NSDictionary* attributes = @{NSFontAttributeName : [NSFont fontWithName:@"HelveticaNeue-Light" size:15.0f],
+                                 NSKernAttributeName : @0.85,
+                                 NSForegroundColorAttributeName : [NSColor whiteColor]};
+    return (NSString *)[[NSAttributedString alloc] initWithString:[super message] attributes:attributes];
 }
 
 @end

@@ -13,5 +13,6 @@
 - (NSImage *) blurry:(CGFloat)blur;
 - (NSImage *) darken:(CGFloat)opacity;
 - (NSImage *) roundCorners:(CGFloat)radius;
+- (NSColor *) averageColor;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "NSImage+Effects.h"
 #import <QuartzCore/QuartzCore.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 @implementation NSImage (Effects)
 
@@ -37,7 +38,7 @@
     [NSGraphicsContext saveGraphicsState];
     NSRect iconRect = NSMakeRect(0.0, 0.0, self.size.width, self.size.height);
     [self lockFocus];
-    [[NSColor colorWithCalibratedWhite:0.0 alpha:opacity] set];
+    [[NSColor colorWithDeviceWhite:0.0 alpha:opacity] set];
     NSRectFillUsingOperation(iconRect, NSCompositeSourceAtop);
     [self unlockFocus];
     [self drawInRect:iconRect
@@ -71,6 +72,42 @@
     [composedImage unlockFocus];
     [NSGraphicsContext restoreGraphicsState];
     return composedImage;
+}
+
+- (CGImageRef) CGImage {
+    return [self CGImageForProposedRect:NULL context:[NSGraphicsContext currentContext] hints:nil];
+}
+
+- (NSColor *)averageColor
+{
+    CGImageRef rawImageRef = [self CGImage];
+    
+	CFDataRef data = CGDataProviderCopyData(CGImageGetDataProvider(rawImageRef));
+    const UInt8 *rawPixelData = CFDataGetBytePtr(data);
+    
+    NSUInteger imageHeight = CGImageGetHeight(rawImageRef);
+    NSUInteger imageWidth  = CGImageGetWidth(rawImageRef);
+    NSUInteger bytesPerRow = CGImageGetBytesPerRow(rawImageRef);
+	NSUInteger stride = CGImageGetBitsPerPixel(rawImageRef) / 8;
+
+    unsigned int red   = 0;
+    unsigned int green = 0;
+    unsigned int blue  = 0;
+    
+	for (int row = 0; row < imageHeight; row++) {
+		const UInt8 *rowPtr = rawPixelData + bytesPerRow * row;
+		for (int column = 0; column < imageWidth; column++) {
+            red    += rowPtr[0];
+            green  += rowPtr[1];
+            blue   += rowPtr[2];
+			rowPtr += stride;
+            
+        }
+    }
+	CFRelease(data);
+    
+	CGFloat f = 2.0f / (255.0f * imageWidth * imageHeight);
+	return [NSColor colorWithRed:f * red  green:f * green blue:f * blue alpha:0.4];
 }
 
 @end

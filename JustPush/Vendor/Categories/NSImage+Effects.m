@@ -36,14 +36,14 @@
 
 - (NSImage *) darken:(CGFloat)opacity {
     [NSGraphicsContext saveGraphicsState];
-    NSRect iconRect = NSMakeRect(0.0, 0.0, self.size.width, self.size.height);
+    NSRect imageFrame = NSMakeRect(0.0, 0.0, self.size.width, self.size.height);
     [self lockFocus];
     [[NSColor colorWithDeviceWhite:0.0 alpha:opacity] set];
-    NSRectFillUsingOperation(iconRect, NSCompositeSourceAtop);
+    NSRectFillUsingOperation(imageFrame, NSCompositeSourceAtop);
     [self unlockFocus];
     [self lockFocus];
     [self drawAtPoint:NSZeroPoint
-            fromRect:iconRect
+            fromRect:imageFrame
            operation:NSCompositeSourceOver
             fraction:1.0];
     [self unlockFocus];
@@ -61,7 +61,7 @@
     [composedImage lockFocus];
     [[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
     
-    NSRect imageFrame = NSRectFromCGRect(CGRectMake(0, 0, self.size.width, self.size.height));
+    NSRect imageFrame = NSMakeRect(0.0, 0.0, self.size.width, self.size.height);
     NSBezierPath *clipPath = [NSBezierPath bezierPathWithRoundedRect:imageFrame xRadius:radius yRadius:radius];
     [clipPath setWindingRule:NSEvenOddWindingRule];
     [clipPath addClip];
@@ -103,7 +103,6 @@
             green  += rowPtr[1];
             blue   += rowPtr[2];
 			rowPtr += stride;
-            
         }
     }
 	CFRelease(data);

@@ -41,10 +41,12 @@
     [[NSColor colorWithDeviceWhite:0.0 alpha:opacity] set];
     NSRectFillUsingOperation(iconRect, NSCompositeSourceAtop);
     [self unlockFocus];
-    [self drawInRect:iconRect
+    [self lockFocus];
+    [self drawAtPoint:NSZeroPoint
             fromRect:iconRect
            operation:NSCompositeSourceOver
             fraction:1.0];
+    [self unlockFocus];
     [NSGraphicsContext restoreGraphicsState];
     return self;
 }

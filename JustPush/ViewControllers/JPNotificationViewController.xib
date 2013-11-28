@@ -415,21 +415,21 @@
                                 <rect key="frame" x="10" y="33" width="819" height="439"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGg-2T-dAR" userLabel="Device Token Table">
-                                        <rect key="frame" x="2" y="17" width="815" height="424"/>
+                                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="72" horizontalPageScroll="10" verticalLineScroll="72" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGg-2T-dAR" userLabel="Device Token Table">
+                                        <rect key="frame" x="2" y="17" width="576" height="424"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <clipView key="contentView" ambiguous="YES" misplaced="YES" copiesOnScroll="NO" id="aTL-tX-El9">
-                                            <rect key="frame" x="1" y="1" width="813" height="422"/>
+                                            <rect key="frame" x="1" y="1" width="574" height="422"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="sSf-8N-FcG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="813" height="422"/>
+                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="70" rowSizeStyle="automatic" viewBased="YES" id="sSf-8N-FcG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="574" height="422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
-                                                        <tableColumn width="809" minWidth="40" maxWidth="1000" id="kS1-eP-5iL">
+                                                        <tableColumn width="570" minWidth="40" maxWidth="1000" id="kS1-eP-5iL">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -443,11 +443,11 @@
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView id="8uq-Jh-mNh">
-                                                                    <rect key="frame" x="1" y="1" width="809" height="56"/>
+                                                                    <rect key="frame" x="1" y="1" width="570" height="70"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CIq-zi-kub" userLabel="Device Icon">
-                                                                            <rect key="frame" x="3" y="1" width="55" height="55"/>
+                                                                            <rect key="frame" x="-4" y="2" width="63" height="65"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSComputer" id="xE3-lN-648"/>
                                                                             <connections>
@@ -455,7 +455,7 @@
                                                                             </connections>
                                                                         </imageView>
                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O2l-iT-zwH" userLabel="Device Name Text">
-                                                                            <rect key="frame" x="73" y="39" width="735" height="17"/>
+                                                                            <rect key="frame" x="57" y="45" width="496" height="17"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" placeholderString="Device name" id="cui-R9-pAc">
                                                                                 <font key="font" metaFont="system"/>
@@ -467,10 +467,10 @@
                                                                             </connections>
                                                                         </textField>
                                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1n-xN-HCK" userLabel="Token Label">
-                                                                            <rect key="frame" x="75" y="20" width="666" height="17"/>
+                                                                            <rect key="frame" x="57" y="26" width="504" height="17"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="Token" id="RcG-lz-Ub7">
-                                                                                <font key="font" metaFont="system"/>
+                                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="bebcf74f 462c7eaf 9b7c25d4 8e335894 5f6aa01d a5ddb387 462c7eaf 61bb78ad" id="RcG-lz-Ub7">
+                                                                                <font key="font" metaFont="fixedUser" size="11"/>
                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                             </textFieldCell>
@@ -479,7 +479,7 @@
                                                                             </connections>
                                                                         </textField>
                                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="25Y-R4-PKe" userLabel="Device Type Text">
-                                                                            <rect key="frame" x="75" y="3" width="380" height="17"/>
+                                                                            <rect key="frame" x="57" y="9" width="380" height="17"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="Type" id="LYa-sX-BNC">
                                                                                 <font key="font" metaFont="system"/>
@@ -507,7 +507,7 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </clipView>
                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="49z-6O-XD2">
-                                            <rect key="frame" x="1" y="-14" width="0.0" height="15"/>
+                                            <rect key="frame" x="1" y="406" width="571" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="lPC-qf-Tag">

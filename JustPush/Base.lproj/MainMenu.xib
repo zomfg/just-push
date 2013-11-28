@@ -666,14 +666,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="1006" height="584"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNO-J3-xGj">
+                    <scrollView autohidesScrollers="YES" horizontalLineScroll="52" horizontalPageScroll="10" verticalLineScroll="52" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNO-J3-xGj">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="584"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" copiesOnScroll="NO" id="8B9-gr-Gyg">
                             <rect key="frame" x="1" y="1" width="248" height="582"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="6dk-ef-Jiv">
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" rowSizeStyle="automatic" viewBased="YES" id="6dk-ef-Jiv">
                                     <rect key="frame" x="0.0" y="0.0" width="248" height="582"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -737,26 +737,26 @@
                                                                 <binding destination="y5N-xx-BGl" name="value" keyPath="self.environment" id="ldH-CP-ezI"/>
                                                             </connections>
                                                         </textField>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qgb-DZ-p6A" userLabel="Device Count">
-                                                            <rect key="frame" x="202" y="8" width="30" height="17"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="juR-gQ-9q4">
-                                                                <font key="font" metaFont="system"/>
-                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                            <connections>
-                                                                <binding destination="y5N-xx-BGl" name="value" keyPath="self.numberOfDevices.stringValue" id="Q0v-C1-4Re"/>
-                                                            </connections>
-                                                        </textField>
                                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QUQ-DV-L3P" userLabel="Device Icon">
-                                                            <rect key="frame" x="177" y="-2" width="30" height="39"/>
+                                                            <rect key="frame" x="198" y="9" width="32" height="32"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSComputer" id="WE0-u3-9DN"/>
                                                             <connections>
                                                                 <binding destination="y5N-xx-BGl" name="value" keyPath="deviceIcon" id="ftJ-Up-7Nc"/>
                                                             </connections>
                                                         </imageView>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qgb-DZ-p6A" userLabel="Device Count">
+                                                            <rect key="frame" x="216" y="30" width="16" height="16"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" drawsBackground="YES" usesSingleLineMode="YES" id="juR-gQ-9q4" customClass="JPBadgeTextFeildCell">
+                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" red="1" green="0.20692053707612279" blue="0.17011193354266141" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </textFieldCell>
+                                                            <connections>
+                                                                <binding destination="y5N-xx-BGl" name="value" keyPath="self.numberOfDevices.stringValue" id="Q0v-C1-4Re"/>
+                                                            </connections>
+                                                        </textField>
                                                     </subviews>
                                                 </tableCellView>
                                             </prototypeCellViews>

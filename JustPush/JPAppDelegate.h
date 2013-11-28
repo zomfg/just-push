@@ -8,6 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
+@interface JPBadgeTextFeildCell : NSTextFieldCell
+
+@end
+
 @class JPNotificationViewController;
 
 @interface JPAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDelegate>

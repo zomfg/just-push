@@ -17,6 +17,23 @@
 #import "JPPusher.h"
 #import "JPNotificationViewController.h"
 
+@implementation JPBadgeTextFeildCell
+
+- (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView {
+    NSBezierPath *betterBounds = [NSBezierPath bezierPathWithRoundedRect:cellFrame
+                                                                 xRadius:cellFrame.size.height / 2.0
+                                                                 yRadius:cellFrame.size.height / 2.0];
+    [betterBounds addClip];
+    [super drawWithFrame:cellFrame inView:controlView];
+    if (self.isBezeled) {
+        [betterBounds setLineWidth:2];
+        [[NSColor colorWithCalibratedRed:0.510 green:0.643 blue:0.804 alpha:1] setStroke];
+        [betterBounds stroke];
+    }
+}
+
+@end
+
 @implementation JPAppDelegate
 
 #pragma mark - CoreData stack

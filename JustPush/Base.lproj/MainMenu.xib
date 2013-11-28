@@ -667,14 +667,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="52" horizontalPageScroll="10" verticalLineScroll="52" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNO-J3-xGj">
-                        <rect key="frame" x="0.0" y="0.0" width="250" height="584"/>
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="560"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" copiesOnScroll="NO" id="8B9-gr-Gyg">
-                            <rect key="frame" x="1" y="1" width="248" height="582"/>
+                            <rect key="frame" x="1" y="1" width="248" height="558"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" rowSizeStyle="automatic" viewBased="YES" id="6dk-ef-Jiv">
-                                    <rect key="frame" x="0.0" y="0.0" width="248" height="582"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="248" height="558"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -760,12 +760,10 @@
                                                     </subviews>
                                                 </tableCellView>
                                             </prototypeCellViews>
-                                            <connections>
-                                                <binding destination="Ca9-Zj-amc" name="value" keyPath="arrangedObjects" id="7bt-5K-sSI"/>
-                                            </connections>
                                         </tableColumn>
                                     </tableColumns>
                                     <connections>
+                                        <binding destination="Ca9-Zj-amc" name="content" keyPath="arrangedObjects" id="zcS-fm-wCF"/>
                                         <outlet property="delegate" destination="494" id="4f0-wq-Zvt"/>
                                     </connections>
                                 </tableView>
@@ -788,6 +786,23 @@
                         <rect key="frame" x="255" y="5" width="746" height="574"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </customView>
+                    <searchField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GOn-Un-Fol">
+                        <rect key="frame" x="5" y="562" width="245" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="okq-XQ-Y35">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </searchFieldCell>
+                        <connections>
+                            <binding destination="Ca9-Zj-amc" name="predicate" keyPath="filterPredicate" id="YNN-He-2j4">
+                                <dictionary key="options">
+                                    <string key="NSDisplayName">predicate</string>
+                                    <string key="NSPredicateFormat">app.name contains[cd] $value</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </searchField>
                 </subviews>
                 <constraints>
                     <constraint firstItem="TNO-J3-xGj" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="Czf-Pw-b0e"/>
@@ -795,8 +810,11 @@
                     <constraint firstAttribute="bottom" secondItem="TNO-J3-xGj" secondAttribute="bottom" id="H3A-7y-r2Q"/>
                     <constraint firstAttribute="trailing" secondItem="Yzh-Nc-Jlw" secondAttribute="trailing" constant="5" id="JpD-Lg-KxJ"/>
                     <constraint firstItem="Yzh-Nc-Jlw" firstAttribute="leading" secondItem="TNO-J3-xGj" secondAttribute="trailing" constant="5" id="U5M-BR-L3S"/>
+                    <constraint firstItem="GOn-Un-Fol" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="5" id="ltW-TF-amX"/>
                     <constraint firstAttribute="bottom" secondItem="Yzh-Nc-Jlw" secondAttribute="bottom" constant="5" id="sKI-E9-xuS"/>
-                    <constraint firstItem="TNO-J3-xGj" firstAttribute="top" secondItem="372" secondAttribute="top" id="xbF-4w-KXJ"/>
+                    <constraint firstItem="TNO-J3-xGj" firstAttribute="top" secondItem="GOn-Un-Fol" secondAttribute="bottom" constant="2" id="tQ9-aO-s9g"/>
+                    <constraint firstItem="Yzh-Nc-Jlw" firstAttribute="leading" secondItem="GOn-Un-Fol" secondAttribute="trailing" constant="5" id="wqr-z8-fhE"/>
+                    <constraint firstItem="GOn-Un-Fol" firstAttribute="top" secondItem="372" secondAttribute="top" id="zLW-AP-ymi"/>
                 </constraints>
             </view>
         </window>

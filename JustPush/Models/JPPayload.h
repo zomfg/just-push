@@ -28,4 +28,6 @@ extern const NSInteger kJPPayloadLengthLimit;
 @property (nonatomic, readonly) NSString *JSON;
 @property (nonatomic, readonly) NSString *prettyJSON;
 
+@property (nonatomic, readonly) NSArray *locArgsArray;
+
 @end

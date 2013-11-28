@@ -49,11 +49,9 @@ static NSString* const kPayloadLocArgsDelimiter        = @"|";
 
     if (self.locKey.length > 0) {
         alertHash[kPayloadKeyAlertLocKey] = self.locKey;
-        if (self.locArgs.length > 0) {
-            NSArray* args = [self.locArgs componentsSeparatedByString:kPayloadLocArgsDelimiter];
-            if (args.count > 0)
-                alertHash[kPayloadKeyAlertLocArgs] = args;
-        }
+        NSArray* args = self.locArgsArray;
+        if (args.count > 0)
+            alertHash[kPayloadKeyAlertLocArgs] = args;
     }
     else if (self.message.length > 0 && alertHash.count > 0)
         alertHash[kPayloadKeyAlertBody] = self.message;
@@ -105,6 +103,10 @@ static NSString* const kPayloadLocArgsDelimiter        = @"|";
 
 - (NSString *) description {
     return [self JSON];
+}
+
+- (NSArray *) locArgsArray {
+    return self.locArgs.length > 0 ? [self.locArgs componentsSeparatedByString:kPayloadLocArgsDelimiter] : nil;
 }
 
 - (BOOL) validateCustomFields:(NSString *__autoreleasing *)value error:(NSError *__autoreleasing *)error {

@@ -21,7 +21,7 @@
 - (NSString *) message {
     NSString* preview = self.notification.payload.message ? self.notification.payload.message : @"Message";
     if (self.notification.payload.locArgs.length) {
-        NSArray* args = [self.notification.payload.locArgs componentsSeparatedByString:@"|"];
+        NSArray* args = self.notification.payload.locArgsArray;
         if (args.count > 0) {
             NSMutableString* p = preview.mutableCopy;
             for (NSString* arg in args) {
@@ -50,8 +50,12 @@
     return @"preview_wallpaper";
 }
 
++ (NSSet *) keyPathsForValuesAffectingBackgroundImage {
+    return [NSSet setWithObject:@"notification"];
+}
+
 - (NSImage *) wallpaperImage {
-    return [NSImage imageNamed:self.wallpaperName];
+    return [NSImage imageNamed:@"preview_wallpaper"];
 }
 
 - (NSColor *) subtextColor {

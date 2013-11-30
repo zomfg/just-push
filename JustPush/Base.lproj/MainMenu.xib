@@ -666,14 +666,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="1006" height="584"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView autohidesScrollers="YES" horizontalLineScroll="52" horizontalPageScroll="10" verticalLineScroll="52" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNO-J3-xGj">
+                    <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNO-J3-xGj">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="560"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" copiesOnScroll="NO" id="8B9-gr-Gyg">
                             <rect key="frame" x="1" y="1" width="248" height="558"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" rowSizeStyle="automatic" viewBased="YES" id="6dk-ef-Jiv">
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="6dk-ef-Jiv">
                                     <rect key="frame" x="0.0" y="0.0" width="248" height="558"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -760,10 +760,12 @@
                                                     </subviews>
                                                 </tableCellView>
                                             </prototypeCellViews>
+                                            <connections>
+                                                <binding destination="Ca9-Zj-amc" name="value" keyPath="arrangedObjects" id="jms-FB-6K9"/>
+                                            </connections>
                                         </tableColumn>
                                     </tableColumns>
                                     <connections>
-                                        <binding destination="Ca9-Zj-amc" name="content" keyPath="arrangedObjects" id="zcS-fm-wCF"/>
                                         <outlet property="delegate" destination="494" id="4f0-wq-Zvt"/>
                                     </connections>
                                 </tableView>

@@ -225,17 +225,13 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    for (NSView* v in ((NSView*)self.window.contentView).subviews) {
-        if ([v.identifier isEqualToString:@"JPNotificationViewContainer"]) {
-            NSRect f = v.frame;
-            f.origin = CGPointZero;
-            self.notificationViewController.view.frame = f;
-            v.autoresizesSubviews = YES;
-            self.notificationViewController.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
-            [v addSubview:self.notificationViewController.view];
-            break;
-        }
-    }
+    NSRect f = self.notificationContainerView.frame;
+    f.origin = CGPointZero;
+    self.notificationViewController.view.frame = f;
+    self.notificationContainerView.autoresizesSubviews = YES;
+    self.notificationViewController.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    [self.notificationContainerView addSubview:self.notificationViewController.view];
+
 //    [self.window.contentView addSubview:];
 //    NSArray* certArray = [JPCertificate certificatesWithBundleId:@"com.lequipe.game.squiz"];
 //    NSLog(@"CERTIFS %@", certArray);

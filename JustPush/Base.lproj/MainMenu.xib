@@ -784,7 +784,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <customView identifier="JPNotificationViewContainer" translatesAutoresizingMaskIntoConstraints="NO" id="Yzh-Nc-Jlw" userLabel="Notification View Container">
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Yzh-Nc-Jlw" userLabel="Notification View Container">
                         <rect key="frame" x="255" y="5" width="746" height="574"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </customView>
@@ -823,6 +823,7 @@
         <customObject id="494" customClass="JPAppDelegate">
             <connections>
                 <outlet property="notificationArrayController" destination="Ca9-Zj-amc" id="fAD-n3-IjK"/>
+                <outlet property="notificationContainerView" destination="Yzh-Nc-Jlw" id="wX2-cg-CN6"/>
                 <outlet property="notificationViewController" destination="7h3-rd-18t" id="RDC-kN-rBE"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>

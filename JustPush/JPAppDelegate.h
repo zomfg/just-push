@@ -19,6 +19,7 @@
 @property (assign) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSArrayController *notificationArrayController;
 @property (weak) IBOutlet JPNotificationViewController *notificationViewController;
+@property (weak) IBOutlet NSView* notificationContainerView;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;

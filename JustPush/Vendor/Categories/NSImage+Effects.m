@@ -108,7 +108,7 @@
 	CFRelease(data);
     
 	CGFloat f = 2.0f / (255.0f * imageWidth * imageHeight);
-	return [NSColor colorWithRed:f * red  green:f * green blue:f * blue alpha:0.4];
+	return [NSColor colorWithDeviceRed:f * red  green:f * green blue:f * blue alpha:0.4];
 }
 
 @end
